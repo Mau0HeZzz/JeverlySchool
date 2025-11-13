@@ -1,0 +1,412 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  .loaded & {
+    transition: background-color 0.3s ease 0s;
+  }
+
+  &._header-scroll {
+    background-color: var(--main-white-color);
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: mixins.toRem(12);
+    justify-content: space-between;
+
+    @include mixins.adaptiveValue("padding-left", 60, 20);
+    @include mixins.adaptiveValue("padding-right", 60, 20);
+    @include mixins.adaptiveValue("padding-top", 40, 12, 1440, 960);
+    @include mixins.adaptiveValue("padding-bottom", 30, 12, 1440, 960);
+
+    .loaded & {
+      transition: all 0.3s ease 0s;
+    }
+
+    ._header-scroll & {
+      padding-top: mixins.toRem(8);
+      padding-bottom: mixins.toRem(8);
+    }
+  }
+
+  &__logo {
+    flex: 0 0 var(--basis);
+    max-width: var(--basis);
+
+    @include mixins.adaptiveValue("--basis", 152, 122, 960, 480);
+
+    img, picture, svg {
+      max-width: 100%;
+      aspect-ratio: 122 / 48;
+    }
+  }
+
+  &__menu {
+  }
+}
+.menu {
+  padding: mixins.toRem(5);
+  background-color: var(--main-white-color);
+  border-radius: mixins.toRem(10);
+  position: relative;
+  box-shadow: 0px 0px 20px 0px #0000001A;
+  @media (width >= #{mixins.toEm(variables.$tablet)}){
+    padding-left: mixins.toRem(20);
+  }
+  &:has(.menu__subitem:not([hidden])) {
+    padding-bottom: var(--padding-bottom, mixins.toRem(92));
+  }
+  @media (width < #{mixins.toEm(variables.$tablet)}){
+    display: flex;
+    justify-content:center;align-items: center;
+  }
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: var(--dark-blue-color);
+    opacity: 0.5;
+    translate: 110vw 0;
+    .menu-open & {
+      translate: 0;
+      transition: translate 0.3s ease 0s;
+    }
+    .loaded & {
+      transition: translate 0.3s ease 0.15s;
+    }
+
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      display: none;
+    }
+  }
+
+  &__icon {
+  }
+
+  &__body {
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100dvh;
+      overflow: clip auto;
+      background-color: var(--main-white-color);
+      max-width: mixins.toRem(340);
+      border-radius: mixins.toRem(8) 0 0 mixins.toRem(8);
+      padding: mixins.toRem(86) mixins.toRem(20) mixins.toRem(18);
+      display: flex;
+      flex-direction: column;
+      translate: 110vw 0;
+      .menu-open & {
+        translate: 0;
+        transition: translate 0.3s ease 0.15s;
+      }
+      
+      .loaded & {
+        transition: translate 0.3s ease 0s;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      align-items: center;
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    &:has(.menu__lang),
+    &:has(.menu__search),
+    &:has(.menu__connect) {
+      margin-left: mixins.toRem(40);
+      @media (width < #{mixins.toEm(variables.$tablet)}){
+        display: none;
+      }
+    }
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: 0 mixins.toRem(20) mixins.toRem(20);
+      position: relative;
+      &:empty {
+        display: none;
+      }
+      &::after{
+        content:'';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: calc(100% - mixins.toRem(40));
+        height: mixins.toRem(1);
+        background-color: var(--light-grey-color);
+      }
+    }
+  }
+
+  &__langwrapper {
+    display: flex;
+    gap: mixins.toRem(5);
+    font-weight: 500;
+    font-size: var(--font-size);
+    --font-size: #{mixins.toRem(14)};
+    letter-spacing: mixins.lsp(-5);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      position: absolute;
+      top: mixins.toRem(29);
+      left: mixins.toRem(20);
+    }
+  }
+
+  &__link {
+    padding: mixins.toRem(5) mixins.toRem(10);
+    font-weight: 500;
+    line-height: 1.3;
+    font-size: var(--font-size);
+    --font-size: #{mixins.toRem(14)};
+    letter-spacing: mixins.lsp(-5);
+    color: var(--grey-on-white-color);
+
+    .loaded & {
+      transition: color 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover){
+      &:hover{
+        color: var(--dark-blue-color);
+        &+.menu__subitem {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: mixins.toRem(20) 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark-blue-color);
+
+      &::after{
+        content:'';
+        background-image: url("data:image/svg+xml,%3Csvg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L4.5 4.5L0.5 8.5' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        flex: 0 0 mixins.toRem(24);
+        width: mixins.toRem(24);
+        height: mixins.toRem(24);
+        border-radius: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: mixins.toRem(1) solid var(--light-grey-color);
+        transition: rotate 0.3s ease 0s;
+      }
+
+      &:has(+.menu__subitem:not([hidden])) {
+        &::after{
+          rotate: 90deg;
+        }
+      }
+    }
+  }
+
+  &__subitem {
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      position: absolute;
+      bottom: 0;
+      left: mixins.toRem(20);
+      width: calc(100% - mixins.toRem(25));
+    }
+  }
+
+  &__lang {
+    display: flex;
+    gap: mixins.toRem(5);
+    &:not(:last-child) {
+      &::after{
+        content:'/';
+        text-decoration: none !important;
+      }
+    }
+    @media (any-hover: hover){
+      &:hover{
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &._active {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__search {
+    cursor: pointer;
+  }
+
+  &__connect {
+    cursor: pointer;
+    border-radius: mixins.toRem(5);
+  }
+
+  &__callback {
+    margin-top: mixins.toRem(40);
+  }
+}
+.icon-menu {
+  width: mixins.toRem(38);
+  height: mixins.toRem(38);
+  z-index: 3;
+  position: relative;
+  &::before,&::after{
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: mixins.toRem(20);
+    height: mixins.toRem(2);
+    background-color: var(--dark-blue-color);
+    border-radius: calc(1 / 0);
+    transition: translate 0.3s ease 0.3s, rotate 0.3s ease 0s;
+  }
+  &::before{
+    translate: -50% mixins.toRem(-3);
+  }
+  &::after{
+    translate: -50% mixins.toRem(3);
+  }
+  @media (width >= #{mixins.toEm(variables.$tablet)}){
+    display: none;
+  }
+
+  .menu-open & {
+    &::before,&::after{
+      transition: translate 0.3s ease 0s, rotate 0.3s ease 0.3s;
+      translate: -50% -50%;
+    }
+    &::before{
+      rotate: 45deg;
+    }
+    &::after{
+      rotate: -45deg;
+    }
+  }
+}
+.subitem-menu {
+  display: flex;
+  @media (width >= #{mixins.toEm(variables.$tablet)}){
+    padding: mixins.toRem(20) mixins.toRem(10);
+  }
+  @media (width < #{mixins.toEm(variables.$tablet)}){
+    flex-wrap: wrap;
+    gap: mixins.toRem(4);
+    padding-top: mixins.toRem(10);
+  }
+
+  &__link {
+    padding: mixins.toRem(11) mixins.toRem(9);
+  }
+
+  &__search {
+  }
+
+  &__contact {
+  }
+}
+.search-menu {
+  display: flex;
+  width: 100%;
+  gap: mixins.toRem(5);
+
+  @media (width < #{mixins.toEm(variables.$tablet)}){
+    &:not(:last-child) {margin-bottom: mixins.toRem(12);}
+    .form__item {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__input {
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      flex: 0 1 mixins.toRem(419);
+      min-width: mixins.toRem(419);
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: mixins.toRem(10) mixins.toRem(19);
+      --font-size: #{mixins.toRem(14)};
+      height: mixins.toRem(40);
+    }
+  }
+
+  &__submit {
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      min-width: mixins.toRem(100);
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: mixins.toRem(6);
+      width: mixins.toRem(40);
+      height: mixins.toRem(40);
+      display: flex;
+      justify-content:center;align-items: center;
+    }
+  }
+}
+.contact-menu {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: mixins.toRem(10);
+  font-weight: 500;
+  --font-size: #{mixins.toRem(14)};
+  font-size: var(--font-size);
+  line-height: 1.3;
+  @media (width < #{mixins.toEm(variables.$tablet)}){
+    flex-wrap: wrap;
+    margin-top: mixins.toRem(32);
+  }
+
+  &__text {
+    max-width: mixins.toRem(197);
+    color: var(--grey-on-white-color);
+
+  }
+
+  &__body {
+    display: flex;
+    gap: mixins.toRem(20);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: mixins.toRem(5);
+
+    color: var(--dark-blue-color);
+    .loaded & {
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover){
+      &:hover{
+        
+      }
+    }
+  }
+}
