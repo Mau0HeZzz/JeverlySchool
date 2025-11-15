@@ -8,7 +8,57 @@
 		<div class="wrapper wrapper-padding">
       <load src="src/html/_header.html"/>
 			<main class="page">
-        main
+        <!-- Для инициализации параллакса по скроллу указываем родителю атрибут data-parallax-bg -->
+        <section class="parallax-bg" data-parallax-bg>
+          <div class="parallax-bg__container">
+            <!-- Для оболочки указываем атрибут data-parallax-bg-wrapper, он обязательный -->
+            
+            <!-- Атрибут data-parallax-bg-offset-percents отвечает за смещение в процентах относительно скролла, влияет на "скорость" -->
+            <!-- Если не указать или Number(<значение>) вернёт NaN то будет 1. Если указать 0 то смещения не будет -->
+
+            <!-- Атрибут data-parallax-bg-bg-direction отвечает за направление смещения относительно скролла. Принимает значения "up", "down". По умолчанию "down" -->
+            <!-- Указываем "down" - скроллим вниз - картинка смещается вниз -->
+            <!-- Указываем "up" - скроллим вниз - картинка уезжает наверх -->
+
+            <div 
+              class="parallax-bg__wrapper" 
+              data-parallax-bg-wrapper 
+              data-parallax-bg-offset-percents="0.4"
+              data-parallax-bg-bg-direction="down"
+              style="min-height: 40.1875rem;"
+            >
+              <!-- Для элемента с картинкой указываем атрибут data-parallax-bg-bg -->
+              <!-- Сам элемент нужен для корректного отображения картинки. Он расположен абсолютно относительно родителя  -->
+              
+              <!-- Атрибут data-parallax-bg-bg-offset отвечает за то насколько больше по высоте картинка будет больше родителя. По умолчанию 20% https://skr.sh/sYb6UjkSUt6 -->
+              <!-- Если указать 0 то смещения не будет -->
+              <div 
+                class="parallax-bg__bg" 
+                data-parallax-bg-bg
+                data-parallax-bg-bg-offset="0.2"
+              >
+                <img src="/img/404/hero-bg.png" alt="hero-bg">
+              </div>
+              <div class="parallax-bg__content notfound">
+                <div class="notfound__container">
+                  <div class="notfound__body">
+                    <div class="notfound__image">
+                      <img src="/img/404/404.svg" alt="404">
+                    </div>
+                    <div class="notfound__content">
+                      <h1 class="notfound__title">Страница не найдена</h1>
+                      <p class="notfound__text">Такой страницы нет, но вы находитесь в пространстве, где создают великое. Давайте начнём с главного</p>
+                    </div>
+                    <div class="notfound__actions">
+                      <a href="#" class="notfound__button btn btn-natural-blue">Вернуться на главную</a>
+                      <a href="#" class="notfound__button btn btn-white">Посмотреть курсы</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 			</main>
       <load src="src/html/_footer.html"/>
 		</div>

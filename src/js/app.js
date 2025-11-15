@@ -255,6 +255,7 @@ import "./libs/dynamic_adapt.js";
 import "./files/script.js";
 import "./components/header.js";
 import "./components/footer.js";
+import "./components/scroll-parallax.js";
 //============================================================================================================================================================================================================================================
 
 
@@ -262,3 +263,5 @@ import "./components/footer.js";
 import "../scss/style.scss";
 import "../scss/components/header.scss";
 import "../scss/components/footer.scss";
+import "../scss/components/scroll-parallax.scss";
+import "../scss/components/404.scss";

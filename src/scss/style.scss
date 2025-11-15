@@ -76,6 +76,11 @@ body {
       @include mixins.adaptiveValue("padding-left", math.div(variables.$containerPadding, 2), 8);
       @include mixins.adaptiveValue("padding-right", math.div(variables.$containerPadding, 2), 8);
 		}
+
+    [class*="__container"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
 	}
 } @else {
 	// По брейк-поинтам
