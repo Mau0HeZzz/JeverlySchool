@@ -130,30 +130,94 @@ export default defineConfig(({mode}) => {
   }
   if (mode === 'development') {
     return {
-      rollupOptions: {
-        input: {
-          ...pagesOnlyPagesInput
-        },
-        output: {
-          // sourcemap: true,
-          assetFileNames: (assetInfo) => {
-            if (assetInfo.name == 'app.css') {
-              return 'assets/style.css';
-            }
-
-            return 'assets/'+assetInfo.name;
+      build: {
+        target: 'es2017',
+        // target: 'es5',
+        outDir: 'dist',
+        rollupOptions: {
+          input: {
+            ...pagesInput
           },
-          chunkFileNames: (chunkInfo) => {
-            console.log(chunkInfo);
-            return "assets/[name].js"
+          output: {
+            // sourcemap: true,
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name == 'app.css') {
+                return 'assets/style.css';
+              }
+
+              return 'assets/'+assetInfo.name;
+            },
+            chunkFileNames: (chunkInfo) => {
+              console.log(chunkInfo);
+              return "assets/[name].js"
+            }
           }
         }
       },
-      ...common
+      css: {
+        preprocessorOptions: {
+          scss: {
+            api: 'modern-compiler'
+          }
+        },
+        devSourcemap: true,
+      },
+      server: {
+        port: 3000,
+        host: '0.0.0.0',
+        hmr: true,
+      },
+      plugins: [
+        Unfonts({
+          custom: {
+            families: [
+              {
+                name: 'Inter',
+                local: 'Inter',
+                src: './public/fonts/Inter/*',
+                transform: fontTransformer
+              },
+              {
+                name: 'Evolventa',
+                local: 'Evolventa',
+                src: './public/fonts/Evolventa/*',
+                transform: fontTransformer
+              },
+              {
+                name: 'Manrope',
+                local: 'Manrope',
+                src: './public/fonts/Manrope/*',
+                transform: fontTransformer
+              },
+            ],
+            display: 'swap',
+            preload: true,
+            prefetch: false,
+            injectTo: 'head',
+          },
+        }),
+        ViteImageOptimizer(DEFAULT_OPTIONS),
+        handlebars({
+          partialDirectory: resolve(__dirname, 'src/html'),
+        }),
+        injectHTML(),
+        // Минификация CSS
+        cssnanoPlugin({
+          preset: "default",
+        }),
+        viteHTMLIncludes({
+          componentsPath: '/src/html/',
+          componentsDir: '/src/html/'
+        }),
+        // htmlReplacer(replaceArr)
+      ],
     }
   }
   return {
     build: {
+      target: 'es2017',
+      // target: 'es5',
+      outDir: 'dist',
       rollupOptions: {
         input: {
           ...pagesInput
@@ -193,7 +257,63 @@ export default defineConfig(({mode}) => {
           }
         }
       },
-      ...common
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler'
+        }
+      },
+      devSourcemap: true,
+    },
+    server: {
+      port: 3000,
+      host: '0.0.0.0',
+      hmr: true,
+    },
+    plugins: [
+      Unfonts({
+        custom: {
+          families: [
+            {
+              name: 'Inter',
+              local: 'Inter',
+              src: './public/fonts/Inter/*',
+              transform: fontTransformer
+            },
+            {
+              name: 'Evolventa',
+              local: 'Evolventa',
+              src: './public/fonts/Evolventa/*',
+              transform: fontTransformer
+            },
+            {
+              name: 'Manrope',
+              local: 'Manrope',
+              src: './public/fonts/Manrope/*',
+              transform: fontTransformer
+            },
+          ],
+          display: 'swap',
+          preload: true,
+          prefetch: false,
+          injectTo: 'head',
+        },
+      }),
+      ViteImageOptimizer(DEFAULT_OPTIONS),
+      handlebars({
+        partialDirectory: resolve(__dirname, 'src/html'),
+      }),
+      injectHTML(),
+      // Минификация CSS
+      cssnanoPlugin({
+        preset: "default",
+      }),
+      viteHTMLIncludes({
+        componentsPath: '/src/html/',
+        componentsDir: '/src/html/'
+      }),
+      // htmlReplacer(replaceArr)
+    ],
   }
 })
