@@ -51,7 +51,7 @@ export let _slideUp = (target, duration = 500, showmore = 0) => {
 		target.style.transitionDuration = duration + 'ms';
 		target.style.height = `${target.offsetHeight}px`;
 		target.offsetHeight;
-		target.style.overflow = 'hidden';
+		target.style.overflow = 'clip';
 		target.style.height = showmore ? `${showmore}px` : `0px`;
 		target.style.paddingTop = 0;
 		target.style.paddingBottom = 0;
@@ -83,7 +83,7 @@ export let _slideDown = (target, duration = 500, showmore = 0) => {
 		target.hidden = target.hidden ? false : null;
 		showmore ? target.style.removeProperty('height') : null;
 		let height = target.offsetHeight;
-		target.style.overflow = 'hidden';
+		target.style.overflow = 'clip';
 		target.style.height = showmore ? `${showmore}px` : `0px`;
 		target.style.paddingTop = 0;
 		target.style.paddingBottom = 0;
@@ -240,7 +240,7 @@ export function spollers() {
 							hideSpollersBody(spollersBlock);
 						}
 
-						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed);
+						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed - 100);
 
 						spollerTitle.classList.toggle('_spoller-active');
 						_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);

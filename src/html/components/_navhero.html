@@ -1,0 +1,20 @@
+<section class="navhero {{className}}">
+  <div class="navhero__container">
+    <div class="navhero__wrapper" style="--bg: {{bg}}">
+      <nav class="navhero__nav">
+        <each loop="item,index in items">
+          <if condition="activeIndex === index">
+            <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a>
+          </if>
+          <else>
+            <a href="#" class="navhero__item navlink"><span>{{item}}</span></a>
+          </else>
+        </each>
+      </nav>
+      <div class="navhero__content">
+        <h1 class="navhero__title">{{title}}</h1>
+        <div class="navhero__text">{{text}}</div>
+      </div>
+    </div>
+  </div>
+</section>

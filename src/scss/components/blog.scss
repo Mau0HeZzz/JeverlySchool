@@ -1,0 +1,187 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
+.blog {
+
+  &__container {
+    padding-bottom: mixins.toRem(100);
+    --padding-left: #{mixins.toRem(60)};
+    --padding-right: #{mixins.toRem(60)};
+    @include mixins.adaptiveValue("padding-top", 50, 40, 1240, 960);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      --padding-left: #{mixins.toRem(40)};
+      --padding-right: #{mixins.toRem(40)};
+    }
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      --padding-left: #{mixins.toRem(24)};
+      --padding-right: #{mixins.toRem(24)};
+    }
+  }
+
+  &__spollers {
+  }
+
+  &__article {
+  }
+}
+.spollers-blog {
+
+  &__item {
+    border-top: mixins.toRem(1) solid var(--black-color-10);
+    .loaded & {
+      transition: padding-bottom 0.3s ease 0s;
+    }
+    &[open] {
+      @include mixins.adaptiveValue("padding-bottom", 40, 30, 960, 767);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: mixins.toRem(20);
+    cursor: pointer;
+
+    @include mixins.adaptiveValue("padding-top", 40, 30, 960, 767);
+    @include mixins.adaptiveValue("padding-bottom", 40, 30, 960, 767);
+  }
+
+  &__number {
+    opacity: 0.3;
+    line-height: 1.3;
+    font-weight: 500;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      translate: 0 mixins.toRem(-5);
+    }
+  }
+
+  &__name {
+    margin-left: auto;
+    flex: 1 1 auto;
+    line-height: 1.2;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-2);
+    font-family: Evolventa;
+    --font-size: #{mixins.toRem(28)};
+    padding-right: mixins.toRem(44);
+    color: var(--dark-blue-color);
+    
+    @include mixins.adaptiveValue("max-width", 985, 650, 1320, 960);
+    
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      --font-size: #{mixins.toRem(24)};
+    }
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      --font-size: #{mixins.toRem(20)};
+    }
+  }
+
+  &__plus {
+    position: absolute;
+    width: mixins.toRem(24);
+    height: mixins.toRem(24);
+    right: 0;
+    @include mixins.adaptiveValue("top", 40, 30, 960, 767);
+    .loaded & {
+      transition: rotate 0.3s ease 0s;
+    }
+
+    &::before,&::after{
+      content:'';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 100%;
+      height: mixins.toRem(2);
+      border-radius: calc(1 / 0);
+      background-color: var(--dark-blue-color);
+    }
+    &::after{
+      rotate: 90deg;
+    }
+
+    ._spoller-active & {
+      rotate: 45deg;
+    }
+  }
+
+  &__body {
+  }
+}
+.article-blog {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: mixins.toRem(40) mixins.toRem(20);
+  @include mixins.adaptiveValue("max-width", 985, 650, 1320, 960);
+  @media (width < #{mixins.toEm(variables.$tablet)}){
+    flex-direction: column;
+  }
+  @media (width < #{mixins.toEm(737)}){
+    max-width: none;
+  }
+
+  &__main {
+    @media (width >= #{mixins.toEm(737)}){
+      max-width: mixins.toRem(650);
+    }
+    @media (width < #{mixins.toEm(737)}){
+      padding-left: mixins.toRem(40);
+    }
+
+    >img {
+      width: 100%;
+      aspect-ratio: 650 / 300;
+      display: block;
+      border-radius: mixins.toRem(10);
+      &:not(:last-child) {margin-bottom: mixins.toRem(20);}
+    }
+  }
+
+  &__content {
+    gap: mixins.toRem(20) mixins.toRem(40);
+    
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      column-count: 2;
+      p {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    gap: mixins.toRem(10);
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      flex: 0 0 mixins.toRem(191);
+      padding-top: mixins.toRem(20);
+      [open] & {
+        position: sticky;
+        top: calc(var(--headerScrollHeight) + mixins.toRem(10));
+      }
+    }
+  }
+
+  &__slidelabel {
+    line-height: 1.3;
+    color: var(--grey-on-white-color);
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480 );
+
+    &:not(:last-child) {margin-bottom: mixins.toRem(10);}
+  }
+
+  &__sidelink {
+  }
+}

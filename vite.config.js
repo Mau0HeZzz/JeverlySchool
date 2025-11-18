@@ -66,68 +66,6 @@ const fontTransformer = (font) => {
 }
 
 export default defineConfig(({mode}) => {
-  const common = {
-      target: 'es2017',
-      // target: 'es5',
-      outDir: 'dist',
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler'
-        }
-      },
-      devSourcemap: true,
-    },
-    server: {
-      port: 3000,
-      host: '0.0.0.0',
-      hmr: true,
-    },
-    plugins: [
-      Unfonts({
-        custom: {
-          families: [
-            {
-              name: 'Inter',
-              local: 'Inter',
-              src: './public/fonts/Inter/*',
-              transform: fontTransformer
-            },
-            {
-              name: 'Evolventa',
-              local: 'Evolventa',
-              src: './public/fonts/Evolventa/*',
-              transform: fontTransformer
-            },
-            {
-              name: 'Manrope',
-              local: 'Manrope',
-              src: './public/fonts/Manrope/*',
-              transform: fontTransformer
-            },
-          ],
-          display: 'swap',
-          preload: true,
-          prefetch: false,
-          injectTo: 'head',
-        },
-      }),
-      ViteImageOptimizer(DEFAULT_OPTIONS),
-      handlebars({
-        partialDirectory: resolve(__dirname, 'src/html'),
-      }),
-      injectHTML(),
-      // Минификация CSS
-      cssnanoPlugin({
-        preset: "default",
-      }),
-      viteHTMLIncludes({
-        componentsPath: '/src/html/',
-        componentsDir: '/src/html/'
-      }),
-      // htmlReplacer(replaceArr)
-    ],
-  }
   if (mode === 'development') {
     return {
       build: {

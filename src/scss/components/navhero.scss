@@ -1,0 +1,95 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
+.navhero {
+  color: var(--main-white-color);
+  &:not(:last-child) {
+    @include mixins.adaptiveValue("margin-bottom", 50, 40, 1240, 960);
+  }
+
+  &__container {
+  }
+
+  &__wrapper {
+    position: relative;
+    background: var(--bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: mixins.toRem(20);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      min-height: mixins.toRem(400);
+    }
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      border-radius: mixins.toRem(8);
+      min-height: mixins.toRem(600);
+    }
+
+    &::before{
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--black-color-60);
+    }
+
+    &>* {
+      position: relative;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(147);}
+    }
+  }
+
+  &__item {
+    flex: 1 1 auto;
+  }
+
+  &__content {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: mixins.toRem(20);
+    padding: mixins.toRem(40) mixins.toRem(50);
+    
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      align-items: center;
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: mixins.toRem(20);
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    line-height: 0.9;
+    font-family: Evolventa;
+    @include mixins.adaptiveValue("--font-size", 54, 30, 960, 480);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      line-height: 0.8;
+    }
+  }
+
+  &__text {
+    max-width: mixins.toRem(350);
+    line-height: 1.3;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    color: var(--grey-on-white-color);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 768, 480 );
+  }
+}

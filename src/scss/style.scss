@@ -73,11 +73,30 @@ body {
 			margin: 0 auto;
 		}
 		@if (variables.$containerPadding>0) {
-      @include mixins.adaptiveValue("padding-left", math.div(variables.$containerPadding, 2), 8);
-      @include mixins.adaptiveValue("padding-right", math.div(variables.$containerPadding, 2), 8);
+      padding-left: var(--padding-left);
+      padding-right: var(--padding-right);
+      @include mixins.adaptiveValue("--padding-left", math.div(variables.$containerPadding, 2), 8);
+      @include mixins.adaptiveValue("--padding-right", math.div(variables.$containerPadding, 2), 8);
 		}
 
     [class*="__container"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+	}
+	[class*="__container-small"] {
+		@if (variables.$maxWidthContainer>0) {
+			max-width: mixins.toRem(variables.$containerWidth);
+			margin: 0 auto;
+		}
+		@if (variables.$containerPadding>0) {
+      padding-left: var(--padding-left);
+      padding-right: var(--padding-right);
+      @include mixins.adaptiveValue("--padding-left", 60, 8);
+      @include mixins.adaptiveValue("--padding-right", 60, 8);
+		}
+
+    [class*="__container-small"] {
       padding-left: 0;
       padding-right: 0;
     }
