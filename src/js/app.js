@@ -140,7 +140,7 @@ flsForms.formSubmit();
 Документация плагина: https://github.com/RobinHerbots/inputmask
 Сниппет(HTML):
 */
-// import "./files/forms/inputmask.js";
+import "./files/forms/inputmask.js";
 
 /* Модуль работы с ползунком */
 /*
@@ -269,3 +269,4 @@ import "../scss/components/404.scss";
 import "../scss/components/navhero.scss";
 import "../scss/components/blog.scss";
 import "../scss/components/workspace.scss";
+import "../scss/components/prefooter.scss";

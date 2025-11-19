@@ -15,6 +15,7 @@ const pages = [
   {name: 'navhero', path: resolve(__dirname, '../src/scss/components/navhero.scss')},
   {name: 'blog-css', path: resolve(__dirname, '../src/scss/components/blog.scss')},
   {name: 'workspace-css', path: resolve(__dirname, '../src/scss/components/workspace.scss')},
+  {name: 'prefooter-css', path: resolve(__dirname, '../src/scss/components/prefooter.scss')},
 
   {name: 'header-js', path: resolve(__dirname, '../src/js/components/header.js')},
   {name: 'footer-js', path: resolve(__dirname, '../src/js/components/footer.js')},

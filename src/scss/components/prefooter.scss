@@ -1,0 +1,96 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+@use "sass:math";
+
+.prefooter {
+
+  &__container-small {
+    padding-top: mixins.toRem(60);
+    padding-bottom: mixins.toRem(60);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding-top: mixins.toRem(40);
+      padding-bottom: mixins.toRem(40);
+    }
+  }
+
+  &__body {
+    background-color: var(--main-white-color);
+    border-radius: mixins.toRem(10);
+    display: flex;
+    gap: mixins.toRem(30) mixins.toRem(40);
+    
+    @include mixins.adaptiveValue("padding", 40, 24, 767, 480);
+    
+    @media (width >= #{mixins.toEm(650)}){
+      width: max-content;
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      flex-direction: column;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: mixins.toRem(10);
+    
+    @media (width >= #{mixins.toEm(650)}){
+      max-width: mixins.toRem(372);
+    }
+    @media (#{mixins.toEm(variables.$mobile)} < width < #{mixins.toEm(variables.$tablet)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(80);}
+    }
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(50);}
+    }
+  }
+
+  &__title {
+    font-family: Evolventa;
+    line-height: 0.8;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 42, 28, 960, 480);
+  }
+
+  &__subtitle {
+    color: var(--grey-on-white-color);
+    line-height: 1.3;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 612);
+  }
+
+  &__form {
+    @media (width >= #{mixins.toEm(650)}){
+      max-width: mixins.toRem(355);
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: mixins.toRem(10);
+
+    &:not(:last-child) {margin-bottom: mixins.toRem(10);}
+
+    @media (width < #{mixins.toEm(650)}){
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    flex: 1 1 auto;
+  }
+
+  &__input {
+  }
+
+  &__button {
+    flex: 1 1 auto;
+  }
+
+  &__boxwrap {
+  }
+}

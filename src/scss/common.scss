@@ -241,6 +241,7 @@ img {
   }
 
   &__input {
+    outline: none;
     padding: mixins.toRem(11) mixins.toRem(9);
     font-size: var(--font-size);
     letter-spacing: mixins.lsp(-5);
@@ -277,6 +278,88 @@ img {
   }
 
   &__submit {
+  }
+
+  &__boxwrap {
+    display: flex;
+    position: relative;
+    gap: mixins.toRem(15);
+    cursor: pointer;
+
+    i {
+      margin-top: mixins.toRem(4);
+      width: mixins.toRem(20);
+      height: mixins.toRem(20);
+      flex: 0 0 mixins.toRem(20);
+      box-shadow: 0px 0px 0px mixins.toRem(1) var(--black-color) inset;
+      position: relative;
+      border-radius: mixins.toRem(2);
+      overflow: hidden;
+      .loaded & {
+        transition: box-shadow 0.3s ease 0s;
+        &::before{
+          content:'';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(/public/img/icons/done_small.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          opacity: 0;
+          transition: opacity 0.3s ease 0s;
+        }
+      }
+
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      &:checked ~ i {
+        box-shadow: none;
+        &::before{
+          opacity: 1;
+        }
+      }
+    }
+
+    span {
+      color: var(--black-color-30);
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-3);
+      @include mixins.adaptiveValue("--font-size", 14, 13, 767, 480);
+      .loaded & {
+        transition: all 0.3s ease 0s;
+      }
+
+      a {
+        color: var(--dark-blue-color);
+        @media (any-hover: hover){
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &._form-error {
+      * {
+        color: var(--red-color);
+      }
+
+      i {
+        box-shadow: 0px 0px 0px mixins.toRem(1) var(--red-color) inset;
+      }
+    }
   }
 }
 
