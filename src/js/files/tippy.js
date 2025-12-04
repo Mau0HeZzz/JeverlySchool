@@ -1,7 +1,5 @@
 // Подключение функционала "Чертоги Фрилансера"
 import { isMobile, FLS } from "./functions.js";
-// Подключение списка активных модулей
-import { mhzModules } from "./modules.js";
 
 // Подключение с node_modules
 import tippy from 'tippy.js';
@@ -12,6 +10,9 @@ import "../../scss/libs/tippy.scss";
 //import 'tippy.js/dist/tippy.css';
 
 // Запускаем и добавляем в объект модулей
-mhzModules.tippy = tippy('[data-tippy-content]', {
+if (!window.mhzModules) {
+  window.mhzModules = {}
+}
+window.mhzModules.tippy = tippy('[data-tippy-content]', {
 
 });

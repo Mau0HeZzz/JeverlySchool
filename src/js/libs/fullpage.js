@@ -1,5 +1,4 @@
 import { isMobile } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
 
 /*
 	data-fp - Оболочка
@@ -648,5 +647,8 @@ export class FullPage {
 }
 // Запускаем и добавляем в объект модулей
 if (document.querySelector('[data-fp]')) {
-	mhzModules.fullpage = new FullPage(document.querySelector('[data-fp]'), '');
+  if (!window.mhzModules) {
+    window.mhzModules = {}
+  }
+	window.mhzModules.fullpage = new FullPage(document.querySelector('[data-fp]'), '');
 }

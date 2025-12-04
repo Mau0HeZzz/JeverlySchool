@@ -1,7 +1,5 @@
 // Подключение функционала "Чертоги фрилансера"
 import { isMobile, FLS } from "../files/functions.js";
-// Подключение списка активных модулей
-import { mhzModules } from "../files/modules.js";
 // Подключение стилей необходимых для работы модуля
 import "../../scss/base/beforeafter.scss";
 
@@ -98,7 +96,7 @@ class BeforeAfter {
 	}
 	// Логи в консоль
 	setLogging(message) {
-		this.config.logging ? FLS(`[BeforeAfter]: ${message} `) : null;
+		this.config.logging ? console.log(`[BeforeAfter]: ${message} `) : null;
 	}
 }
 
@@ -107,5 +105,8 @@ class BeforeAfter {
 
 
 // Запускаем и добавляем в объект модулей
-mhzModules.ba = new BeforeAfter({});
+if (!window.mhzModules) {
+  window.mhzModules = {};
+}
+window.mhzModules.ba = new BeforeAfter({});
 

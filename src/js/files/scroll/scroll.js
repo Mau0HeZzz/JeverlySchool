@@ -1,6 +1,5 @@
 // Подключение функционала "Чертоги Фрилансера"
 import { isMobile, getHash, menuClose, getDigFormat } from "../functions.js";
-import { mhzModules } from "../../files/modules.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "./gotoblock.js";
 // Смена контроля добавления события window scroll.
@@ -27,11 +26,11 @@ export function pageNavigation() {
 				const noHeader = gotoLink.hasAttribute('data-goto-header') ? true : false;
 				const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
 				const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
-				if (mhzModules.fullpage) {
+				if (window.mhzModules?.fullpage) {
 					const fullpageSection = document.querySelector(`${gotoLinkSelector}`).closest('[data-fp-section]');
 					const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.fpId : null;
 					if (fullpageSectionId !== null) {
-						mhzModules.fullpage.switchingSection(fullpageSectionId);
+						window.mhzModules.fullpage.switchingSection(fullpageSectionId);
 						document.documentElement.classList.contains("menu-open") ? menuClose() : null;
 					}
 				} else {

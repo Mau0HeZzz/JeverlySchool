@@ -9,7 +9,7 @@ import viteHTMLIncludes from '@kingkongdevs/vite-plugin-html-includes';
 import Unfonts from 'unplugin-fonts/vite';
 
 import pages from './vitejs/pages.config'
-import { htmlReplacer } from './config/htmlReplacer';
+import { htmlReplacer } from './config/vite-plugin-html-replacer';
 
 const pagesInput = {}
 const pagesOnlyPagesInput = {}
@@ -23,7 +23,9 @@ pages.forEach((page => {
 
 const replaceArr = [
   { entry: `crossorigin`, replace: `` },
-  { entry: `script`, replace: `script defer` },
+  { entry: `<script`, replace: `<script defer` },
+  { entry: `type="module"`, replace: `` },
+  { entry: `url('/`, replace: `url('../` },
 ];
 
 const fontsConditions = {
@@ -86,7 +88,6 @@ export default defineConfig(({mode}) => {
               return 'assets/'+assetInfo.name;
             },
             chunkFileNames: (chunkInfo) => {
-              console.log(chunkInfo);
               return "assets/[name].js"
             }
           }
@@ -163,7 +164,6 @@ export default defineConfig(({mode}) => {
         output: {
           // sourcemap: true,
           entryFileNames: (entryInfo) => {
-            console.log(entryInfo);
             if (entryInfo.facadeModuleId?.endsWith('.js')) {
               if (entryInfo.facadeModuleId?.includes('components')) {
                 return `js/components/${entryInfo.name}.js`
@@ -173,7 +173,6 @@ export default defineConfig(({mode}) => {
             return `js/${entryInfo.name}.js`
           },
           assetFileNames: (assetInfo) => {
-            // console.log(assetInfo);
             if (assetInfo.name?.endsWith('.css')) {
               if (assetInfo.name === 'app.css') {
                 return 'css/fonts.css'
@@ -190,11 +189,11 @@ export default defineConfig(({mode}) => {
             return assetInfo.name;
           },
           chunkFileNames: (chunkInfo) => {
-            // console.log(chunkInfo);
             return "js/[name].js"
-          }
+          },
         }
       },
+      minify: false,
     },
     css: {
       preprocessorOptions: {

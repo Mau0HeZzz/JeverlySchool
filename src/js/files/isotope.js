@@ -4,8 +4,6 @@
 
 // Подключение функционала "Чертоги Фрилансера"
 import { isMobile, FLS } from "./functions.js";
-// Подключение списка активных модулей
-import { mhzModules } from "./modules.js";
 
 import Isotope from 'isotope-layout/js/isotope.js';
 

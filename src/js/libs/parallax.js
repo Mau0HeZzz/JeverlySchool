@@ -1,5 +1,3 @@
-import { mhzModules } from '../files/modules.js';
-
 class Parallax {
 	constructor(elements) {
 		if (elements.length) {
@@ -87,5 +85,8 @@ Parallax.Each = class {
 	}
 }
 if (document.querySelectorAll('[data-prlx-parent]')) {
-	mhzModules.parallax = new Parallax(document.querySelectorAll('[data-prlx-parent]'));
+  if (!window.mhzModules) {
+    window.mhzModules = {}
+  }
+	window.mhzModules.parallax = new Parallax(document.querySelectorAll('[data-prlx-parent]'));
 }

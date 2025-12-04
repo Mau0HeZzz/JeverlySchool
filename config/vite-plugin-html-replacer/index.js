@@ -1,7 +1,21 @@
 export async function htmlReplacer(replaces) {
   let config;
 
-  const transformIndexHtml = (html) => {
+  const transformIndexHtml = (html, id) => {
+    // if (id.fileName) {
+    //   console.log(id.fileName);
+    // } else {
+    // }
+    if (typeof id === 'string') {
+      console.log(id);
+      if (id.endsWith('.scss')) {
+        console.log(html);
+      }
+    } else {
+
+    }
+
+
     let answer = html;
     for (let index = 0; index < replaces.length; index++) {
       const replace = replaces[index];
@@ -16,9 +30,9 @@ export async function htmlReplacer(replaces) {
     configResolved(resolvedConfig) {
         config = resolvedConfig;
     },
-    transform(source) {
-        return { code: transformIndexHtml(source), map: undefined };
+    transform(source, id) {
+        return { code: transformIndexHtml(source, id), map: undefined };
     },
-    transformIndexHtml
+    transformIndexHtml,
   }
 }

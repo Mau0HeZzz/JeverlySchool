@@ -1,1 +1,1 @@
-export const mhzModules = {}
+window.window.mhzModules = {}

@@ -1,6 +1,5 @@
 // Подключение функционала "Чертогов Фрилансера"
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
 import { formValidate } from "../files/forms/forms.js";
 
 // Подключение файла стилей
@@ -536,8 +535,11 @@ export class SelectConstructor {
   }
   // Логгинг в консоль
   setLogging(message) {
-    this.config.logging ? FLS(`[select]: ${message}`) : null;
+    this.config.logging ? console.log(`[select]: ${message}`) : null;
   }
 }
 // Запускаем и добавляем в объект модулей
-mhzModules.select = new SelectConstructor(false, {});
+if (!window.mhzModules) {
+  window.mhzModules = {};
+}
+window.mhzModules.select = new SelectConstructor(false, {});

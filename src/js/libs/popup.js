@@ -4,7 +4,6 @@
 
 // Подключение функционала "Чертоги Фрилансера"
 import { isMobile, bodyLockStatus, bodyLock, bodyUnlock, bodyLockToggle, FLS } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
 
 // Клаcс Popup
 class Popup {
@@ -395,8 +394,11 @@ class Popup {
 	}
 	// Функция вывода в консоль
 	popupLogging(message) {
-		this.options.logging ? FLS(`[Попапос]: ${message}`) : null;
+		this.options.logging ? console.log(`[Попапос]: ${message}`) : null;
 	}
 }
 // Запускаем и добавляем в объект модулей
-mhzModules.popup = new Popup({});
+if (!window.mhzModules) {
+  window.mhzModules = {}
+}
+window.mhzModules.popup = new Popup({});

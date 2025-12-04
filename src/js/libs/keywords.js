@@ -1,6 +1,5 @@
 // Подключение функционала"Чертоги фрилансера"
 import { isMobile, FLS } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
 
 function gridKeywords() {
 	/*

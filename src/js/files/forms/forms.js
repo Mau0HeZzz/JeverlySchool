@@ -1,6 +1,4 @@
 // Подключение функционала "Чертоги Фрилансера"
-// Подключение списка активных модуле
-import { mhzModules } from "../modules.js";
 // Вспомогательные функции
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
 // Модуль прокрутки к блоку
@@ -197,12 +195,12 @@ export let formValidate = {
           rating.querySelector('.rating__value') ? rating.querySelector('.rating__value').innerHTML=0 : null;
 				}
 			}
-			if (mhzModules.select) {
+			if (window.mhzModules?.select) {
 				let selects = form.querySelectorAll('.select');
 				if (selects.length) {
 					for (let index = 0; index < selects.length; index++) {
 						const select = selects[index].querySelector('select');
-						mhzModules.select.selectBuild(select);
+						window.mhzModules.select.selectBuild(select);
 					}
 				}
 			}
@@ -343,10 +341,10 @@ export function formSubmit() {
 	}
 
   async function formSuccess(form) {
-    if (!mhzModules.popup) return;
+    if (!window.mhzModules?.popup) return;
 
 		const popup = form.dataset.popupSuccess;
-    popup ? await mhzModules.popup.open(popup) : null;
+    popup ? await window.mhzModules.popup.open(popup) : null;
     
     let timeout = Number(form.dataset.timeout);
 
@@ -355,14 +353,14 @@ export function formSubmit() {
     }
 
     setTimeout(() => {
-      mhzModules.popup.close(popup);
+      window.mhzModules.popup.close(popup);
     }, timeout);
   }
   async function formError(form) {
-    if (!mhzModules.popup) return;
+    if (!window.mhzModules?.popup) return;
 
     const popup = form.dataset.popupError;
-    popup ? await mhzModules.popup.open(popup) : null;
+    popup ? await window.mhzModules.popup.open(popup) : null;
     
     let timeout = Number(form.dataset.timeout);
 
@@ -371,12 +369,12 @@ export function formSubmit() {
     }
 
     setTimeout(() => {
-      mhzModules.popup.close(popup);
+      window.mhzModules?.popup?.close?.(popup);
     }, timeout);
   }
 
 	function formLogging(message) {
-		FLS(`[Форми]: ${message}`);
+		console.log(`[Форми]: ${message}`);
 	}
 }
 /* Модуль формы "количество"*/

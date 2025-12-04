@@ -1,7 +1,3 @@
-// Подключение функционала "Чертоги фрилансера"
-import { isMobile, uniqArray, FLS } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
-
 // Наблюдатель объектов [всевидящее око]
 // Data-watch - можно писать значения для применения кастомного кода
 // Data-watch-root-родительский элемент внутри которого наблюдать за объектом
@@ -9,6 +5,13 @@ import { mhzModules } from "../files/modules.js";
 // data-watch-threshold-процент показа объекта для срабатывания
 // data-watch-once - смотреть только один раз
 // _watcher-view - класс который добавляется при появлении объекта
+
+// Уникализация массива
+export function uniqArray(array) {
+	return array.filter(function (item, index, self) {
+		return self.indexOf(item) === index;
+	});
+}
 
 class ScrollWatcher {
 	constructor(props) {
@@ -150,7 +153,7 @@ class ScrollWatcher {
 	}
 	// Функция вывода в консоль
 	scrollWatcherLogging(message) {
-		this.config.logging ? FLS(`[Наблюдатель]: ${message}`) : null;
+		this.config.logging ? console.log(`[Наблюдатель]: ${message}`) : null;
 	}
 	// Функция обработки наблюдения
 	scrollWatcherCallback(entry, observer) {
@@ -180,4 +183,7 @@ class ScrollWatcher {
 	}
 }
 // Запускаем и добавляем в объект модулей
-mhzModules.watcher = new ScrollWatcher({});
+if (!window.mhzModules) {
+  window.mhzModules = {}
+}
+window.mhzModules.watcher = new ScrollWatcher({});

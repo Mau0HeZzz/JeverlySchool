@@ -1,6 +1,3 @@
-// Подключение списка активных модулей
-import { mhzModules } from "./modules.js";
-
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 export function isWebp() {
 	// Проверка поддержки webp 
@@ -875,7 +872,7 @@ function countdownTimer(deadline, timerEl, timerId) {
 export function dragCloseActions() {
   document.addEventListener('DOMContentLoaded', ()=>{
     const dragCloses = document.querySelectorAll('[data-dragclose]');
-    if (dragCloses.length&&mhzModules?.popup) {
+    if (dragCloses.length&&window.mhzModules?.popup) {
       dragCloses.forEach(dragClose=>{
         dragClose.innerHTML = '';
         setDragCloseHandlers(dragClose);
@@ -914,7 +911,7 @@ function setDragCloseHandlers(dragClose) {
         }
 
         if (touchPoint >= border) {
-          mhzModules.popup.close(id);
+          window.mhzModules.popup.close(id);
           content.style.removeProperty('transition');
           setTimeout(() => {
             content.style.removeProperty('--translateY');

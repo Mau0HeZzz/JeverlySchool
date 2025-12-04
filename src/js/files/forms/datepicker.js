@@ -1,9 +1,5 @@
 /* Календарь */
 
-// Подключение функционала "Чертоги Фрилансера"
-// подключение списка активных модулей
-import { mhzModules } from "../modules.js";
-
 // Подключение модуля
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
@@ -25,5 +21,8 @@ if (document.querySelector('[data-datepicker]')) {
     options.isMobile = true;
   }
   let picker = new AirDatepicker(inputEl, options);
-	mhzModules.datepicker = picker;
+  if (!window.mhzModules) {
+    window.mhzModules = {};
+  }
+	window.mhzModules.datepicker = picker;
 }

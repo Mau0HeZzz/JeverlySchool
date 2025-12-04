@@ -4,7 +4,6 @@
 
 //Подключение функционала "Чертоги Фрилансера"
 import { isMobile, FLS } from "../files/functions.js";
-import { mhzModules } from "../files/modules.js";
 
 /*
 Предмету, двигающемуся за мышью, указать атрибут data-prlx-mouse.
@@ -104,11 +103,14 @@ class MousePRLX {
 	}
 	// Логинг в консоль
 	setLogging(message) {
-		this.config.logging ? FLS(`[PRLX Mouse]: ${message}`) : null;
+		this.config.logging ? console.log(`[PRLX Mouse]: ${message}`) : null;
 	}
 }
 // Запускаем и добавляем в объект модулей
-mhzModules.mousePrlx = new MousePRLX({});
+if (!window.mhzModules) {
+  window.mhzModules = {}
+}
+window.mhzModules.mousePrlx = new MousePRLX({});
 
 
 
