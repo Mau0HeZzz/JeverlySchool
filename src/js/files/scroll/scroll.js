@@ -95,7 +95,7 @@ export function headerScroll() {
 	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
 	let scrollDirection = 0;
 	let timer;
-	document.addEventListener("windowScroll", function (e) {
+	window.addEventListener("scroll", function (e) {
 		const scrollTop = window.scrollY;
 		clearTimeout(timer);
 		if (scrollTop >= startPoint) {
