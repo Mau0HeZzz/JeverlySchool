@@ -13,6 +13,6 @@ import "../../scss/libs/tippy.scss";
 if (!window.mhzModules) {
   window.mhzModules = {}
 }
-window.mhzModules.tippy = tippy('[data-tippy-content]', {
-
-});
+document.addEventListener('DOMContentLoaded', () => {
+  window.mhzModules.tippy = tippy('[data-tippy-content]', {});
+})

@@ -186,4 +186,6 @@ class ScrollWatcher {
 if (!window.mhzModules) {
   window.mhzModules = {}
 }
-window.mhzModules.watcher = new ScrollWatcher({});
+document.addEventListener('DOMContentLoaded', () => {
+  window.mhzModules.watcher = new ScrollWatcher({});
+})

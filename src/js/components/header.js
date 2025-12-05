@@ -3,6 +3,9 @@ import { mmd2 } from "/src/js/consts/window";
 import { headerScroll } from "/src/js/files/scroll/scroll";
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  headerScroll()
+
   const menu = document.querySelector('.menu');
   if (menu) {
     menuActions(menu)
@@ -60,5 +63,3 @@ function menuActions(menu) {
     })
   }
 }
-
-headerScroll()
