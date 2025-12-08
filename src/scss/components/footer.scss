@@ -159,6 +159,7 @@
   }
 
   &__input {
+    padding-left: mixins.toRem(20);
   }
 
   &__submit {

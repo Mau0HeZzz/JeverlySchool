@@ -3,16 +3,17 @@
 
 .header {
   position: fixed;
-  top: 0;
+  top: var(--bxPanelHeight, 0);
   left: 0;
   width: 100%;
   z-index: 3;
   .loaded & {
-    transition: background-color 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
   }
 
   &._header-scroll {
-    background-color: var(--main-white-color);
+    // background-color: var(--main-white-color);
+    top: 0;
   }
 
   &__container {
@@ -46,6 +47,11 @@
       max-width: 100%;
       aspect-ratio: 122 / 48;
     }
+
+    ._header-scroll & {
+      opacity: 0;
+      transition: all 0.3s ease 0.3s;
+    }
   }
 
   &__menu {
@@ -59,9 +65,9 @@
   box-shadow: 0px 0px 20px 0px #0000001A;
   @media (width >= #{mixins.toEm(variables.$tablet)}){
     padding-left: mixins.toRem(20);
-  }
-  &:has(.menu__subitem:not([hidden])) {
-    padding-bottom: var(--padding-bottom, mixins.toRem(92));
+    &:has(.menu__subitem:not([hidden])) {
+      padding-bottom: var(--padding-bottom, mixins.toRem(92));
+    }
   }
   @media (width < #{mixins.toEm(variables.$tablet)}){
     display: flex;
@@ -74,15 +80,15 @@
     left: 0;
     width: 100vw;
     height: 100dvh;
-    background-color: var(--dark-blue-color);
-    opacity: 0.5;
-    translate: 110vw 0;
+    background-color: var(--black-color);
+    opacity: 0;
+    pointer-events: none;
     .menu-open & {
-      translate: 0;
-      transition: translate 0.3s ease 0s;
+      opacity: 0.5;
+      pointer-events: all;
     }
     .loaded & {
-      transition: translate 0.3s ease 0.15s;
+      transition: opacity 0.3s ease;
     }
 
     @media (width >= #{mixins.toEm(variables.$tablet)}){

@@ -768,15 +768,25 @@ export function setBodyHeightsVars(headerSelector='.header', footerSelector = '.
     setInterval(() => {
       const header = document.querySelector(headerSelector);
       const footer = document.querySelector(footerSelector);
+      const bxPanel = document.querySelector('#bx-panel');
+      const md2 = matchMedia('(width < 61.9988em)');
       if (header) {
-        const headerHeight = header.offsetHeight;
+        let headerHeight = header.offsetHeight;
+        const menuSubItem = header.querySelector('.subitem-menu:not([hidden])');
+        if (menuSubItem&&!md2.matches) {
+          headerHeight = headerHeight - 82;
+        }
         document.body.style.setProperty('--headerHeight', `${headerHeight}px`);
       }
       if (footer) {
         const footerHeight = footer.offsetHeight;
         document.body.style.setProperty('--footerHeight', `${footerHeight}px`);
       }
-    }, 100);
+      if (bxPanel) {
+        const bxPanelHeight = bxPanel.offsetHeight;
+        document.body.style.setProperty('--bxPanelHeight', `${bxPanelHeight}px`);
+      }
+    }, 10);
 
     // window.addEventListener('resize', () => {
     //   if (header) {
