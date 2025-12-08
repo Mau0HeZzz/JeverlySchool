@@ -765,6 +765,16 @@ export function dataMediaQueries(array, dataSetValue) {
 
 export function setBodyHeightsVars(headerSelector='.header', footerSelector = '.footer') {
   document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(headerSelector);
+    if (header) {
+      let headerHeight = header.offsetHeight;
+      const menuSubItem = header.querySelector('.subitem-menu:not([hidden])');
+      if (menuSubItem&&!md2.matches) {
+        headerHeight = headerHeight - 82;
+      }
+      document.body.style.setProperty('--headerHeight', `${headerHeight}px`);
+    }
+
     setInterval(() => {
       const header = document.querySelector(headerSelector);
       const footer = document.querySelector(footerSelector);
@@ -772,11 +782,7 @@ export function setBodyHeightsVars(headerSelector='.header', footerSelector = '.
       const md2 = matchMedia('(width < 61.9988em)');
       if (header) {
         let headerHeight = header.offsetHeight;
-        const menuSubItem = header.querySelector('.subitem-menu:not([hidden])');
-        if (menuSubItem&&!md2.matches) {
-          headerHeight = headerHeight - 82;
-        }
-        document.body.style.setProperty('--headerHeight', `${headerHeight}px`);
+        document.body.style.setProperty('--headerScrollHeight', `${headerHeight}px`);
       }
       if (footer) {
         const footerHeight = footer.offsetHeight;
