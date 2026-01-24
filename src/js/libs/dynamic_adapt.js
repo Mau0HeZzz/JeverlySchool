@@ -32,26 +32,30 @@ DynamicAdapt.prototype.init = function () {
 		// наполнение оbjects объктами
 		for (let i = 0; i < nodes.length; i++) {
 			const node = nodes[i];
-			const data = node.dataset.da.trim();
-			const dataArray = data.split(",");
-			const оbject = {};
-			оbject.element = node;
-			оbject.parent = node.parentNode;
-      const daParent = node.closest('[data-da-parent]');
-      if (daParent) {
-        const daParentDestination = daParent.querySelector(dataArray[0].trim());
-        if (dataArray[0].trim() === 'parent' || !daParentDestination) {
-          оbject.destination = daParent;
+			const datas = node.dataset.da.trim().split('||');
+      for (let index = 0; index < datas.length; index++) {
+        const data = datas[index];
+        
+        const dataArray = data.split(",");
+        const оbject = {};
+        оbject.element = node;
+        оbject.parent = node.parentNode;
+        const daParent = node.closest('[data-da-parent]');
+        if (daParent) {
+          const daParentDestination = daParent.querySelector(dataArray[0].trim());
+          if (dataArray[0].trim() === 'parent' || !daParentDestination) {
+            оbject.destination = daParent;
+          } else {
+            оbject.destination = daParentDestination;
+          }
         } else {
-          оbject.destination = daParentDestination;
+          оbject.destination = dataArray[0].trim()!=='body' ? this.dynamicAllParent.querySelector(dataArray[0].trim()) : document.body;
         }
-      } else {
-			  оbject.destination = dataArray[0].trim()!=='body' ? this.dynamicAllParent.querySelector(dataArray[0].trim()) : document.body;
+        оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+        оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+        оbject.index = this.indexInParent(оbject.parent, оbject.element);
+        this.оbjects.push(оbject);
       }
-			оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
-			оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
-			оbject.index = this.indexInParent(оbject.parent, оbject.element);
-			this.оbjects.push(оbject);
 		}
 		this.arraySort(this.оbjects);
 		// массив уникальных медиа-запросов
@@ -90,7 +94,8 @@ DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
 		//for (let i = 0; i < оbjects.length; i++) {
 		for (let i = оbjects.length - 1; i >= 0; i--) {
 			const оbject = оbjects[i];
-			if (оbject.element.classList.contains(this.daClassname)) {
+      const findedObject = this.оbjects.find(el => el.element === оbject.element && el.breakpoint !== оbject.breakpoint);
+			if (оbject.element.classList.contains(this.daClassname)&&!findedObject) {
 				this.moveBack(оbject.parent, оbject.element, оbject.index);
 			}
 		}

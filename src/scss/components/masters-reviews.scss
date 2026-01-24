@@ -1,0 +1,245 @@
+@use "sass:math";
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+@use '@splidejs/splide/css/core';
+
+.masters-reviews {
+  background-color: var(--warm-white-color);
+  @include mixins.adaptiveValue("padding-top", 100, 60, 768, 480  );
+  @include mixins.adaptiveValue("padding-bottom", 100, 80, 768, 480  );
+
+  &__container {
+  }
+
+  &__wrapper {
+    background-color: var(--main-white-color);
+    border-radius: mixins.toRem(10);
+    padding: mixins.toRem(20);
+    display: grid;
+    gap: mixins.toRem(20);
+
+    @media (width >= #{mixins.toEm(800)}){
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__gallery {
+    min-width: 0;
+  }
+}
+.content-masters-reviews {
+  border: mixins.toRem(1) solid var(--black-color-10);
+  display: flex;
+  flex-direction: column;
+
+  &__head {
+    padding: mixins.toRem(20);
+    border-bottom: mixins.toRem(1) solid var(--black-color-10);
+    font-weight: 500;
+    color: var(--light-black-color);
+    line-height: 1.3;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+  }
+
+  &__track {
+    margin-top: auto;
+    padding-left: mixins.toRem(20) !important;
+    padding-right: mixins.toRem(20) !important;
+    @include mixins.adaptiveValue("padding-bottom", 40, 20, 960, 480);
+    @include mixins.adaptiveValue("padding-top", 40, 20, 960, 480);
+  }
+
+  &__list {
+  }
+
+  &__slide {
+  }
+
+  &__user {
+    display: grid;
+    grid-template-columns: mixins.toRem(60) auto;
+    gap: mixins.toRem(4) mixins.toRem(12);
+
+    &:not(:last-child) {margin-bottom: mixins.toRem(30);}
+    @media (width < #{mixins.toEm(600)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(60);}
+    }
+
+    i {
+      width: mixins.toRem(60);
+      height: mixins.toRem(60);
+      border-radius: 50%;
+      overflow: hidden;
+      grid-row: 1 / span 2;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    p {
+      margin-top: auto;
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-5);
+      @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+    }
+
+    span {
+      margin-bottom: auto;
+      font-style: italic;
+      color: var(--black-color-30);
+      line-height: 1.2;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-5);
+      @include mixins.adaptiveValue("--font-size", 14, 12, 767, 480);
+    }
+  }
+
+  &__text {
+    line-height: 1.2;
+    color: var(--light-black-color);
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-2);
+    @include mixins.adaptiveValue("--font-size", 28, 20, 960, 480);
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: mixins.toRem(12);
+    border-top: mixins.toRem(1) solid var(--black-color-10);
+    @include mixins.adaptiveValue("padding", 20, 8, 767, 480);
+  }
+
+  &__pagination {
+    display: flex;
+    gap: mixins.toRem(46);
+    line-height: 1.3;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    position: relative;
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+
+    span {
+      background-color: var(--main-white-color);
+      position: relative;
+      z-index: 2;
+      &:first-child{
+        padding-right: mixins.toRem(10);
+      }
+      &:last-child{
+        padding-left: mixins.toRem(10);
+      }
+    }
+
+    &::before{
+      content:'';
+      position: absolute;
+      top: calc(50% - mixins.toRem(0.5));
+      left: 0;
+      width: 100%;
+      height: mixins.toRem(1);
+      background-color: var(--black-color-10);
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: mixins.toRem(5);
+  }
+
+  &__arrow {
+    flex: 0 0 mixins.toRem(50);
+    width: mixins.toRem(50);
+    height: mixins.toRem(50);
+  }
+}
+.gallery-masters-reviews {
+
+  &__track {
+    height: 100%;
+  }
+
+  &__list {
+  }
+
+  &__slide {
+    border-radius: mixins.toRem(10);
+    overflow: hidden;
+    position: relative;
+
+    &[data-lg-id] {
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &[data-video] {
+      &::before{
+        content:'';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='60' rx='30' fill='white' fill-opacity='0.5'/%3E%3Cpath d='M25.5 24.0002V36.0002C25.5 36.1337 25.5355 36.2647 25.603 36.3798C25.6705 36.4949 25.7675 36.5899 25.884 36.6551C26.0005 36.7202 26.1322 36.753 26.2657 36.7503C26.3991 36.7475 26.5293 36.7091 26.643 36.6392L36.393 30.6392C36.5022 30.5721 36.5924 30.4781 36.6549 30.3663C36.7175 30.2544 36.7503 30.1284 36.7503 30.0002C36.7503 29.872 36.7175 29.746 36.6549 29.6341C36.5924 29.5223 36.5022 29.4283 36.393 29.3612L26.643 23.3612C26.5293 23.2913 26.3991 23.253 26.2657 23.2502C26.1322 23.2474 26.0005 23.2802 25.884 23.3454C25.7675 23.4105 25.6705 23.5055 25.603 23.6206C25.5355 23.7357 25.5 23.8668 25.5 24.0002Z' fill='black'/%3E%3C/svg%3E%0A");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: mixins.toRem(60);
+        height: mixins.toRem(60);
+        opacity: 0;
+
+        .loaded & {
+          transition: all 0.3s ease 0s;
+        }
+      }
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='60' rx='30' fill='white' fill-opacity='0.5'/%3E%3Cpath d='M25.5 24.0002V36.0002C25.5 36.1337 25.5355 36.2647 25.603 36.3798C25.6705 36.4949 25.7675 36.5899 25.884 36.6551C26.0005 36.7202 26.1322 36.753 26.2657 36.7503C26.3991 36.7475 26.5293 36.7091 26.643 36.6392L36.393 30.6392C36.5022 30.5721 36.5924 30.4781 36.6549 30.3663C36.7175 30.2544 36.7503 30.1284 36.7503 30.0002C36.7503 29.872 36.7175 29.746 36.6549 29.6341C36.5924 29.5223 36.5022 29.4283 36.393 29.3612L26.643 23.3612C26.5293 23.2913 26.3991 23.253 26.2657 23.2502C26.1322 23.2474 26.0005 23.2802 25.884 23.3454C25.7675 23.4105 25.6705 23.5055 25.603 23.6206C25.5355 23.7357 25.5 23.8668 25.5 24.0002Z' fill='black'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: mixins.toRem(60);
+      height: mixins.toRem(60);
+      opacity: 0;
+
+      .loaded & {
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    @media (any-hover: hover){
+      &:hover{
+        &::before,
+        i{
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (width < #{mixins.toEm(800)}){
+      aspect-ratio: 688 / 400;
+    }
+  }
+}

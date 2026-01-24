@@ -21,6 +21,7 @@
   "dependencies": {
     "@kingkongdevs/vite-plugin-html-includes": "^1.0.5",
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "air-datepicker": "latest",
     "cheerio": "^1.0.0",
     "copy-to-clipboard": "^3.3.3",

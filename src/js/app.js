@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   Сниппет (HTML):
   */
   // mhzFunctions.customCursor(true);
+
 })
+mhzFunctions.dragCloseActions();
 
 /*
 Модуль "До/После"
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 Документация:
 Сниппет (HTML):
 */
-// import './libs/keywords.js'
+import './libs/keywords.js'
 
 /*
 Модуль "Попапы"
@@ -234,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
 Документация плагина: https://www.lightgalleryjs.com/docs/
 Сниппет(HTML):
 */
-// import "./files/gallery.js";
+import "./files/gallery.js";
 
 // ========================================================================================================================================================================================================================================================
 // Масонри сетка ========================================================================================================================================================================================================================================================
@@ -263,6 +265,10 @@ import "./components/header.js";
 import "./components/footer.js";
 import "./components/scroll-parallax.js";
 import "./components/workspace.js";
+import "./components/history.js";
+import "./components/brands.js";
+import "./components/masters-reviews.js";
+import "./components/professors.js";
 //============================================================================================================================================================================================================================================
 
 
@@ -276,3 +282,10 @@ import "../scss/components/navhero.scss";
 import "../scss/components/blog.scss";
 import "../scss/components/workspace.scss";
 import "../scss/components/prefooter.scss";
+import "../scss/components/fullhero.scss";
+import "../scss/components/tech-cards.scss";
+import "../scss/components/history.scss";
+import "../scss/components/brands.scss";
+import "../scss/components/recognize.scss";
+import "../scss/components/masters-reviews.scss";
+import "../scss/components/professors.scss";

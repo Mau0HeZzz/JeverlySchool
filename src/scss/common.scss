@@ -124,6 +124,11 @@ img {
   position: relative;
   text-align: center;
 
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   svg:not(._nofill) [fill] {
     fill: var(--color);
     .loaded & {
@@ -140,10 +145,10 @@ img {
       background-color: var(--bgc-hover, var(--bgc));
       border-color: var(--border-color-hover, var(--bgc-hover, var(--bgc)));
 
-      [fill] {
+      svg:not(._nofill) [fill] {
         fill: var(--color-hover, var(--color))
       }
-      [stroke] {
+      svg:not(._nofill) [stroke] {
         stroke: var(--color-hover, var(--color))
       }
     }
@@ -173,6 +178,13 @@ img {
     --color: var(--dark-blue-color);
     --color-hover: var(--main-white-color);
     --bgc-hover: var(--dark-blue-color);
+  }
+
+  &-white-stroke {
+    --bgc: var(--main-white-color);
+    --color: var(--dark-blue-color);
+    --color-hover: var(--main-white-color);
+    --bgc-hover: var(--stroke-color);
   }
 
   &-grey {
@@ -304,7 +316,7 @@ img {
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: url(/public/img/icons/done_small.svg);
+          background-image: url(/img/icons/done_small.svg);
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
@@ -447,4 +459,32 @@ summary {
 
 img[data-src]:not(._lazy-loaded) {
   @extend ._skeleton;
+}
+
+._evolventa {
+  font-family: Evolventa;
+}
+
+.marquee {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: mixins.toRem(20);
+  overflow-x: hidden;
+  user-select: none;
+
+  &__track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 10s linear infinite;
+  }
+
+  &__content {
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

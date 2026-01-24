@@ -1,0 +1,151 @@
+@use "sass:math";
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
+.recognize {
+  background-color: var(--warm-white-color);
+
+  @include mixins.adaptiveValue("padding-top", 100, 80, 960, 767);
+  @include mixins.adaptiveValue("padding-bottom", 100, 60, 960, 767);
+
+  &__container {
+  }
+
+  &__head {
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 60, 40, 960, 767);
+    }
+  }
+
+  &__title {
+    font-family: Evolventa;
+    line-height: 0.8;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 42, 28, 960, 480);
+  }
+
+  &__body {
+    display: grid;
+    gap: mixins.toRem(30) mixins.toRem(40);
+    
+    @media (width >= #{mixins.toEm(1050)}){
+      grid-template-columns: 2.1fr 1fr;
+    }
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+  }
+
+  &__image {
+    border-radius: mixins.toRem(10);
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &::before{
+      content:'';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+  }
+
+  &__links {
+    position: relative;
+    font-family: Evolventa;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-2);
+    line-height: 1.2;
+    margin-top: calc(var(--font-size) * 1.2 * -2);
+    padding-left: mixins.toRem(20);
+    @include mixins.adaptiveValue("--font-size", 28, 20, 960, 480);
+
+    a {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: mixins.toRem(10);
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        color: var(--main-white-color);
+        &::after{
+          content:'';
+          display: block;
+          flex: 0 0 mixins.toRem(30);
+          width: mixins.toRem(30);
+          height: mixins.toRem(30);
+          background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_735_11857)'%3E%3Cpath d='M21.1328 9.86719L8.26085 22.7392' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.1328 9.86719V20.9003' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.1298 9.86617H10.0967' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_735_11857'%3E%3Crect width='30' height='30' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center;
+
+          .loaded & {
+            transition: all 0.3s ease 0s;
+          }
+        }
+      }
+
+      @media (any-hover: hover){
+        &:hover{
+          &::after{
+            translate: mixins.toRem(5) mixins.toRem(-5);
+          }
+        }
+      }
+    }
+
+    @media (width >= #{mixins.toEm(1050)}){
+      padding-left: mixins.percent(223,853);
+    }
+    @media (#{mixins.toEm(variables.$mobile)} < width < #{mixins.toEm(1050)}){
+      width: 100%;
+      max-width: mixins.toRem(553);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (width < #{mixins.toEm(630)}){
+      margin-top: calc(var(--font-size) * 1.2 * -2.3);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include mixins.adaptiveValue("gap", 50, 30, 960, 767);
+
+    *:not(a) {
+      color: var(--grey-on-white-color);
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-3);
+      @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+    }
+
+    @media (width >= #{mixins.toEm(variables.$mobile)}){
+      max-width: mixins.toRem(553);
+      margin: 0 auto;
+    }
+
+    @media (width < #{mixins.toEm(1050)}){
+      padding-left: mixins.toRem(20);
+    }
+  }
+}

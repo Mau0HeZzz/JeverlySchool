@@ -1,0 +1,464 @@
+@use "sass:math";
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+@use '@splidejs/splide/css/core';
+
+.professors {
+  background-color: var(--dark-blue-color);
+  padding-top: calc(var(--headerHeight) + #{mixins.toRem(80)});
+  position: relative;
+  @include mixins.adaptiveValue("padding-bottom", 200, 150, 960, 767);
+
+  &__bg {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    i {
+      flex: 0 0 mixins.toRem(1);
+      background-color: var(--stroke-color);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    z-index: 2;
+
+    &:not(:last-child) {margin-bottom: mixins.toRem(80);}
+  }
+
+  &__detail {
+    position: relative;
+    z-index: 2;
+  }
+}
+.slider-professors {
+
+  &__head {
+    @include mixins.adaptiveValue("gap", 30, 20, 767, 480);
+    &:not(:last-child) {margin-bottom: mixins.toRem(75);}
+
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      display: grid;
+      &:not(:last-child) {margin-bottom: mixins.toRem(40);}
+    }
+
+    @media (#{mixins.toEm(variables.$mobile)} < width < #{mixins.toEm(variables.$tablet)}){
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (width < #{mixins.toEm(670)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(60);}
+    }
+  }
+
+  &__title {
+    color: var(--main-white-color);
+    font-family: Evolventa;
+    line-height: 0.8;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 54, 30, 960, 480);
+
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      max-width: mixins.toRem(400);
+    }
+    @media (#{mixins.toEm(variables.$mobile)} < width < #{mixins.toEm(variables.$tablet)}){
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__subtitle {
+    line-height: 1.3;
+    color: var(--white-on-blue-color);
+    max-width: mixins.toRem(320);
+    
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      max-width: mixins.toRem(420);
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: mixins.toRem(5);
+    margin-left: auto;
+    justify-content: flex-end;
+    @media (width < #{mixins.toEm(670)}){
+      display: none;
+    }
+  }
+
+  &__arrow {
+    flex: 0 0 mixins.toRem(50);
+    width: mixins.toRem(50);
+    height: mixins.toRem(50);
+  }
+
+  &__track {
+  }
+
+  &__list {
+    .splide.is-initialized:not(.is-active) & {
+      @media (width < #{mixins.toEm(670)}){
+        display: grid;
+        gap: mixins.toRem(32) mixins.toRem(8);
+      }
+      @media (#{mixins.toEm(480)} < width < #{mixins.toEm(670)}){
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  &__slide {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    color: var(--main-white-color);
+
+    @include mixins.adaptiveValue("gap", 20, 10, 767, 480);
+
+    .loaded & {
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (width >= #{mixins.toEm(670)}){
+      padding-top: mixins.toRem(20);
+    }
+
+    &.is-active {
+      padding-top: 0;
+    }
+
+    @media (any-hover: hover){
+      &:hover{
+        padding-top: 0;
+      }
+    }
+
+    @media (width >= #{mixins.toEm(670)}){
+      max-width: mixins.toRem(203);
+    }
+  }
+
+  &__image {
+    border-radius: mixins.toRem(5);
+    overflow: hidden;
+    aspect-ratio: 203 / 240;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (width < #{mixins.toEm(480)}){
+      aspect-ratio: 312 / 240;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: mixins.toRem(12);
+
+  }
+}
+.detail-professors {
+  position: relative;
+
+  &__marquee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-family: Evolventa;
+    color: var(--stroke-color);
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    pointer-events: none;
+    @include mixins.adaptiveValue("--font-size", 114, 74, 960, 767);
+    @include mixins.adaptiveValue("height", 114, 74, 960, 767);
+
+    .marquee__track {
+      animation-duration: 34s;
+    }
+
+    .marquee__content {
+      display: flex;
+      gap: mixins.toRem(70);
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    .loaded & {
+      transition: all 0.3s ease 0s;
+    }
+
+    &._hide {
+      opacity: 0;
+    }
+    @media (width < #{mixins.toEm(670)}){
+      width: 100%;
+      &:not(:last-child) {margin-bottom: mixins.toRem(80);}
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: mixins.toRem(10);
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 50, 40, 960, 767);
+    }
+    @media (width < #{mixins.toEm(670)}){
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__name {
+    font-family: Evolventa;
+    color: var(--main-white-color);
+    line-height: 1.2;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-2);
+    @include mixins.adaptiveValue("--font-size", 28, 24, 960, 767);
+
+    @media (width < #{mixins.toEm(670)}){
+      color: var(--dark-blue-color);
+    }
+  }
+
+  &__shortinfo {
+    color: var(--white-on-blue-color);
+    line-height: 1.2;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    max-width: mixins.toRem(578);
+    @include mixins.adaptiveValue("--font-size", 20, 15, 767, 480);
+
+    @media (width < #{mixins.toEm(670)}){
+      color: var(--grey-on-white-color);
+      max-width: mixins.toRem(238);
+    }
+  }
+
+  &__body {
+    display: grid;
+    gap: mixins.toRem(20);
+    @media (width >= #{mixins.toEm(1130)}){
+      grid-template-columns: 1fr mixins.percent(426,1400) 1fr;
+      align-items: end;
+    }
+    @media (#{mixins.toEm(670)} < width < #{mixins.toEm(1130)}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width < #{mixins.toEm(1130)}){
+      max-width: mixins.toRem(569);
+      gap: mixins.toRem(40);
+      margin: 0 auto;
+    }
+    @media (width < #{mixins.toEm(670)}){
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__info {
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      gap: mixins.toRem(2) mixins.toRem(4);
+      &:not(:last-child) {margin-bottom: mixins.toRem(10);}
+
+      span {
+        color: var(--main-white-color);
+        &:first-child{
+          color: var(--white-on-blue-color);
+        }
+
+        @media (width < #{mixins.toEm(670)}){
+          color: var(--dark-blue-color);
+          &:first-child{
+            color: var(--grey-on-white-color);
+          }
+        }
+      }
+
+      @media (width < #{mixins.toEm(670)}){
+        max-width: mixins.toRem(217);
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__image {
+    border-radius: mixins.toRem(10);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (width >= #{mixins.toEm(1130)}){
+      aspect-ratio: 426 / 457;
+    }
+    @media (#{mixins.toEm(670)} < width < #{mixins.toEm(1130)}){
+      grid-row: 1 / span 2;
+      min-height: mixins.toRem(437);
+    }
+    @media (width < #{mixins.toEm(670)}){
+      order: -1;
+      aspect-ratio: 1;
+      max-width: mixins.toRem(180);
+      margin: 0 auto;
+    }
+  }
+
+  &__button {
+    width: max-content;
+    @media (width >= #{mixins.toEm(1130)}){
+      margin-left: auto;
+    }
+    @media (width < #{mixins.toEm(1130)}){
+      align-self: end;
+    }
+    @media (width < #{mixins.toEm(670)}){
+      display: none;
+    }
+  }
+
+  &__indmarquee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    color: var(--light-grey-color);
+    font-size: mixins.toRem(74);
+    height: mixins.toRem(80);
+    font-family: Evolventa;
+
+    .marquee__track {
+      animation-duration: 34s;
+    }
+
+    .marquee__content {
+      display: flex;
+      gap: mixins.toRem(70);
+    }
+
+    @media (width >= #{mixins.toEm(670)}){
+      display: none;
+    }
+  }
+}
+
+//==========================================================================================
+.coursesPopup {
+
+  &__content {
+    max-width: mixins.toRem(654);
+  }
+
+  &__body {
+    padding-top: mixins.toRem(100);
+    @include mixins.adaptiveValue("padding-left", 50, 16, 1240, 480);
+    @include mixins.adaptiveValue("padding-right", 50, 16, 1240, 480);
+    @include mixins.adaptiveValue("padding-bottom", 50, 16, 1240, 480);
+  }
+
+  &__head {
+    &:not(:last-child) {margin-bottom: mixins.toRem(40);}
+
+    @media (width < #{mixins.toEm(670)}){
+      display: none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-family: Evolventa;
+    --font-size: #{mixins.toRem(28)};
+    line-height: 1.2;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-2);
+  }
+
+  &__items {
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: var(--img-sz) auto;
+    column-gap: mixins.toRem(20);
+    align-items: start;
+    
+    @include mixins.adaptiveValue("row-gap", 15, 8, 767, 480);
+    @include mixins.adaptiveValue("--img-sz", 180, 156, 767, 480);
+    @include mixins.adaptiveValue("padding-top", 30, 20, 767, 480);
+    @include mixins.adaptiveValue("padding-bottom", 30, 20, 767, 480);
+
+    &:not(:last-child) {
+      border-bottom: mixins.toRem(1) solid var(--grey-on-white-color);
+    }
+  }
+
+  &__image {
+    grid-row: 1 / span 3;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__name {
+    line-height: 1.2;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 20, 16, 767, 480);
+  }
+
+  &__info {
+    line-height: 1.3;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+
+    li {
+      &:not(:last-child) {margin-bottom: mixins.toRem(5);}
+      span {
+        color: var(--dark-blue-color);
+        &:first-child{
+          color: var(--grey-on-white-color);
+        }
+      }
+    }
+  }
+
+  &__button {
+    align-self: end;
+    width: max-content;
+  }
+}

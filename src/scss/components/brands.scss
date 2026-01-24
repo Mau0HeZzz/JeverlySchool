@@ -1,0 +1,84 @@
+@use "sass:math";
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+@use '@splidejs/splide/css/core';
+
+.brands {
+  background-color: var(--dark-blue-color);
+  overflow: hidden;
+  @include mixins.adaptiveValue("padding-top", 100, 60, 768, 480  );
+  @include mixins.adaptiveValue("padding-bottom", 100, 80, 768, 480  );
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: mixins.toRem(60);
+    --padding-left: #{mixins.toRem(20)};
+    --padding-right: #{mixins.toRem(20)};
+
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      gap: mixins.toRem(80);
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
+    max-width: mixins.toRem(1161);
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    width: mixins.toRem(100);
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      width: mixins.toRem(70);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 193, 98, 960, 480);
+    }
+  }
+
+  &__text {
+    position: relative;
+    color: #fff;
+    background-color: var(--stroke-color);
+    border-radius: mixins.toRem(10);
+    max-width: mixins.toRem(620);
+    text-align: center;
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    line-height: 1.3;
+    padding: mixins.toRem(20);
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+  }
+}
+.slider-brands {
+
+  &__track {
+    overflow: visible;
+  }
+
+  &__list {
+  }
+
+  &__slide {
+    img {
+      max-height: 100%;
+    }
+  }
+}
