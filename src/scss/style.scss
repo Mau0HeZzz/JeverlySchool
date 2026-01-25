@@ -31,6 +31,10 @@ body {
 		touch-action: none;
 		overscroll-behavior: none;
 	}
+
+  &:has(.courses) {
+    background-color: var(--warm-white-color);
+  }
 	// Сайт загружен
 	.loaded & {
 	}

@@ -3,6 +3,7 @@
 // ===============
 :root {
   --main-white-color: #FFFFFF;
+  --main-white-color-10: rgba(255, 255, 255, 0.1);
   --black-color: #000000;
   --black-color-60: rgba(0, 0, 0, 0.6);
   --black-color-10: rgba(0, 0, 0, 0.1);
@@ -28,4 +29,5 @@
   --white-on-black-color: #939393;
   --black-on-white-color: #B2B2B2;
   --grey-on-white-color: #898989;
+  --modal_bg: var(--black-color-30)
 }

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function setFooterContainerBg(footerContainer) {
   if (!footerContainer) return;
 
-  const gridAreas = getComputedStyle(footerContainer).getPropertyValue('grid-template-areas');
+  const gridAreas = window.getComputedStyle(footerContainer).getPropertyValue('grid-template-areas');
   if (!gridAreas.trim()) return;
 
   const is = footerContainer.querySelectorAll('i');

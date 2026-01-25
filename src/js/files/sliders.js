@@ -1,4 +1,5 @@
 import {Splide} from '@splidejs/splide';
+
 // Default theme
 // import '@splidejs/splide/css';
 

@@ -1,5 +1,17 @@
-import Splide from "@splidejs/splide";
-import { debounce, indexInParent, isMobile } from "../files/functions";
+import { Splide as ProfessorsSplide } from "@splidejs/splide";
+import { 
+  indexInParent as professorsIndexInParent, 
+  isMobile as professorsIsMobile
+} from "../files/functions";
+
+const professorsDebounce = (callback, interval = 0) => {
+  let prevTimeoutId;
+
+  return (...args) => {
+    clearTimeout(prevTimeoutId);
+    prevTimeoutId = setTimeout(() => callback(...args), interval);
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const professorsEl = document.querySelector('[data-professors]');
@@ -12,6 +24,7 @@ class MhzProfessors {
   md1 = matchMedia('(width < 1500px)');
   md2 = matchMedia('(width < 992px)');
   md3 = matchMedia('(width < 768px)');
+  md670 = matchMedia('(width < 670px)');
   md4 = matchMedia('(width < 480px)');
 
   constructor(parent) {
@@ -29,7 +42,7 @@ class MhzProfessors {
       this.setBg();
 
       window.addEventListener('resize', () => {
-        debounce(this.setBg.bind(this), 100)()
+        professorsDebounce(this.setBg.bind(this), 100)()
       })
     }
 
@@ -43,6 +56,7 @@ class MhzProfessors {
     this.detailEl = document.querySelector('[data-professors-detail]');
     this.coursesTitle = document.querySelector('[data-professors-courses-title]');
     this.coursesItems = document.querySelector('[data-professors-courses-items]')
+    this.coursesBody = document.querySelector('[data-professors-courses-body]')
   }
 
   setBg() {
@@ -68,10 +82,10 @@ class MhzProfessors {
     const activeSlide = this.sliderEl.querySelector('.is-active');
     this.activeIndex = 0;
     if (activeSlide) {
-      this.activeIndex = indexInParent(activeSlide.parentElement, activeSlide);
+      this.activeIndex = professorsIndexInParent(activeSlide.parentElement, activeSlide);
     }
 
-    this.slider = new Splide(this.sliderEl, {
+    this.slider = new ProfessorsSplide(this.sliderEl, {
       gap: 20,
       autoWidth: true,
       pagination: false,
@@ -114,11 +128,6 @@ class MhzProfessors {
 
   setDetailHtml(currentProfessor, slide) {
     let answer = '';
-    
-    // name: 'Лейла Мурадова',
-    // shortInfo: 'Потомственный ювелир. Мастер закрепки с опытом',
-    // info: `<ul><li><span>Базируется: </span><span>в России</span></li><li><span>Образование: </span><span>Костромской гос. университет</span></li><li><span>Опыт:</span><span>+ 10 лет практики</span></li><li><span>Достижения:</span><span>автор более 5 программ обучения</span></li></ul>`,
-    // image: '/img/professors/professors_6.png',
 
     let name = currentProfessor.name;
     if (!name) {
@@ -144,7 +153,11 @@ class MhzProfessors {
     }
     answer += `<div class="detail-professors__image"><img src="${imagePath}"></div>`;
     if (hasCourses) {
-      answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы Владимира</a>`
+      if (window.innerWidth >= 670) {
+        answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы ${name.split(' ')[0]}</a>`
+      } else {
+        answer += `<button data-professors-scrollto-courses class="detail-professors__button btn btn-black"><span>Курсы ${name.split(' ')[0]}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_704_14562)"><path d="M8 11L12 15L16 11" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_704_14562"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg></button>`
+      }
       this.setDetailCourses(currentProfessor)
     } else {
       answer += '<div></div>'
@@ -156,18 +169,43 @@ class MhzProfessors {
   }
 
   setDetailCourses(currentProfessor) {
-    console.log(currentProfessor);
     if (!this.coursesItems) return;
-
+    
     this.coursesTitle.innerHTML = `Программы ${currentProfessor.name}`;
     if (!currentProfessor.courses.length) return;
 
     const coursesHtml = this.setCoursesHtml(currentProfessor.courses);
-    this.coursesItems = coursesHtml;
+    this.coursesItems.innerHTML = coursesHtml;
   }
 
   setCoursesHtml(courses) {
-    return 'Доделаю до 26.01.2026'
+    let answer = '';
+
+    for (let index = 0; index < courses.length; index++) {
+      const course = courses[index];
+
+      const { image, name, info, linkPath } = course;
+      let rowCount = 1;
+      let itemHtml = '';
+
+      itemHtml += `<div class="coursesPopup__name">${name}</div>`
+      if (info?.trim()) {
+        itemHtml += `<div class="coursesPopup__info">${info}</div>`;
+        rowCount++;
+      }
+      if (linkPath) {
+        itemHtml += `<a href="${linkPath}" class="coursesPopup__button btn btn-dark">Подробнее о курсе</a>`
+        rowCount++;
+      }
+      if (image) {
+        itemHtml = `<div class="coursesPopup__image" style="--rows: ${rowCount};"><img src="${image}"></div>${itemHtml}`
+      } else {
+        itemHtml = `<div></div>${itemHtml}`
+      }
+
+      answer += `<div class="coursesPopup__item">${itemHtml}</div>`
+    }
+    return answer
   }
 
   hideDetail() {
@@ -184,7 +222,7 @@ class MhzProfessors {
 
   setHandlers() {
     if (this.slider) {
-      this.slider.on('moved', () => debounce(this.onSliderMoved.bind(this), 300)())
+      this.slider.on('moved', () => professorsDebounce(this.onSliderMoved.bind(this), 300)())
       this.slider.on('click', this.onSlideClick.bind(this))
     }
 
@@ -193,6 +231,12 @@ class MhzProfessors {
       if (!slideEl) return;
 
       this.onProfessorClick(slideEl);
+    })
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('[data-professors-scrollto-courses]')) {
+        this.scrollToCourses();
+      }
     })
   }
 
@@ -212,10 +256,19 @@ class MhzProfessors {
   }
 
   onProfessorClick(target) {
-    if (!isMobile.any()) return;
-    const activeIndex = indexInParent(target.parentElement, target);
+    if (!this.md670.matches) return;
+    const activeIndex = professorsIndexInParent(target.parentElement, target);
     this.activeIndex = activeIndex;
     this.setDetail();
     window.mhzModules.popup.open('#coursesPopup')
+  }
+
+  scrollToCourses() {
+    if (!this.coursesBody||!this.coursesItems) return;
+
+    this.coursesBody.scrollTo({
+      top: this.coursesItems.offsetTop,
+      behavior: 'smooth'
+    })
   }
 }

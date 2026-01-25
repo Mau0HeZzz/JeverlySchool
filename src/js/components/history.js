@@ -1,4 +1,4 @@
-import {Splide} from '@splidejs/splide';
+import {Splide as HistorySplide} from '@splidejs/splide';
 
 window.addEventListener('load', () => {
   if (document.querySelector('.content-history')) {
@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     const startIndex = document.querySelector('.content-history').getAttribute('data-start') || 2;
 
     if (document.querySelector('.dates-history')) {
-      datesSlider = new Splide('.dates-history', {
+      datesSlider = new HistorySplide('.dates-history', {
         // type: 'loop',
         arrows: false,
         pagination: false,
@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
       })
     }
 
-    let contentSlider = new Splide('.content-history', {
+    let contentSlider = new HistorySplide('.content-history', {
       type: 'fade',
       perPage: 1,
       perMove: 1,

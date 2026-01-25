@@ -1,5 +1,5 @@
 // Подключение функционала "Чертоги Фрилансера"
-import { debounce, isMobile } from "./functions.js";
+import { isMobile } from "./functions.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {

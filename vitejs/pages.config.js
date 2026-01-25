@@ -8,6 +8,7 @@ const pages = [
   {name: 'workspace', path: resolve(__dirname, '../pages/workspace.html')},
   {name: 'about', path: resolve(__dirname, '../pages/about.html')},
   {name: 'professors', path: resolve(__dirname, '../pages/professors.html')},
+  {name: 'catalog', path: resolve(__dirname, '../pages/catalog.html')},
 
   {name: 'style', path: resolve(__dirname, '../src/scss/style.scss')},
   {name: 'header', path: resolve(__dirname, '../src/scss/components/header.scss')},
@@ -25,6 +26,7 @@ const pages = [
   {name: 'recognize-css', path: resolve(__dirname, '../src/scss/components/recognize.scss')},
   {name: 'masters-reviews-css', path: resolve(__dirname, '../src/scss/components/masters-reviews.scss')},
   {name: 'professors-css', path: resolve(__dirname, '../src/scss/components/professors.scss')},
+  {name: 'courses-css', path: resolve(__dirname, '../src/scss/components/courses.scss')},
 
   {name: 'header-js', path: resolve(__dirname, '../src/js/components/header.js')},
   {name: 'footer-js', path: resolve(__dirname, '../src/js/components/footer.js')},
@@ -35,6 +37,7 @@ const pages = [
   {name: 'brands-js', path: resolve(__dirname, '../src/js/components/brands.js')},
   {name: 'masters-reviews-js', path: resolve(__dirname, '../src/js/components/masters-reviews.js')},
   {name: 'professors-js', path: resolve(__dirname, '../src/js/components/professors.js')},
+  {name: 'courses-js', path: resolve(__dirname, '../src/js/components/courses.js')},
 ];
 
 export default pages

@@ -1,10 +1,10 @@
-import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import { Splide as BrandsSplide } from "@splidejs/splide";
+import { AutoScroll as BrandsAutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 window.addEventListener('load', () => {
   const sliderBrands = document.querySelector('.slider-brands');
   if (sliderBrands) {
-    const splide = new Splide(sliderBrands, {
+    const splide = new BrandsSplide(sliderBrands, {
       type: 'loop',
       arrows: false,
       pagination: false,
@@ -27,6 +27,6 @@ window.addEventListener('load', () => {
       }
     })
 
-    splide.mount({AutoScroll})
+    splide.mount({BrandsAutoScroll})
   }
 })

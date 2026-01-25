@@ -3,7 +3,7 @@
 
 .navhero {
   color: var(--main-white-color);
-  &:not(:last-child) {
+  &:not(:last-child):not(.navhero_courses) {
     @include mixins.adaptiveValue("margin-bottom", 50, 40, 1240, 960);
   }
 
@@ -16,10 +16,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: mixins.toRem(20);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border-radius: mixins.toRem(20) mixins.toRem(20) 0 0;
 
     @media (width < #{mixins.toEm(variables.$tablet)}){
       min-height: mixins.toRem(400);
@@ -29,18 +29,24 @@
       min-height: mixins.toRem(600);
     }
 
-    &::before{
-      content:'';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--black-color-60);
+    &:not(.navhero_courses &) {
+      border-radius: mixins.toRem(20);
+      &::before{
+        content:'';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--black-color-60);
+      }
     }
 
     &>* {
       position: relative;
+    }
+    .navhero_courses & {
+      padding-bottom: mixins.toRem(50);
     }
   }
 
@@ -62,6 +68,11 @@
     justify-content: space-between;
     gap: mixins.toRem(20);
     padding: mixins.toRem(40) mixins.toRem(50);
+
+    .navhero_courses & {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     
     @media (width >= #{mixins.toEm(variables.$tablet)}){
       align-items: center;

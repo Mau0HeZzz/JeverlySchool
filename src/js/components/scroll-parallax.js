@@ -57,7 +57,7 @@ function setParallaxBgOffset({wrapper, bg, percents, bgOffset, direction}) {
   let headerHeight = 0;
   const header = document.querySelector('.header');
   if (header) {
-    const headerPos = getComputedStyle(header).getPropertyValue('position');
+    const headerPos = window.getComputedStyle(header).getPropertyValue('position');
     if (headerPos === 'fixed') {
       headerHeight = 130;
     }

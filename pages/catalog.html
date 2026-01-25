@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<load
+		src="src/html/_head.html"
+		title="Каталог"
+	/>
+	<body>
+		<div class="wrapper wrapper-padding">
+      <load src="src/html/_header.html"/>
+			<main class="page">
+        <include
+          src="components/_navhero.html"
+          locals='{
+            "items": [
+              "Курсы по закрепке",
+              "Курсы по гравировке",
+              "Дополнительные текники",
+              "Расписание курсов"
+            ],
+            "activeIndex": 0,
+            "title": "Курсы по закрепке",
+            "text": "В этом разделе собраны курсы по закрепке — от базовых навыков до сложных профессиональных техник. Программа выстроена по уровням, чтобы вы могли пройти путь от новичка до эксперта",
+            "className": "navhero_courses",
+            "bg": "url(/img/catalog/hero.png)"
+          }'
+        ></include>
+        <section class="courses" data-courses>
+          <div class="courses__container">
+            <div class="courses__wrapper">
+              <div class="courses__head">
+                <h2 class="courses__title">5 курсов</h2>
+                <button class="courses__filtertrigger btn" data-courses-filtertrigger>
+                  <span>Фильтры</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1321_3765)">
+                      <path d="M12 9C12 9.53043 12.2107 10.0391 12.5858 10.4142C12.9609 10.7893 13.4696 11 14 11C14.5304 11 15.0391 10.7893 15.4142 10.4142C15.7893 10.0391 16 9.53043 16 9C16 8.46957 15.7893 7.96086 15.4142 7.58579C15.0391 7.21071 14.5304 7 14 7C13.4696 7 12.9609 7.21071 12.5858 7.58579C12.2107 7.96086 12 8.46957 12 9Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 9H12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 9H20" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 15C6 15.5304 6.21071 16.0391 6.58579 16.4142C6.96086 16.7893 7.46957 17 8 17C8.53043 17 9.03914 16.7893 9.41421 16.4142C9.78929 16.0391 10 15.5304 10 15C10 14.4696 9.78929 13.9609 9.41421 13.5858C9.03914 13.2107 8.53043 13 8 13C7.46957 13 6.96086 13.2107 6.58579 13.5858C6.21071 13.9609 6 14.4696 6 15Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 15H6" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10 15H20" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1321_3765">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+              <form class="courses__filters filters-courses" data-courses-filters data-da="body, 992, last" hidden>
+                <div class="filters-courses__close" data-courses-filtertrigger>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_388_4833)">
+                      <path d="M20.4854 3.51465L3.51479 20.4852" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M3.51465 3.51465L20.4852 20.4852" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_388_4833">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="filters-courses__backdrop" data-da="body, 9999, last" data-courses-filtertrigger></div>
+                <div class="filters-courses__segment">
+                  <div class="filters-courses__title">Формат обучения</div>
+                  <div class="filters-courses__body">
+                    <label class="filters-courses__item">
+                      <input type="radio" name="format">
+                      <span>Оффлайн в Москве</span>
+                    </label>
+                    <label class="filters-courses__item">
+                      <input type="radio" name="format">
+                      <span>Дубай-интенсивы</span>
+                    </label>
+                    <label class="filters-courses__item">
+                      <input type="radio" name="format">
+                      <span>Онлайн</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="filters-courses__segment">
+                  <div class="filters-courses__title">Длительность курса</div>
+                  <div class="filters-courses__body">
+                    <label class="filters-courses__item">
+                      <input type="radio" name="duration">
+                      <span>До 1 недели</span>
+                    </label>
+                    <label class="filters-courses__item">
+                      <input type="radio" name="duration">
+                      <span>1–2 недели</span>
+                    </label>
+                    <label class="filters-courses__item">
+                      <input type="radio" name="duration" checked>
+                      <span>Больше 2 недель</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="filters-courses__segment">
+                  <div class="filters-courses__title">Уровень подготовки</div>
+                  <div class="filters-courses__body">
+                    <label class="filters-courses__item">
+                      <input type="radio" name="level">
+                      <span>Подходит без подготовки</span>
+                    </label>
+                    <label class="filters-courses__item">
+                      <input type="radio" name="level">
+                      <span>Требует знания основ</span>
+                    </label>
+                    <label class="filters-courses__item" data-tippy="Курсы для тех, кто уже прошёл базовые этапы обучения и хочет освоить сложные, продвинутые техники на профессиональном уровне">
+                      <input type="radio" name="level">
+                      <span>Профессиональный уровень</span>
+                      <i>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="24" height="24" rx="12" fill="black"/>
+                          <path d="M12 17.5986V17.6066" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M12 14.4014V6.40137" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </i>
+                    </label>
+                  </div>
+                </div>
+                <div class="filters-courses__segment">
+                  <div class="filters-courses__body">
+                    <button type="submit" class="filters-courses__submit btn btn-natural-blue">Показать</button>
+                    <button type="reset" class="filters-courses__reset btn btn-white">Сбросить</button>
+                  </div>
+                </div>
+              </form>
+              <div class="courses__body" courses-body>
+                <div class="courses__item item-courses">
+                  <div class="item-courses__bg">
+                    <img src="/img/catalog/item_1.png" alt="Image">
+                  </div>
+                  <a href="#" class="item-courses__link"></a>
+                  <div class="item-courses__detail">
+                    <div class="item-courses__tag">Доступен без опыта</div>
+                    <div class="item-courses__location">Москва</div>
+                  </div>
+                  <div class="item-courses__info">
+                    <div class="item-courses__name">Основы работы с пневмоштихелем</div>
+                    <div class="item-courses__price">90 000₽</div>
+                    <a href="#" class="item-courses__button btn btn-blue-white">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1321_4404)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1321_4404">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="courses__item item-courses">
+                  <div class="item-courses__bg">
+                    <img src="/img/catalog/item_2.png" alt="Image">
+                  </div>
+                  <a href="#" class="item-courses__link"></a>
+                  <div class="item-courses__detail">
+                    <div class="item-courses__tag">Профессиональный уровень</div>
+                    <div class="item-courses__location">Дубай-интенсив</div>
+                  </div>
+                  <div class="item-courses__info">
+                    <div class="item-courses__name">MicroPave: техника Side-by-Side</div>
+                    <div class="item-courses__price">180 000₽</div>
+                    <a href="#" class="item-courses__button btn btn-blue-white">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1321_4404)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1321_4404">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="courses__item item-courses">
+                  <div class="item-courses__bg">
+                    <img src="/img/catalog/item_3.png" alt="Image">
+                  </div>
+                  <a href="#" class="item-courses__link"></a>
+                  <div class="item-courses__detail">
+                    <div class="item-courses__tag">Требует знания основ</div>
+                    <div class="item-courses__location">Онлайн</div>
+                  </div>
+                  <div class="item-courses__info">
+                    <div class="item-courses__name">Проф курс закрепки камней</div>
+                    <div class="item-courses__price">450 000₽</div>
+                    <a href="#" class="item-courses__button btn btn-blue-white">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1321_4404)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1321_4404">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="courses__item item-courses">
+                  <div class="item-courses__bg">
+                    <img src="/img/catalog/item_4.png" alt="Image">
+                  </div>
+                  <a href="#" class="item-courses__link"></a>
+                  <div class="item-courses__detail">
+                    <div class="item-courses__tag">Профессиональный уровень</div>
+                    <div class="item-courses__location">Онлайн</div>
+                  </div>
+                  <div class="item-courses__info">
+                    <div class="item-courses__name">Фантазийное Pave: проф закрепка камней</div>
+                    <div class="item-courses__price">305 000₽</div>
+                    <a href="#" class="item-courses__button btn btn-blue-white">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1321_4404)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1321_4404">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="courses__item item-courses">
+                  <div class="item-courses__bg">
+                    <img src="/img/catalog/item_5.png" alt="Image">
+                  </div>
+                  <a href="#" class="item-courses__link"></a>
+                  <div class="item-courses__detail">
+                    <div class="item-courses__tag">Требует знания основ</div>
+                    <div class="item-courses__location">Москва</div>
+                  </div>
+                  <div class="item-courses__info">
+                    <div class="item-courses__name">MicroPave: базовый курс закрепки бриллиантов</div>
+                    <div class="item-courses__price">220 000₽</div>
+                    <a href="#" class="item-courses__button btn btn-blue-white">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1321_4404)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1321_4404">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <load src="src/html/components/_prefooter_form.html"/>
+			</main>
+      <load src="src/html/_footer.html"/>
+		</div>
+    <load src="src/html/_js.html"/>
+	</body>
+</html>

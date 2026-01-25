@@ -1,5 +1,6 @@
 import fs from "fs";
 import * as prettier from "prettier";
+let idx = 0;
 
 const readCSSFileCallback = async (err, data, filePath) => {
   return new Promise(resolve => {
@@ -37,7 +38,7 @@ const readHTMLFileCallback = async (err, data, filePath) => {
   })
 }
 
-const readJSFileCallback = async (err, data, filePath) => {
+const readJSFileCallback = async (err, data, filePath, index = -1) => {
   return new Promise(async (resolve) => {
     if (err||!filePath) return resolve();
     
@@ -74,6 +75,49 @@ const readJSFileCallback = async (err, data, filePath) => {
     ];
     for (const pattern of exportPatterns) {
       answer = answer.replace(pattern, '');
+    }
+
+    if (index >= 0) {
+      if (answer.includes('isArray')) {
+        const regex = /(?<!\.)\b(isArray)\s*([=(])/g;
+        answer = answer.replace(regex, `$1\$${index}$2`);
+      }
+      if (answer.includes('isUndefined')) {
+        const regex = /(?<!\.)\b(isUndefined)\s*([=(])/g;
+        answer = answer.replace(regex, `$1\$${index}$2`);
+      }
+      if (answer.includes('ownKeys')) {
+        const regex = /(?<!\.)\b(ownKeys)\s*([=(])/g;
+        answer = answer.replace(regex, `$1\$${index}$2`);
+      }
+      if (answer.includes('top') && !filePath.includes('scroll-parallax')) {
+        const regex = /(?<!\.)\btop\b(?=(?:[^"']*["'][^"']*["'])*[^"']*$)/g;
+        answer = answer.replace(regex, `top\$${index}`);
+      }
+      if (answer.includes('min(')) {
+        answer = answer.replaceAll('min(', `Math.min(`);
+      }
+      if (answer.includes('max(')) {
+        answer = answer.replaceAll('max(', `Math.max(`);
+      }
+      if (answer.includes('const { min, max, floor, ceil, abs } = Math;')) {
+        answer = answer.replaceAll('const { min, max, floor, ceil, abs } = Math;', ``);
+      }
+      if (answer.includes('DEFAULTS')) {
+        answer = answer.replaceAll('DEFAULTS', `DEFAULTS$${index}`);
+      }
+      if (answer.includes('I18N')) {
+        answer = answer.replaceAll('I18N', `I18N$${index}`);
+      }
+    }
+    if (answer.includes(' getComputedStyle') && answer.includes('window.getComputedStyle')) {
+      const regex = /(?<!\.)\b(getComputedStyle)\s*([=(])/g;
+      answer = answer.replace(regex, `$1\$${idx}$2`);
+      idx++;
+    }
+    if (answer.includes('debounce')) {
+      answer = answer.replaceAll('debounce', `debounce$${idx}`);
+      idx++;
     }
     
     // answer = answer.replace(importRegex, '// Импорт удален');
@@ -134,6 +178,7 @@ async function globalReplacer() {
     });
   }
 
+  idx = jsFiles.length+1;
   for (let index = 0; index < jsFiles.length; index++) {
     const fileName = jsFiles[index];
     if (!fileName.endsWith('.js')) continue;
@@ -149,7 +194,7 @@ async function globalReplacer() {
     const filePath = `${jsComponentsDir}/${fileName}`;
 
     await fs.readFile(filePath, 'utf8', async (err, data) => {
-      await readJSFileCallback(err, data, filePath)
+      await readJSFileCallback(err, data, filePath, index)
     });
   }
 }

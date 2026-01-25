@@ -1,4 +1,4 @@
-import {Splide} from '@splidejs/splide';
+import {Splide as MasterReviewsSplide} from '@splidejs/splide';
 
 window.addEventListener('load', () => {
   const galleryMastersReviews = document.querySelector('.gallery-masters-reviews');
@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     let contentSlider;
 
     if (document.querySelector('.content-masters-reviews')) {
-      contentSlider = new Splide('.content-masters-reviews', {
+      contentSlider = new MasterReviewsSplide('.content-masters-reviews', {
         type: 'loop',
         isNavigation: true,
         pagination: false,
@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
       })
     }
 
-    let gallerySlider = new Splide(galleryMastersReviews, {
+    let gallerySlider = new MasterReviewsSplide(galleryMastersReviews, {
       type: 'fade',
       perPage: 1,
       arrows: false,

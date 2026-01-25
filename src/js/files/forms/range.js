@@ -1,6 +1,6 @@
 // Подключение с node_modules
 import * as noUiSlider from 'nouislider';
-import { debounce, getDigFromString } from '../functions';
+import { getDigFromString } from '../functions';
 
 // Подключение стилей с scss/base/forms/range.scss
 // в файле scss/forms/forms.scss
