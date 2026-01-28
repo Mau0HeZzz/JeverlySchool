@@ -3,12 +3,13 @@
     <div class="navhero__wrapper" style="--bg: {{bg}}">
       <nav class="navhero__nav">
         <each loop="item,index in items">
-          <if condition="activeIndex === index">
+          <!-- <if condition="activeIndex === index">
             <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a>
           </if>
           <else>
-            <a href="#" class="navhero__item navlink"><span>{{item}}</span></a>
-          </else>
+          </else> -->
+          <!-- <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a> -->
+          <a href="#" class="navhero__item navlink"><span>{{item}}</span></a>
         </each>
       </nav>
       <div class="navhero__content">
