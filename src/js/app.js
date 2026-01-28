@@ -27,7 +27,7 @@ import 'unfonts.css';
 // ========================================================================================================================================================================================================================================================
 import * as mhzFunctions from "./files/functions.js";
 
-mhzFunctions.setBodyHeightsVars();
+mhzFunctions.setBodyHeightsVars?.();
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 /* (i) необходимо для корректного отображения webp из css  */
@@ -92,7 +92,7 @@ mhzFunctions.dragCloseActions();
 Документация:
 Сниппет (HTML):
 */
-import './libs/keywords.js'
+// import './libs/keywords.js'
 
 /*
 Модуль "Попапы"
