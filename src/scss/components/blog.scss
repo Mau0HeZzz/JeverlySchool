@@ -142,7 +142,16 @@
       aspect-ratio: 650 / 300;
       display: block;
       border-radius: mixins.toRem(10);
+      overflow: hidden;
       &:not(:last-child) {margin-bottom: mixins.toRem(20);}
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
     }
   }
 
