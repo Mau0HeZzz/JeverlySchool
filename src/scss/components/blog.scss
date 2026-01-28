@@ -136,7 +136,8 @@
       padding-left: mixins.toRem(40);
     }
 
-    >img {
+    >img,
+    >*:has(img) {
       width: 100%;
       aspect-ratio: 650 / 300;
       display: block;
