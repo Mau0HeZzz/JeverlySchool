@@ -182,7 +182,7 @@ img {
     --color-hover: var(--main-white-color);
     --bgc-hover: var(--dark-blue-color);
   }
-
+  
   &-white-stroke {
     --bgc: var(--main-white-color);
     --color: var(--dark-blue-color);
@@ -520,5 +520,103 @@ img[data-src]:not(._lazy-loaded) {
     .mhz-tippy {
       opacity: 1;
     }
+  }
+}
+
+.callbackPopup {
+
+  &__content {
+    max-width: mixins.toRem(531);
+  }
+
+  &__body {
+    padding-top: mixins.toRem(10);
+    @include mixins.adaptiveValue("padding-left", 40, 24, 767, 480 );
+    @include mixins.adaptiveValue("padding-right", 40, 24, 767, 480 );
+    @include mixins.adaptiveValue("padding-bottom", 40, 24, 767, 480 );
+  }
+
+  &__title {
+    font-family: Evolventa;
+    line-height: 0.8;
+    @include mixins.adaptiveValue("font-size", 42, 30, 960, 480);
+
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 150, 100, 960, 480);
+    }
+  }
+
+  &__form {
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 50, 40, 767, 480);
+    }
+
+    @media (width >= #{mixins.toEm(650)}) {
+      &.prefooter__form {
+        max-width: none;
+      }
+    }
+  }
+
+  &__info {
+    line-height: 1.3;
+    color: var(--grey-on-white-color);
+    @include mixins.adaptiveValue("font-size", 16, 15, 767, 480);
+  }
+}
+
+.successPopup {
+
+  &__content {
+    @media (width >= #{mixins.toEm(variables.$mobile)}) {
+      max-width: mixins.toRem(379);
+    }
+  }
+
+  &__body {
+    padding: mixins.toRem(10) mixins.toRem(40) mixins.toRem(40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: mixins.toRem(15);
+    text-align: center;
+  }
+
+  &__icon {
+    flex: mixins.toRem(60);
+    width: mixins.toRem(60);
+    height: mixins.toRem(60);
+    border-radius: 50%;
+    overflow: hidden;
+
+    * {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 35, 25, 767, 480);
+    }
+  }
+
+  &__title {
+    font-family: Evolventa;
+    line-height: 1.2;
+    @include mixins.adaptiveValue("font-size", 28, 24, 767, 480);
+  }
+
+  &__text {
+    color: var(--grey-on-white-color);
+    font-size: var(--font-size);
+    letter-spacing: mixins.lsp(-5);
+    line-height: 1.3;
+    @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+
+    &:not(:last-child) {margin-bottom: mixins.toRem(15);}
+  }
+
+  &__button {
   }
 }

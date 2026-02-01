@@ -1,3 +1,6 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
 // <SELECT>
 // Сниппет (HTML): sel
 .select {
@@ -11,31 +14,29 @@
 	&__title {
 		color: inherit;
 		text-align: left;
-		border: 1px solid #d9d9d9;
+		border: mixins.toRem(1) solid #d9d9d9;
 		background-color: #fff;
 		cursor: pointer;
 		width: 100%;
-		border-radius: 4px;
+		border-radius: mixins.toRem(5);
 	}
 	// .select__value
 	&__value {
 		display: flex;
 		min-width: 0;
 		align-items: center;
-		height: toRem(30);
-		padding: 0 toRem(15);
-		gap: toRem(10);
+		padding: mixins.toRem(8) mixins.toRem(20);
+		gap: mixins.toRem(10);
 		> * {
 			flex: 1 1 auto;
 		}
 		&:after {
 			content: "";
 			align-self: stretch;
-			flex: 0 0 10px;
+			flex: 0 0 mixins.toRem(24);
+      height: mixins.toRem(24);
 			transition: all 0.3s ease 0s;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1399_10003)'%3E%3Cpath d='M4 11L12 17L20 11' stroke='%230F1C2E' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1399_10003'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
 			._select-open & {
 				transform: rotate(-180deg);
 			}
@@ -70,22 +71,22 @@
 	&__options {
 		color: #000;
 		position: absolute;
-		top: calc(100% - toRem(1));
-		border-radius: 0 0 4px 4px;
+		top: calc(100% - mixins.toRem(3));
+		border-radius: 0 0 mixins.toRem(4) mixins.toRem(4);
 		min-width: 100%;
 		left: 0;
 		background-color: #fff;
 		border-top: 0;
-		border: 1px solid #d9d9d9;
+		border: mixins.toRem(1) solid #d9d9d9;
 		border-top: 0;
-		padding: 10px 0px 5px 0px;
+		padding: mixins.toRem(10) mixins.toRem(0) mixins.toRem(5) mixins.toRem(0);
 	}
 	// .select__scroll
 	&__scroll {
 		overflow-y: auto;
 		overflow-x: hidden;
 		// Максимальная высота
-		max-height: toRem(200);
+		max-height: mixins.toRem(200);
 		// Стили скроллбара
 		.simplebar-scrollbar {
 			&::before {
@@ -98,7 +99,7 @@
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
-		padding: 5px 15px;
+		padding: mixins.toRem(5) mixins.toRem(15);
 		color: inherit;
 		&._select-selected {
 			background-color: #eee;
@@ -123,11 +124,11 @@
 	&--show-top {
 		.select__options {
 			top: auto;
-			bottom: calc(100% - toRem(1));
-			border: 1px solid #d9d9d9;
+			bottom: calc(100% - mixins.toRem(1));
+			border: mixins.toRem(1) solid #d9d9d9;
 			border-bottom: 0;
-			border-radius: 4px 4px 0 0;
-			padding: 5px 0px 10px 0px;
+			border-radius: mixins.toRem(4) mixins.toRem(4) 0 0;
+			padding: mixins.toRem(5) mixins.toRem(0) mixins.toRem(10) mixins.toRem(0);
 		}
 	}
 

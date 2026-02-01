@@ -132,12 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Модуль звездного рейтинга */
   // flsForms.formRating();
   
-  /* Модуль работы с select. */
-  // import './libs/select.js'
   
   /* Модуль работы с календарем */
   // import './files/forms/datepicker.js'
 })
+/* Модуль работы с select. */
+import './libs/select.js'
 
 /* (В работе) модуль работы с масками.*/
 /*
@@ -208,7 +208,7 @@ import './libs/watcher.js'
 // Модуль параллакса
 // Документация: https://start-template.ru/parallaks-effekt-pri-skrolle-straniczy-chertogi-frilansera-v3-0-0/
 // Сниппет(HTML):
-// import './libs/parallax.js'
+import './libs/parallax.js'
 
 // Функции работы скроллом
 import * as flsScroll from "./files/scroll/scroll.js";
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Модуль анимация цифрового счетчика
   // Документация: https://start-template.ru/modul-animaczii-czifrovogo-schetchika/
   // Сниппет(HTML):
-  // flsScroll.digitsCounter();
+  flsScroll.digitsCounter();
 })
 
 // ========================================================================================================================================================================================================================================================
@@ -270,6 +270,9 @@ import "./components/brands.js";
 import "./components/masters-reviews.js";
 import "./components/professors.js";
 import "./components/courses.js";
+import "./components/home.js";
+import "./components/course.js";
+import "./components/calendar.js";
 //============================================================================================================================================================================================================================================
 
 
@@ -291,3 +294,21 @@ import "../scss/components/recognize.scss";
 import "../scss/components/masters-reviews.scss";
 import "../scss/components/professors.scss";
 import "../scss/components/courses.scss";
+import "../scss/components/hero.scss";
+import "../scss/components/cards.scss";
+import "../scss/components/path.scss";
+import "../scss/components/talent.scss";
+import "../scss/components/counters.scss";
+import "../scss/components/results.scss";
+import "../scss/components/students.scss";
+import "../scss/components/experts.scss";
+import "../scss/components/home-professors.scss";
+import "../scss/components/home-figure.scss";
+import "../scss/components/formats.scss";
+import "../scss/components/approach.scss";
+import "../scss/components/partners.scss";
+import "../scss/components/faq.scss";
+import "../scss/components/course.scss";
+import "../scss/components/iconrows.scss";
+import "../scss/components/course-pay.scss";
+import "../scss/components/calendar.scss";

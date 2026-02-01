@@ -2,7 +2,7 @@
 @use "/src/scss/variables.scss";
 
 .parallax-bg {
-  @include mixins.adaptiveValue("padding-top", 20, 12, 960, 480, 3);
+  // @include mixins.adaptiveValue("padding-top", 20, 12, 960, 480, 3);
   @include mixins.adaptiveValue("padding-bottom", 100, 50, 960, 480);
 
   &__container {

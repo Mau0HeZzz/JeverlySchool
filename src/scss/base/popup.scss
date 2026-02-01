@@ -16,7 +16,12 @@ body::after {
 	z-index: 149;
   backdrop-filter: blur(mixins.toRem(5));
 }
-.popup-show body::after {
+.pathtippy-show body::after {
+  pointer-events: all;
+}
+.popup-show body::after,
+.pathtippy-show body::after,
+.sidebar-experts-open body::after {
 	opacity: 1;
 }
 .popup {

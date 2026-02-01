@@ -448,6 +448,15 @@ export class SelectConstructor {
         optionItem.classList.add(this.selectClasses.classSelectOptionSelected);
       }
       originalSelect.value = optionItem.hasAttribute('data-value') ? optionItem.dataset.value : '';
+      Array.from(originalSelect.options).forEach(option => {
+        if (option.value === originalSelect.value || option.dataset.value === originalSelect.value) {
+          option.selected = true;
+          option.setAttribute('selected', '');
+        } else {
+          option.selected = false;
+          option.removeAttribute('selected');
+        }
+      });
       this.selectAction(selectItem);
     }
     // Обновляем заголовок селекта

@@ -26,13 +26,44 @@ Parallax.Each = class {
 		this.offset = 0;
 		this.value = 0;
 		this.smooth = parent.dataset.prlxSmooth ? Number(parent.dataset.prlxSmooth) : 15;
-		this.setEvents();
+    this.isStarted = true;
+
+    this.mediaHandler();
+		// this.setEvents();
 	}
+  mediaHandler() {
+    const attr = this.parent.getAttribute('data-prlx-parent');
+    if (!attr) {
+      this.setEvents();
+      return;
+    }
+
+    const attrArr = attr.split(',').map(str => str.trim());
+    const media = window.matchMedia(`(${attrArr[1]}-width: ${attrArr[0]}px)`);
+    if (media.matches) {
+      this.setEvents();
+    }
+
+    media.addEventListener('change', (e) => {
+      if (e.matches) {
+        if (!this.isStarted) {
+          this.setEvents();
+        }
+      } else {
+        if (this.isStarted) {
+          this.destroyEvents();
+        }
+      }
+    })
+  }
 	setEvents() {
-		this.animationID = window.requestAnimationFrame(this.animation);
+    this.animationID = window.requestAnimationFrame(this.animation);
+    this.isStarted = true;
 	}
 	destroyEvents() {
-		window.cancelAnimationFrame(this.animationID);
+    window.cancelAnimationFrame(this.animationID);
+    this.elements.forEach(el => el.style.removeProperty('transform'));
+    this.isStarted = false;
 	}
 	animationFrame() {
 		const topToWindow = this.parent.getBoundingClientRect().top;
@@ -84,7 +115,7 @@ Parallax.Each = class {
 		}
 	}
 }
-if (document.querySelectorAll('[data-prlx-parent]')) {
+if (document.querySelector('[data-prlx-parent]')) {
   if (!window.mhzModules) {
     window.mhzModules = {}
   }

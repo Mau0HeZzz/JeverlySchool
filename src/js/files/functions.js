@@ -685,7 +685,8 @@ export function FLS(message) {
 }
 // Получить цифры из строки
 export function getDigFromString(item) {
-    return parseFloat(item.replace(/[^\d\.]/g, ''))
+  if (!item) return NaN;
+  return parseFloat(item.replace(/[^\d\.]/g, ''))
 }
 // Форматирование цифр типа 100 000 000
 export function getDigFormat(item, sepp = ' ') {
@@ -1003,4 +1004,11 @@ export function pluralize(number, one, few, many) {
   } else {
     return forms[2];
   }
+}
+
+export function setIndex(els) {
+  els.forEach(el => {
+    const idx = indexInParent(el.parentElement, el);
+    el.style.setProperty('--i', idx);
+  });
 }

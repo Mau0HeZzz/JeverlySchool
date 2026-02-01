@@ -79,8 +79,8 @@ body {
 		@if (variables.$containerPadding>0) {
       padding-left: var(--padding-left);
       padding-right: var(--padding-right);
-      @include mixins.adaptiveValue("--padding-left", math.div(variables.$containerPadding, 2), 8);
-      @include mixins.adaptiveValue("--padding-right", math.div(variables.$containerPadding, 2), 8);
+      @include mixins.adaptiveValue("--padding-left", math.div(variables.$containerPadding, 2), 8, 767, 480);
+      @include mixins.adaptiveValue("--padding-right", math.div(variables.$containerPadding, 2), 8, 767, 480);
 		}
 
     [class*="__container"] {

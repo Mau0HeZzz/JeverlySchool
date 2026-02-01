@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<load
+		src="src/html/_head.html"
+		title="Расписание"
+	/>
+	<body>
+		<div class="wrapper">
+      <load src="src/html/_header_white.html"/>
+			<main class="page">
+        <section class="schedule">
+          <div class="schedule__container">
+            <div class="schedule__head">
+              <h1 class="schedule__title">Расписание</h1>
+              <a href="#" class="schedule__link" data-da=".filters-schedule__head, 900, last">
+                <span>Условия обучения</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_388_4530)">
+                    <path d="M16.9512 7.05078L7.05168 16.9503" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.9512 7.05078V15.5361" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.9497 7.05026H8.46439" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_388_4530">
+                      <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <div class="schedule__body" data-mhz-schedule data-dev>
+            <!-- <div class="schedule__body" data-mhz-schedule> -->
+              <form class="schedule__filters filters-schedule" data-mhz-schedule-filters>
+                <div class="filters-schedule__head">
+                  <div class="filters-schedule__title">Фильтры</div>
+                </div>
+                <div class="filters-schedule__body">
+                  <select data-custom-select name="direction">
+                    <option value="">Направление</option>
+                    <option value="value_1">value_1</option>
+                    <option value="value_2">value_2</option>
+                    <option value="value_3">value_3</option>
+                    <option value="value_4">value_4</option>
+                    <option value="value_5">value_5</option>
+                  </select>
+                  <select data-custom-select name="format">
+                    <option value="">Формат обучения</option>
+                    <option value="value_1">value_1</option>
+                    <option value="value_2">value_2</option>
+                    <option value="value_3">value_3</option>
+                    <option value="value_4">value_4</option>
+                    <option value="value_5">value_5</option>
+                  </select>
+                  <select data-custom-select name="prepod">
+                    <option value="">Преподаватель</option>
+                    <option value="value_1">value_1</option>
+                    <option value="value_2">value_2</option>
+                    <option value="value_3">value_3</option>
+                    <option value="value_4">value_4</option>
+                    <option value="value_5">value_5</option>
+                  </select>
+                </div>
+              </form>
+              <div class="schedule__calendar mhz-calendar" data-mhz-schedule-body>
+                <!-- <div class="mhz-calendar__head">
+                  <div class="mhz-calendar__arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_766_15664)">
+                        <path d="M5 12H19" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12L11 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12L11 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_766_15664">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <h2 class="mhz-calendar__title">Сентябрь</h2>
+                  <div class="mhz-calendar__arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_766_15666)">
+                        <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_766_15666">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+                <div class="mhz-calendar__grid">
+                  <div class="mhz-calendar__weekday">Пн</div>
+                  <div class="mhz-calendar__weekday">Вт</div>
+                  <div class="mhz-calendar__weekday">Ср</div>
+                  <div class="mhz-calendar__weekday">Чт</div>
+                  <div class="mhz-calendar__weekday">Пт</div>
+                  <div class="mhz-calendar__weekday">Сб</div>
+                  <div class="mhz-calendar__weekday">Вс</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 1;">1</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 2;">2</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 3;">3</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 4;">4</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 5;">5</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 6;">6</div>
+                  <div class="mhz-calendar__day" style="--row-start: 2; --column-start: 7;">7</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 1;">8</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 2;">9</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 3;">10</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 4;">11</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 5;">12</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 6;">13</div>
+                  <div class="mhz-calendar__day" style="--row-start: 3; --column-start: 7;">14</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 1;">15</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 2;">16</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 3;">17</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 4;">18</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 5;">19</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 6;">20</div>
+                  <div class="mhz-calendar__day" style="--row-start: 4; --column-start: 7;">21</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 1;">22</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 2;">23</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 3;">24</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 4;">25</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 5;">26</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 6;">27</div>
+                  <div class="mhz-calendar__day" style="--row-start: 5; --column-start: 7;">28</div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 1;">29</div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 2;">30</div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 3;"></div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 4;"></div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 5;"></div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 6;"></div>
+                  <div class="mhz-calendar__day" style="--row-start: 6; --column-start: 7;"></div>
+                  <div class="mhz-calendar__gridevent" style="--row-start: 3; --column-start: 1; --column-end: 6" data-goto="#mhz-event-0" data-goto-header>
+                    <div class="mhz-calendar__eventdate">8 - 12 сентября</div>
+                    <div class="mhz-calendar__eventname">MicroPave: базовый курс закрепки бриллиантов</div>
+                  </div>
+                  <div class="mhz-calendar__gridevent" style="--row-start: 5; --column-start: 1; --column-end: 6" data-goto="#mhz-event-1" data-goto-header>
+                    <div class="mhz-calendar__eventdate">22 - 26 сентября</div>
+                    <div class="mhz-calendar__eventname">Курс подготовки профессинальных закрепщиков</div>
+                  </div>
+                </div>
+                <div class="mhz-calendar__events">
+                  <div class="mhz-calendar__event event-mhz-calendar" id="mhz-event-0">
+                    <div class="event-mhz-calendar__name">
+                      <div class="event-mhz-calendar__date"><i>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_997_31842)"><path d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 11H20" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_997_31842"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>
+                        </i><span>8 - 12 сентября</span></div>
+                      <p>MicroPave: базовый курс закрепки бриллиантов</p>
+                    </div>
+                    <ul class="event-mhz-calendar__info">
+                      <li><span>Формат:</span><span>Оффлан</span></li>
+                      <li><span>Язык:</span><span>Русский, Английский</span></li>
+                    </ul>
+                    <div class="event-mhz-calendar__price">80 000₽</div>
+                    <a href="#" class="event-mhz-calendar__button btn btn-black">Подробнее о курсе</a>
+                  </div>
+                  <div class="mhz-calendar__event event-mhz-calendar" id="mhz-event-1">
+                    <div class="event-mhz-calendar__name">
+                      <div class="event-mhz-calendar__date"><i>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_997_31842)"><path d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 11H20" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_997_31842"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>
+                        </i><span>22 - 26 сентября</span></div>
+                      <p>Курс подготовки профессинальных закрепщиков</p>
+                    </div>
+                    <ul class="event-mhz-calendar__info">
+                      <li><span>Формат:</span><span>Оффлан</span></li>
+                      <li><span>Язык:</span><span>Русский, Английский</span></li>
+                    </ul>
+                    <div class="event-mhz-calendar__price">190 000₽</div>
+                    <a href="#" class="event-mhz-calendar__button btn btn-black">Подробнее о курсе</a>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <script>
+          window.addEventListener('load', () => {
+            if (window.MhzSchedule) {
+              window.mhzSchedule = new window.MhzSchedule({
+                parentSelector: '[data-mhz-schedule]',
+                filtersSelector: '[data-mhz-schedule-filters]',
+                bodySelector: '[data-mhz-schedule-body]',
+                initialDate: '2026-02-01',
+                ajaxPath: location.pathname, // Адрес куда делать запрос. Он будет делаться при инициализации и при каждом изменении фильтров
+                method: 'post', // Метод которым спрашивать, нужен для корректного формирования запроса. Если гет то будут query запросы, иначе формдатой
+              })
+            }
+          })
+
+          // Это не нужно, добавляю для понимания структуры, которую я жду в ответ.
+          window.scheduleEvents = [
+            {
+              id: 0,
+              begin: '2026-02-08',
+              end: '2026-02-12',
+              name: 'MicroPave: базовый курс закрепки бриллиантов',
+              format: 'Оффлан',
+              lang: 'Русский, Английский',
+              link: '#',
+              price: 80000
+            },
+            {
+              id: 1,
+              begin: '2026-02-22',
+              end: '2026-02-26',
+              name: 'Курс подготовки профессинальных закрепщиков',
+              format: 'Оффлан',
+              lang: 'Русский, Английский',
+              link: '#',
+              price: 190000
+            },
+          ]
+        </script>
+        <load src="src/html/components/_prefooter_form.html"/>
+			</main>
+      <load src="src/html/_footer.html"/>
+		</div>
+    <load src="src/html/_js.html"/>
+	</body>
+</html>

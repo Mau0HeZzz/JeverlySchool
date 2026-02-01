@@ -95,10 +95,12 @@ const readJSFileCallback = async (err, data, filePath, index = -1) => {
         answer = answer.replace(regex, `top\$${index}`);
       }
       if (answer.includes('min(')) {
-        answer = answer.replaceAll('min(', `Math.min(`);
+        const regex = /(?<!\.)\b(min)\s*([=(])/g;
+        answer = answer.replace(regex, `$1$2`);
       }
       if (answer.includes('max(')) {
-        answer = answer.replaceAll('max(', `Math.max(`);
+        const regex = /(?<!\.)\b(max)\s*([=(])/g;
+        answer = answer.replace(regex, `$1$2`);
       }
       if (answer.includes('const { min, max, floor, ceil, abs } = Math;')) {
         answer = answer.replaceAll('const { min, max, floor, ceil, abs } = Math;', ``);

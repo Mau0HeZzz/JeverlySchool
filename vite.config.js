@@ -79,6 +79,7 @@ export default defineConfig(({mode}) => {
             ...pagesInput
           },
           output: {
+            preserveModules: false,
             // sourcemap: true,
             assetFileNames: (assetInfo) => {
               if (assetInfo.name == 'app.css') {
@@ -91,7 +92,7 @@ export default defineConfig(({mode}) => {
               return "assets/[name].js"
             }
           }
-        }
+        },
       },
       css: {
         preprocessorOptions: {

@@ -7,7 +7,7 @@ import { isMobile, menuClose, getHash, FLS } from "../functions.js";
 
 // Модуль плавной проктутки к блоку
 export let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
-	const targetBlockElement = document.querySelector(targetBlock);
+	const targetBlockElement = typeof targetBlock === 'string' ? document.querySelector(targetBlock) : targetBlock;
 	if (targetBlockElement) {
 		let headerItem = '';
 		let headerItemHeight = 0;

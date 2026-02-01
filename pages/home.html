@@ -2,14 +2,1194 @@
 <html lang="en">
 	<load
 		src="src/html/_head.html"
-		title="HomePage"
+		title="Главная"
 	/>
 	<body>
+    
 		<div class="wrapper">
-      <load src="src/html/_header.html"/>
+      <load src="src/html/_header_white.html"/>
 			<main class="page">
-        <img src="/img/cover.jpg" alt="Image">
-        main
+        <section class="hero" data-prlx-parent="992, min" data-da-parent>
+          <div class="hero__container">
+            <div class="hero__image">
+              <img src="/img/home/hero_bg.png" alt="Image" class="_md2dn">
+              <img src="/img/home/hero_bg_mobile.png" alt="Image" class="_mmd2dn">
+              <script type="text/plain" class="КОММЕНТАРИЙ ДЛЯ БЭКА!">
+                <!-- <video src="/files/video1.mp4" autoplay muted></video> -->
+              </script>
+            </div>
+            <div class="hero__content" data-da=".hero__card, 992, 0">
+              <p>Добро пожаловать</p>
+              <h1> в Международную школу ювелирного искусства</h1>
+              <span>Здесь создаются мастера, которых выбирает весь мир</span>
+            </div>
+            <div class="hero__cardwrapper">
+              <div 
+                class="hero__card" 
+                data-prlx 
+                data-direction="1"
+                data-coefficient="80"
+              >
+                <div 
+                  class="hero__cardtext" 
+                  data-watch 
+                  data-watch-threshold="1" 
+                  data-watch-once
+                >
+                  <div class="hero__crystal" style="--base-transition-delay: 0.25s">
+                    <svg width="200" height="160" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M99.9867 153.134L63.7868 52.3616H136.213L99.9867 153.134Z" fill="#1B293F" style="--i:4" />
+                      <path d="M100 10.8672L63.4115 46.4339H136.589L100 10.8672Z" fill="#1B293F" style="--i:3" />
+                      <path d="M33.609 10.8672L9.4668 46.4339H57.7512L33.609 10.8672Z" fill="#1B293F" style="--i:0" />
+                      <path d="M166.391 10.8672L142.249 46.4339H190.533L166.391 10.8672Z" fill="#1B293F" style="--i:6" />
+                      <path d="M139.835 40.5061L160.356 10.8672H109.053L139.835 40.5061Z" fill="#1B293F" style="--i:5" />
+                      <path d="M60.769 40.5061L39.6419 10.8672H91.5421L60.769 40.5061Z" fill="#1B293F" style="--i:2" />
+                      <path d="M109.053 141.278L142.249 52.3616H190.533L109.053 141.278Z" fill="#1B293F" style="--i:7" />
+                      <path d="M90.9468 141.278L57.7512 52.3616H9.4668L90.9468 141.278Z" fill="#1B293F" style="--i:1" />
+                    </svg>
+                  </div>
+                  <p>«Мир держится на деталях»</p>
+                  <span>Мы учим создавать их безупречно</span>
+                </div>
+                <a href="#" class="hero__button btn">
+                  <span>Выбрать курс</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="_nofill">
+                    <g clip-path="url(#clip0_1345_3164)">
+                      <path d="M16.9497 7.05103L7.05021 16.9505" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16.9497 7.05103V15.5363" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16.9497 7.0505H8.46439" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1345_3164">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section 
+          class="cards"
+          data-watch 
+          data-watch-threshold="0.2" 
+          data-watch-once
+          style="--transition-duration: 1s"
+        >
+          <div class="cards__container">
+            <div class="cards__item">
+              <div class="cards__number">01</div>
+              <div class="cards__main">
+                <div>
+                  <h2>53</h2>
+                  <span>страны</span>
+                </div>
+              </div>
+              <div class="cards__title">Мир выбирает нас</div>
+              <div class="cards__text">Ученики из 53 стран приезжают в школу, чтобы пройти обучение по самым высоким стандартам</div>
+            </div>
+            <div class="cards__item">
+              <div class="cards__number">02</div>
+              <div class="cards__main">
+                <img src="/img/home/cards_item.png" alt="Image">
+              </div>
+              <div class="cards__title">Как чертёж — индивидуально под вас</div>
+              <div class="cards__text">Частные мастера, компании и госструктуры — мы адаптируем обучение именно под ваш контекст</div>
+            </div>
+          </div>
+        </section>
+        <section class="path">
+          <div class="path__container">
+            <div class="path__head">
+              <span>Персонализация контента</span>
+              <p>Выберите путь — и мы покажем только нужное</p>
+            </div>
+            <div class="path__body" data-watch data-watch-once data-watch-threshold="1">
+              <a href="#" class="path__row" style="--translate-x: 0.05">
+                <p>учусь сам</p>
+                <img src="/img/home/path_1.png" alt="path_1">
+                <span>/частным мастерам/</span>
+              </a>
+              <a href="#" class="path__row _active" style="--translate-x: 0.2">
+                <p>ОБУЧАЮ КОМАНДУ</p>
+                <img src="/img/home/path_2.png" alt="path_2">
+                <span>/компаниям/</span>
+              </a>
+              <a href="#" class="path__row">
+                <p>я из ГОСОРГАНИЗАЦИи</p>
+                <img src="/img/home/path_3.png" alt="path_2" class="_mmd2dn">
+                <span>/гос сектору/</span>
+              </a>
+
+              <script type="text/plain" class="КОММЕНТАРИЙ ДЛЯ БЭКА!">
+                <!-- <div class="path__tippy _hide" data-no-cookies> -->
+              </script>
+              <div class="path__tippy _hide">
+                <i>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1345_7230)">
+                      <rect width="24" height="24" rx="12" fill="black"/>
+                      <path d="M15.999 8.00183L8.00084 16" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.00098 8.00183L15.9992 16" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1345_7230">
+                        <rect width="24" height="24" rx="12" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </i>
+                <p>Нажмите на свою роль — и сайт подстроится под вас</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section 
+          class="talent" 
+          data-da-parent
+        >
+          <div class="talent__container" data-watch data-watch-threshold="0.7" data-watch-once>
+            <div class="talent__head">
+              <div class="talent__logo" data-da=".talent__image, 500, 0">
+                <img src="/img/logo-column.svg" alt="Image" class="_md-500-dn asd qwe">
+                <img src="/img/logo-column-white.svg" alt="Image" class="_mmd-500-dn">
+              </div>
+              <h2 class="talent__title">Место, где ваш талант превращается в&nbsp;профессию</h2>
+            </div>
+            <div class="talent__image">
+              <div class="talent__img talent__img_bt"><img src="/img/home/talent_1.png" alt="Image"></div>
+            </div>
+            <div class="talent__content">
+              <p>International Jewellery School — это школа, где обучение строится по самым высоким стандартам.Здесь вы получаете не только практические навыки, но и глубокое понимание индустриальных требований, по которым работает мировой рынок. Мы обучаем так, чтобы ваш рост был быстрым, а результат — востребованным</p>
+              <a href="#" class="btn btn-black">Больше о нас</a>
+              <div class="talent__img talent__img_lr" data-da=".talent__image, 1300, last"><img src="/img/home/talent_2.png" alt="Image"></div>
+            </div>
+          </div>
+        </section>
+        <section class="counters" data-watch data-watch-threshold="0.5" data-watch-once>
+          <div class="counters__container">
+            <div class="counters__item">
+              <div class="counters__title">
+                <p data-digits-counter data-digits-counter-speed="2000">53</p>
+                <span>страны</span>
+              </div>
+              <div class="counters__text">География наших студентов — от Европы до Ближнего Востока</div>
+            </div>
+            <div class="counters__item">
+              <div class="counters__title">
+                <p data-digits-counter data-digits-counter-speed="2000">1500</p>
+                <span>+</span>
+              </div>
+              <div class="counters__text">Выпускников успешно прошли обучение</div>
+            </div>
+            <div class="counters__item">
+              <div class="counters__title">
+                <p data-digits-counter data-digits-counter-speed="2000">3</p>
+                <span>формата</span>
+              </div>
+              <div class="counters__text">Онлайн, офлайн в Москве, Дубай-интенсивы</div>
+            </div>
+          </div>
+        </section>
+        <section class="results" data-watch data-watch-threshold="0.3" data-watch-once data-da-parent>
+          <div class="results__container">
+            <div class="results__head">
+              <h2 class="results__title">Результаты, которые получит каждый выпускник</h2>
+              <div class="results__buttons" data-da=".results__container, 1400, last">
+                <a href="#" class="results__btn btn btn-natural-blue">Посмотреть программы</a>
+                <a href="#" class="results__btn btn btn-white-blue">Как проходит обучение?</a>
+              </div>
+            </div>
+            <div class="results__content">
+              <div class="results__image">
+                <img src="/img/home/results.png" alt="Image">
+              </div>
+              <div class="results__body">
+                <div class="results__item">
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.889 11.1119L17.3328 6.66816M18.2215 7.55691L16.444 5.77941L18.6659 4.44629L19.5547 5.33504L18.2215 7.55691ZM4.91254 9.31218C4.48585 8.88587 4.1923 8.34469 4.06765 7.75454C3.94299 7.16439 3.9926 6.55073 4.21043 5.98827L5.47423 7.25207H7.25173V5.47457L5.98793 4.21077C6.55043 3.99245 7.16428 3.94243 7.75471 4.06681C8.34514 4.1912 8.88664 4.48462 9.31325 4.91132C9.73986 5.33803 10.0332 5.8796 10.1574 6.47005C10.2817 7.0605 10.2315 7.67435 10.0131 8.2368L15.7633 13.9879C16.3257 13.7694 16.9396 13.7193 17.53 13.8435C18.1205 13.9678 18.662 14.2611 19.0887 14.6877C19.5154 15.1143 19.8089 15.6558 19.9332 16.2462C20.0576 16.8367 20.0076 17.4505 19.7893 18.013L18.5264 16.7492H16.7489V18.5267L18.0127 19.7905C17.4503 20.0088 16.8366 20.0589 16.2463 19.9347C15.656 19.8105 15.1145 19.5173 14.6878 19.0908C14.2612 18.6643 13.9677 18.123 13.8432 17.5327C13.7188 16.9425 13.7686 16.3287 13.9867 15.7663L8.23468 10.0143C7.67245 10.2318 7.05915 10.2812 6.46936 10.1565C5.87957 10.0319 5.33871 9.73853 4.91254 9.31218Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12.1808 14.2216L7.20031 19.2022C7.08886 19.3138 6.9565 19.4024 6.81078 19.4628C6.66507 19.5233 6.50886 19.5544 6.35111 19.5544C6.19336 19.5544 6.03715 19.5233 5.89144 19.4628C5.74572 19.4024 5.61335 19.3138 5.50191 19.2022L4.79802 18.4983C4.68637 18.3868 4.59779 18.2545 4.53735 18.1087C4.47691 17.963 4.4458 17.8068 4.4458 17.6491C4.4458 17.4913 4.47691 17.3351 4.53735 17.1894C4.59779 17.0437 4.68637 16.9113 4.79802 16.7999L9.77856 11.8193" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </i>
+                  <h4>Навыки, востребованные в индустрии</h4>
+                  <p>Выпускник умеет делать то, за что реально платят: закрепка, гравировка, изготовление, работа по техзаданию</p>
+                </div>
+                <div class="results__item">
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.2857 12.6667V20H2.71429V12.6667M12 16V13.3333M14.8571 6.66667C14.8571 6.66667 14.8571 4 12 4C9.14286 4 9.14286 6.66667 9.14286 6.66667M2 6.66667H22V12C22 12 17.7143 14.6667 12 14.6667C6.28571 14.6667 2 12 2 12V6.66667Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </i>
+                  <h4>Портфолио с готовыми работами</h4>
+                  <p>Соберете профессиональное портфолио: фото, образцы изделий, примеры выполненных задач</p>
+                </div>
+                <div class="results__item">
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5067 4.08H11.4933L10.9128 6.4002L10.3305 6.5802C9.99119 6.68476 9.66244 6.82096 9.3486 6.987L8.8095 7.2723L6.7575 6.0411L6.0411 6.7584L7.2723 8.8104L6.987 9.3486C6.82065 9.66241 6.68415 9.99115 6.5793 10.3305L6.4002 10.9128L4.08 11.4933V12.5067L6.4002 13.0872L6.5802 13.6695C6.684 14.0103 6.8196 14.3376 6.987 14.6514L7.2723 15.1905L6.0411 17.2425L6.7584 17.9589L8.8104 16.7277L9.3486 17.013C9.6624 17.1798 9.9897 17.3157 10.3305 17.4207L10.9128 17.5998L11.4933 19.92H12.5067L13.0872 17.5998L13.6695 17.4198C14.0088 17.3152 14.3376 17.179 14.6514 17.013L15.1905 16.7277L17.2425 17.9589L17.9589 17.2416L16.7277 15.1896L17.013 14.6514C17.1798 14.3376 17.3157 14.0103 17.4207 13.6695L17.5998 13.0872L19.92 12.5067V11.4933L17.5998 10.9128L17.4198 10.3305C17.3152 9.99119 17.179 9.66244 17.013 9.3486L16.7277 8.8095L17.9589 6.7575L17.2416 6.0411L15.1896 7.2723L14.6514 6.987C14.3376 6.82065 14.0088 6.68415 13.6695 6.5793L13.0872 6.4002L12.5067 4.08ZM15.1572 6.033L16.8069 5.043C16.9789 4.93983 17.1805 4.89707 17.3796 4.92153C17.5787 4.94599 17.7639 5.03626 17.9058 5.178L18.822 6.0942C18.9637 6.23613 19.054 6.42134 19.0785 6.62044C19.1029 6.81953 19.0602 7.02108 18.957 7.1931L17.967 8.8428C18.165 9.2148 18.327 9.6048 18.453 10.0128L20.3187 10.4799C20.5133 10.5287 20.6861 10.641 20.8095 10.7992C20.9329 10.9574 21 11.1523 21 11.3529V12.6471C21 12.8477 20.9329 13.0426 20.8095 13.2008C20.6861 13.359 20.5133 13.4713 20.3187 13.5201L18.453 13.9872C18.327 14.3952 18.165 14.7852 17.967 15.1572L18.957 16.8069C19.0602 16.9789 19.1029 17.1805 19.0785 17.3796C19.054 17.5787 18.9637 17.7639 18.822 17.9058L17.9058 18.822C17.7639 18.9637 17.5787 19.054 17.3796 19.0785C17.1805 19.1029 16.9789 19.0602 16.8069 18.957L15.1572 17.967C14.7852 18.165 14.3952 18.327 13.9872 18.453L13.5201 20.3187C13.4713 20.5133 13.359 20.6861 13.2008 20.8095C13.0426 20.9329 12.8477 21 12.6471 21H11.3529C11.1523 21 10.9574 20.9329 10.7992 20.8095C10.641 20.6861 10.5287 20.5133 10.4799 20.3187L10.0128 18.453C9.60843 18.328 9.2167 18.1653 8.8428 17.967L7.1931 18.957C7.02108 19.0602 6.81953 19.1029 6.62044 19.0785C6.42134 19.054 6.23613 18.9637 6.0942 18.822L5.178 17.9058C5.03626 17.7639 4.94599 17.5787 4.92153 17.3796C4.89707 17.1805 4.93983 16.9789 5.043 16.8069L6.033 15.1572C5.83468 14.7833 5.67196 14.3916 5.547 13.9872L3.6813 13.5201C3.48683 13.4714 3.31419 13.3591 3.19077 13.2011C3.06734 13.0432 3.00021 12.8485 3 12.648V11.3538C3.00001 11.1532 3.06705 10.9583 3.19049 10.8001C3.31393 10.6419 3.48668 10.5296 3.6813 10.4808L5.547 10.0137C5.673 9.6057 5.835 9.2157 6.033 8.8437L5.043 7.194C4.93983 7.02198 4.89707 6.82043 4.92153 6.62134C4.94599 6.42224 5.03626 6.23703 5.178 6.0951L6.0942 5.178C6.23613 5.03626 6.42134 4.94599 6.62044 4.92153C6.81953 4.89707 7.02108 4.93983 7.1931 5.043L8.8428 6.033C9.2148 5.835 9.6048 5.673 10.0128 5.547L10.4799 3.6813C10.5286 3.48683 10.6409 3.31419 10.7989 3.19077C10.9568 3.06734 11.1515 3.00021 11.352 3H12.6462C12.8468 3.00001 13.0417 3.06705 13.1999 3.19049C13.3581 3.31393 13.4704 3.48668 13.5192 3.6813L13.9863 5.547C14.3943 5.673 14.7843 5.835 15.1563 6.033H15.1572ZM12 14.52C12.6683 14.52 13.3093 14.2545 13.7819 13.7819C14.2545 13.3093 14.52 12.6683 14.52 12C14.52 11.3317 14.2545 10.6907 13.7819 10.2181C13.3093 9.7455 12.6683 9.48 12 9.48C11.3317 9.48 10.6907 9.7455 10.2181 10.2181C9.7455 10.6907 9.48 11.3317 9.48 12C9.48 12.6683 9.7455 13.3093 10.2181 13.7819C10.6907 14.2545 11.3317 14.52 12 14.52ZM12 15.6C11.0452 15.6 10.1295 15.2207 9.45442 14.5456C8.77928 13.8705 8.4 12.9548 8.4 12C8.4 11.0452 8.77928 10.1295 9.45442 9.45442C10.1295 8.77928 11.0452 8.4 12 8.4C12.9548 8.4 13.8705 8.77928 14.5456 9.45442C15.2207 10.1295 15.6 11.0452 15.6 12C15.6 12.9548 15.2207 13.8705 14.5456 14.5456C13.8705 15.2207 12.9548 15.6 12 15.6Z" fill="#0F1C2E"/>
+                    </svg>
+                  </i>
+                  <h4>Понимание производственного процесса и стандартов</h4>
+                  <p>Работает с учётом индустриальных стандартов и требований корпоративных и государственных заказчиков</p>
+                </div>
+                <div class="results__item">
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.55517 20.0004C7.08366 20.0004 6.63146 19.8131 6.29806 19.4797C5.96465 19.1463 5.77734 18.6941 5.77734 18.2226V4H13.7775L18.2221 8.44455V18.2226C18.2221 18.6941 18.0348 19.1463 17.7014 19.4797C17.368 19.8131 16.9158 20.0004 16.4443 20.0004H7.55517Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12.8887 4V9.33346H18.2221" stroke="#0F1C2E" stroke-linejoin="round"/>
+                    </svg>
+                  </i>
+                  <h4>Сертификат, подтверждающий квалификацию</h4>
+                  <p>Документ, подтверждающий ваш уровень мастерства. Работает как аргумент для клиентов, работодателей и партнёров</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="students">
+          <div class="students__container">
+            <div class="students__wrapper">
+              <div class="splide students__slider">
+                <div class="splide__track students__track">
+                  <ul class="splide__list students__list">
+                    <li class="splide__slide students__slide slide-students" data-da-parent>
+                      <div class="slide-students__content">
+                        <div class="slide-students__contentinner">
+                          <div class="slide-students__uptitle">Наши ученики</div>
+                          <div class="slide-students__title">Мария, 28 лет. Начала с нуля — теперь принимает заказы со всей России</div>
+                          <div class="slide-students__text">
+                            <p><span>До обучения:</span> дизайнер одежды, без опыта в ювелирной сфере.</p>
+                            <p><span>После курса:</span> освоила закрепку, выпустила первую коллекцию украшений, начала продавать через Instagram</div></p>
+                          <div class="slide-students__story">
+                            <p>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3775)">
+                                  <path d="M19 6H13C12.2044 6 11.4413 6.31607 10.8787 6.87868C10.3161 7.44129 10 8.20435 10 9V19M10 19L14 15M10 19L6 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3775">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <span>История успеха Марии</span>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3777)">
+                                  <path d="M6 6H12C12.7956 6 13.5587 6.31607 14.1213 6.87868C14.6839 7.44129 15 8.20435 15 9V19M15 19L11 15M15 19L19 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3777">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </p>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 12L9 14" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 7V12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Путь и сроки</p>
+                              <span>1,5 года. Курсы: «PRO-закрепка», «Микрозакрепка»,, «B2G-практика», «Пайка и швы», «Проектная сессия»</span>
+                            </div>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M20 10.9851C19.7554 9.22528 18.9391 7.59472 17.6766 6.34455C16.4142 5.09439 14.7758 4.29398 13.0137 4.06661C11.2516 3.83924 9.46362 4.19754 7.9252 5.0863C6.38678 5.97507 5.18325 7.34499 4.5 8.98506M4 4.98506V8.98506H8" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M4 12.9844C4.24456 14.7442 5.06093 16.3747 6.32336 17.6249C7.58579 18.875 9.22424 19.6755 10.9863 19.9028C12.7484 20.1302 14.5364 19.7719 16.0748 18.8831C17.6132 17.9944 18.8168 16.6244 19.5 14.9844M20 18.9844V14.9844H16" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Результат</p>
+                              <span>Получил оффер Graff Diamond. Приглашён преподавать в британскую школу</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slide-students__images">
+                        <img src="/img/home/students_1.png" alt="Image" data-da=".slide-students__story, 850, 1">
+                        <img src="/img/home/students_2.png" alt="Image" data-da=".slide-students__story, 850, 2">
+                      </div>
+                    </li>
+                    <li class="splide__slide students__slide slide-students" data-da-parent>
+                      <div class="slide-students__content">
+                        <div class="slide-students__contentinner">
+                          <div class="slide-students__uptitle">Наши ученики</div>
+                          <div class="slide-students__title">Мария, 28 лет. Начала с нуля — теперь принимает заказы со всей России</div>
+                          <div class="slide-students__text">
+                            <p><span>До обучения:</span> дизайнер одежды, без опыта в ювелирной сфере.</p>
+                            <p><span>После курса:</span> освоила закрепку, выпустила первую коллекцию украшений, начала продавать через Instagram</div></p>
+                          <div class="slide-students__story">
+                            <p>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3775)">
+                                  <path d="M19 6H13C12.2044 6 11.4413 6.31607 10.8787 6.87868C10.3161 7.44129 10 8.20435 10 9V19M10 19L14 15M10 19L6 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3775">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <span>История успеха Марии</span>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3777)">
+                                  <path d="M6 6H12C12.7956 6 13.5587 6.31607 14.1213 6.87868C14.6839 7.44129 15 8.20435 15 9V19M15 19L11 15M15 19L19 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3777">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </p>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 12L9 14" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 7V12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Путь и сроки</p>
+                              <span>1,5 года. Курсы: «PRO-закрепка», «Микрозакрепка»,, «B2G-практика», «Пайка и швы», «Проектная сессия»</span>
+                            </div>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M20 10.9851C19.7554 9.22528 18.9391 7.59472 17.6766 6.34455C16.4142 5.09439 14.7758 4.29398 13.0137 4.06661C11.2516 3.83924 9.46362 4.19754 7.9252 5.0863C6.38678 5.97507 5.18325 7.34499 4.5 8.98506M4 4.98506V8.98506H8" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M4 12.9844C4.24456 14.7442 5.06093 16.3747 6.32336 17.6249C7.58579 18.875 9.22424 19.6755 10.9863 19.9028C12.7484 20.1302 14.5364 19.7719 16.0748 18.8831C17.6132 17.9944 18.8168 16.6244 19.5 14.9844M20 18.9844V14.9844H16" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Результат</p>
+                              <span>Получил оффер Graff Diamond. Приглашён преподавать в британскую школу</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slide-students__images">
+                        <img src="/img/home/students_1.png" alt="Image" data-da=".slide-students__story, 850, 1">
+                        <img src="/img/home/students_2.png" alt="Image" data-da=".slide-students__story, 850, 2">
+                      </div>
+                    </li>
+                    <li class="splide__slide students__slide slide-students" data-da-parent>
+                      <div class="slide-students__content">
+                        <div class="slide-students__contentinner">
+                          <div class="slide-students__uptitle">Наши ученики</div>
+                          <div class="slide-students__title">Мария, 28 лет. Начала с нуля — теперь принимает заказы со всей России</div>
+                          <div class="slide-students__text">
+                            <p><span>До обучения:</span> дизайнер одежды, без опыта в ювелирной сфере.</p>
+                            <p><span>После курса:</span> освоила закрепку, выпустила первую коллекцию украшений, начала продавать через Instagram</div></p>
+                          <div class="slide-students__story">
+                            <p>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3775)">
+                                  <path d="M19 6H13C12.2044 6 11.4413 6.31607 10.8787 6.87868C10.3161 7.44129 10 8.20435 10 9V19M10 19L14 15M10 19L6 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3775">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <span>История успеха Марии</span>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3777)">
+                                  <path d="M6 6H12C12.7956 6 13.5587 6.31607 14.1213 6.87868C14.6839 7.44129 15 8.20435 15 9V19M15 19L11 15M15 19L19 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3777">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </p>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 12L9 14" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 7V12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Путь и сроки</p>
+                              <span>1,5 года. Курсы: «PRO-закрепка», «Микрозакрепка»,, «B2G-практика», «Пайка и швы», «Проектная сессия»</span>
+                            </div>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M20 10.9851C19.7554 9.22528 18.9391 7.59472 17.6766 6.34455C16.4142 5.09439 14.7758 4.29398 13.0137 4.06661C11.2516 3.83924 9.46362 4.19754 7.9252 5.0863C6.38678 5.97507 5.18325 7.34499 4.5 8.98506M4 4.98506V8.98506H8" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M4 12.9844C4.24456 14.7442 5.06093 16.3747 6.32336 17.6249C7.58579 18.875 9.22424 19.6755 10.9863 19.9028C12.7484 20.1302 14.5364 19.7719 16.0748 18.8831C17.6132 17.9944 18.8168 16.6244 19.5 14.9844M20 18.9844V14.9844H16" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Результат</p>
+                              <span>Получил оффер Graff Diamond. Приглашён преподавать в британскую школу</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slide-students__images">
+                        <img src="/img/home/students_1.png" alt="Image" data-da=".slide-students__story, 850, 1">
+                        <img src="/img/home/students_2.png" alt="Image" data-da=".slide-students__story, 850, 2">
+                      </div>
+                    </li>
+                    <li class="splide__slide students__slide slide-students" data-da-parent>
+                      <div class="slide-students__content">
+                        <div class="slide-students__contentinner">
+                          <div class="slide-students__uptitle">Наши ученики</div>
+                          <div class="slide-students__title">Мария, 28 лет. Начала с нуля — теперь принимает заказы со всей России</div>
+                          <div class="slide-students__text">
+                            <p><span>До обучения:</span> дизайнер одежды, без опыта в ювелирной сфере.</p>
+                            <p><span>После курса:</span> освоила закрепку, выпустила первую коллекцию украшений, начала продавать через Instagram</div></p>
+                          <div class="slide-students__story">
+                            <p>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3775)">
+                                  <path d="M19 6H13C12.2044 6 11.4413 6.31607 10.8787 6.87868C10.3161 7.44129 10 8.20435 10 9V19M10 19L14 15M10 19L6 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3775">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <span>История успеха Марии</span>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3777)">
+                                  <path d="M6 6H12C12.7956 6 13.5587 6.31607 14.1213 6.87868C14.6839 7.44129 15 8.20435 15 9V19M15 19L11 15M15 19L19 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3777">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </p>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 12L9 14" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 7V12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Путь и сроки</p>
+                              <span>1,5 года. Курсы: «PRO-закрепка», «Микрозакрепка»,, «B2G-практика», «Пайка и швы», «Проектная сессия»</span>
+                            </div>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M20 10.9851C19.7554 9.22528 18.9391 7.59472 17.6766 6.34455C16.4142 5.09439 14.7758 4.29398 13.0137 4.06661C11.2516 3.83924 9.46362 4.19754 7.9252 5.0863C6.38678 5.97507 5.18325 7.34499 4.5 8.98506M4 4.98506V8.98506H8" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M4 12.9844C4.24456 14.7442 5.06093 16.3747 6.32336 17.6249C7.58579 18.875 9.22424 19.6755 10.9863 19.9028C12.7484 20.1302 14.5364 19.7719 16.0748 18.8831C17.6132 17.9944 18.8168 16.6244 19.5 14.9844M20 18.9844V14.9844H16" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Результат</p>
+                              <span>Получил оффер Graff Diamond. Приглашён преподавать в британскую школу</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slide-students__images">
+                        <img src="/img/home/students_1.png" alt="Image" data-da=".slide-students__story, 850, 1">
+                        <img src="/img/home/students_2.png" alt="Image" data-da=".slide-students__story, 850, 2">
+                      </div>
+                    </li>
+                    <li class="splide__slide students__slide slide-students" data-da-parent>
+                      <div class="slide-students__content">
+                        <div class="slide-students__contentinner">
+                          <div class="slide-students__uptitle">Наши ученики</div>
+                          <div class="slide-students__title">Мария, 28 лет. Начала с нуля — теперь принимает заказы со всей России</div>
+                          <div class="slide-students__text">
+                            <p><span>До обучения:</span> дизайнер одежды, без опыта в ювелирной сфере.</p>
+                            <p><span>После курса:</span> освоила закрепку, выпустила первую коллекцию украшений, начала продавать через Instagram</div></p>
+                          <div class="slide-students__story">
+                            <p>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3775)">
+                                  <path d="M19 6H13C12.2044 6 11.4413 6.31607 10.8787 6.87868C10.3161 7.44129 10 8.20435 10 9V19M10 19L14 15M10 19L6 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3775">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <span>История успеха Марии</span>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_388_3777)">
+                                  <path d="M6 6H12C12.7956 6 13.5587 6.31607 14.1213 6.87868C14.6839 7.44129 15 8.20435 15 9V19M15 19L11 15M15 19L19 15" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_388_3777">
+                                    <rect width="24" height="24" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </p>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 12L9 14" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M12 7V12" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Путь и сроки</p>
+                              <span>1,5 года. Курсы: «PRO-закрепка», «Микрозакрепка»,, «B2G-практика», «Пайка и швы», «Проектная сессия»</span>
+                            </div>
+                            <div class="slide-students__item">
+                              <i>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M20 10.9851C19.7554 9.22528 18.9391 7.59472 17.6766 6.34455C16.4142 5.09439 14.7758 4.29398 13.0137 4.06661C11.2516 3.83924 9.46362 4.19754 7.9252 5.0863C6.38678 5.97507 5.18325 7.34499 4.5 8.98506M4 4.98506V8.98506H8" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M4 12.9844C4.24456 14.7442 5.06093 16.3747 6.32336 17.6249C7.58579 18.875 9.22424 19.6755 10.9863 19.9028C12.7484 20.1302 14.5364 19.7719 16.0748 18.8831C17.6132 17.9944 18.8168 16.6244 19.5 14.9844M20 18.9844V14.9844H16" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </i>
+                              <p>Результат</p>
+                              <span>Получил оффер Graff Diamond. Приглашён преподавать в британскую школу</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slide-students__images">
+                        <img src="/img/home/students_1.png" alt="Image" data-da=".slide-students__story, 850, 1">
+                        <img src="/img/home/students_2.png" alt="Image" data-da=".slide-students__story, 850, 2">
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="students__controls">
+                  <div class="splide__arrows students__arrows splide__arrows--ltr">
+                    <button class="splide__arrow students__arrow splide__arrow--prev" type="button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_388_3791)">
+                          <path d="M5 12H19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5 12L11 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5 12L11 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_388_3791">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <span>Назад</span>
+                    </button>
+                    <ul class="students__pagination splide__pagination splide__pagination--ltr" role="tablist" aria-label="Select a slide to show"></ul>
+                    <button class="splide__arrow students__arrow splide__arrow--next" type="button">
+                      <span>Вперед</span>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_388_3795)">
+                          <path d="M19 12H5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_388_3795">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="experts">
+          <div class="experts__container">
+            <div class="experts__head">
+              <h2 class="experts__title">Станьте экспертом в своей специализации</h2>
+              <div class="experts__subtitle">Программы выстроены от простого к сложному — выберите направление и начните свой путь</div>
+            </div>
+            <div class="experts__body" data-watch data-watch-once>
+              <div class="experts__item">
+                <a href="#" class="experts__link"></a>
+                <div class="experts__image">
+                  <img src="/img/home/experts_1.png" alt="experts_1">
+                  <img src="/img/home/experts_2.png" alt="experts_1">
+                </div>
+                <div class="experts__content">
+                  <div class="experts__name">Курсы закрепки</div>
+                  <p>Путь от новичка до профессионала</p>
+                  <span>От основ до сложных техник — пошаговая подготовка к профессии закрепщика</span>
+                </div>
+                <div class="experts__button">
+                  <span>Перейти к курсам</span>
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1345_3139)">
+                        <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1345_3139">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </i>
+                </div>
+              </div>
+              <div class="experts__item">
+                <a href="#" class="experts__link"></a>
+                <div class="experts__image">
+                  <img src="/img/home/experts_2.png" alt="experts_2">
+                  <img src="/img/home/experts_3.png" alt="experts_2">
+                </div>
+                <div class="experts__content">
+                  <div class="experts__name">Курсы гравировки</div>
+                  <p>Индивидуальный стиль, уверенная рука</p>
+                  <span>Научитесь техникам гравировки и работе с разными поверхностями и стилями</span>
+                </div>
+                <div class="experts__button">
+                  <span>Перейти к курсам</span>
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1345_3139)">
+                        <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1345_3139">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </i>
+                </div>
+              </div>
+              <div class="experts__item">
+                <a href="#" class="experts__link"></a>
+                <div class="experts__image">
+                  <img src="/img/home/experts_3.png" alt="experts_3">
+                  <img src="/img/home/experts_1.png" alt="experts_3">
+                </div>
+                <div class="experts__content">
+                  <div class="experts__name">Дополнительные техники</div>
+                  <p>Для профессионалов, которые хотят большего</p>
+                  <span>Изучите горячую эмаль, литьё, моделирование и другие редкие техники</span>
+                </div>
+                <div class="experts__button">
+                  <span>Перейти к курсам</span>
+                  <i>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1345_3139)">
+                        <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1345_3139">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script type="text/plain" class="КОММЕНТАРИЙ ДЛЯ БЭКА!">
+            <!-- <div class="experts__sidebar sidebar-experts" data-da="body, 99999, last" data-no-cookies> -->
+          </script>
+          <div class="experts__sidebar sidebar-experts" data-da="body, 99999, last">
+            <div class="sidebar-experts__head">
+              <div class="sidebar-experts__title">Выбирайте путь осознанно</div>
+              <div class="sidebar-experts__close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1345_1195)">
+                    <path d="M20.4854 3.51465L3.51479 20.4852" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.51465 3.51465L20.4852 20.4852" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1345_1195">
+                      <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="sidebar-experts__text">Наши курсы — это не потоковая система. Вы проходите путь последовательно, от простого к сложному, с фокусом на практику</div>
+            <ul class="sidebar-experts__list">
+              <li>Выберите направление</li>
+              <li>Начните с базового</li>
+              <li>Пройдите путь до эксперта</li>
+            </ul>
+            <div class="sidebar-experts__footer">
+              <i>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="30" height="30" rx="15" fill="white"/>
+                  <g clip-path="url(#clip0_1345_1200)">
+                    <path d="M15 22V22.01" stroke="#0F1C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18V8" stroke="#0F1C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1345_1200">
+                      <rect width="24" height="24" fill="white" transform="translate(3 3)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </i>
+              <p>Если вы только начинаете, начните с базового курса. Профильные и дополнительные курсы требуют подготовки и навыков</p>
+            </div>
+          </div>
+        </section>
+        <section class="home-professors">
+          <div class="professors__bg">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="home-professors__container">
+            <div class="home-professors__head">
+              <h2 class="home-professors__title">Действующие мастера. Живой опыт. Личный подход</h2>
+              <div class="home-professors__subtitle">Каждый преподаватель — действующий профессионал, чьи&nbsp;работы вы найдёте на выставках и в частных коллекциях</div>
+            </div>
+            <div class="home-professors__body">
+              <div class="home-professors__item">
+                <a href="#" class="home-professors__link"></a>
+                <div class="home-professors__image"><img src="/img/home/professors_1.png" alt="home-professors_1"></div>
+                <div class="home-professors__content">
+                  <div class="home-professors__name">Артур Бабаян</div>
+                  <p>Микрозакрепка, пайка</p>
+                  <span>II место в Гохране 2024, преподаёт с 2016 года</span>
+                  <a href="#" class="home-professors__more">
+                    <span>Подробнее</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1375_3947)">
+                        <path d="M16.9497 7.05078L7.05021 16.9503" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05078V15.5361" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05026H8.46439" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1375_3947">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="home-professors__item">
+                <a href="#" class="home-professors__link"></a>
+                <div class="home-professors__image"><img src="/img/home/professors_2.png" alt="home-professors_2"></div>
+                <div class="home-professors__content">
+                  <div class="home-professors__name">Лейла Мурадова</div>
+                  <p>Закрепка, гравировка</p>
+                  <span>12 лет в профессии, участник конкурса Гохрана</span>
+                  <a href="#" class="home-professors__more">
+                    <span>Подробнее</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1375_3947)">
+                        <path d="M16.9497 7.05078L7.05021 16.9503" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05078V15.5361" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05026H8.46439" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1375_3947">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="home-professors__item">
+                <a href="#" class="home-professors__link"></a>
+                <div class="home-professors__image"><img src="/img/home/professors_3.png" alt="home-professors_3"></div>
+                <div class="home-professors__content">
+                  <div class="home-professors__name">Артур Торосян</div>
+                  <p>Скетчинг</p>
+                  <span>Бывший дизайнер XYZ, Fashion&Jewelry Awards</span>
+                  <a href="#" class="home-professors__more">
+                    <span>Подробнее</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_1375_3947)">
+                        <path d="M16.9497 7.05078L7.05021 16.9503" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05078V15.5361" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.9497 7.05026H8.46439" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1375_3947">
+                          <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="home-professors__button btn btn-dark">Смотреть больше</a>
+          </div>
+        </section>
+        <section class="home-figure" data-watch data-watch-once data-watch-threshold="0.2">
+          <div class="professors__bg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="home-figure__bg">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="home-figure__container">
+            <div class="home-figure__figure"><img src="/img/home/figure_1.png" alt="figure_1"></div>
+            <div class="home-figure__figure"><img src="/img/home/figure_2.png" alt="figure_2"></div>
+          </div>
+        </section>
+        <section class="formats">
+          <div class="formats__container">
+            <div class="formats__head">
+              <h2 class="formats__title">Три формата — выберите удобный для себя</h2>
+            </div>
+            <div class="formats__body">
+              <div class="formats__item">
+                <i>
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.2773 4.38943L16.6106 1.16732C17.0378 0.740043 17.6174 0.5 18.2216 0.5C18.8259 0.5 19.4054 0.740043 19.8327 1.16732C20.26 1.5946 20.5 2.17411 20.5 2.77838C20.5 3.38264 20.26 3.96216 19.8327 4.38943L16.6106 7.72265L19.3882 16.0557L16.6106 18.8889L12.7218 11.6114L9.38859 14.9446V18.2779L7.16644 20.5L5.49983 15.5002L0.5 13.8336L2.72215 11.6114H6.05537L9.38859 8.27819L2.16661 4.38943L4.94429 1.61175L13.2773 4.38943Z" stroke="#E6D6C7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <h3>Дубай-интенсивы</h3>
+                <div class="formats__text">
+                  <p>Эксклюзивный формат в международной среде</p>
+                  <span>Программу в условиях, соответствующих требованиям глобального рынка</span>
+                </div>
+                <q>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1375_5598)">
+                      <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1375_5598">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </q>
+              </div>
+              <div class="formats__item">
+                <i>
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.333 9.19565V16.587M7.99967 9.19565V16.587M3.83301 9.19565V16.587M12.1663 9.19565V16.587M1.74967 18.3261H18.4163M0.0830078 20.5H20.083M19.6663 6.80435V7.45652H0.499674V6.80435C4.24967 5.28261 7.73801 3.17565 9.61467 0.826087L9.87467 0.5H10.2913L10.5513 0.826087C12.428 3.17565 15.9163 5.28261 19.6663 6.80435Z" stroke="#E6D6C7"/>
+                  </svg>
+                </i>
+                <h3>Оффлайн в Москве</h3>
+                <div class="formats__text">
+                  <p>Для тех, кто хочет учиться у станка</p>
+                  <span>Занятия проходят в оснащённых мастерских под руководством экспертов</span>
+                </div>
+                <q>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1375_5598)">
+                      <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1375_5598">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </q>
+              </div>
+              <div class="formats__item">
+                <i>
+                  <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5 15.5H22.5" stroke="#E6D6C7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2.94434 1.65385C2.94434 1.34783 3.07311 1.05434 3.30232 0.837954C3.53153 0.621566 3.8424 0.5 4.16656 0.5H18.8332C19.1574 0.5 19.4683 0.621566 19.6975 0.837954C19.9267 1.05434 20.0554 1.34783 20.0554 1.65385V10.8846C20.0554 11.1906 19.9267 11.4841 19.6975 11.7005C19.4683 11.9169 19.1574 12.0385 18.8332 12.0385H4.16656C3.8424 12.0385 3.53153 11.9169 3.30232 11.7005C3.07311 11.4841 2.94434 11.1906 2.94434 10.8846V1.65385Z" stroke="#E6D6C7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <h3>Онлайн</h3>
+                <div class="formats__text">
+                  <p>Учитесь из любой точки мира в удобном ритме</p>
+                  <span>Те же стандарты, полная поддержка наставников — но с гибкостью, которую даёт онлайн</span>
+                </div>
+                <q>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1375_5598)">
+                      <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1375_5598">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </q>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="approach" data-da-parent>
+          <div class="approach__container">
+            <div class="approach__head">
+              <div class="approach__title" data-da=".approach__container, 992, 0">Мы подходим к обучению иначе</div>
+              <div class="approach__img" data-da=".approach__container, 992, last">
+                <img src="/img/home/approach_mini.png" alt="Image">
+              </div>
+            </div>
+            <div class="splide approach__slider">
+              <div class="splide__track approach__track">
+                <ul class="splide__list approach__list">
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Эксперты с практикой, а не лекциями</div>
+                      <div class="approach__text">Вас обучают мастера, чья квалификация подтверждена делами: коммерческими проектами, госзаказами, конкурсами, собственными брендами</div>
+                    </div>
+                  </li>
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Международные стандарты</div>
+                      <div class="approach__text">Каждый курс построен так, чтобы выпускник соответствовал требованиям мирового рынка. Ваши навыки будут востребованы в России и за её пределами</div>
+                    </div>
+                  </li>
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Эксперты с практикой, а не лекциями</div>
+                      <div class="approach__text">Вас обучают мастера, чья квалификация подтверждена делами: коммерческими проектами, госзаказами, конкурсами, собственными брендами</div>
+                    </div>
+                  </li>
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Международные стандарты</div>
+                      <div class="approach__text">Каждый курс построен так, чтобы выпускник соответствовал требованиям мирового рынка. Ваши навыки будут востребованы в России и за её пределами</div>
+                    </div>
+                  </li>
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Эксперты с практикой, а не лекциями</div>
+                      <div class="approach__text">Вас обучают мастера, чья квалификация подтверждена делами: коммерческими проектами, госзаказами, конкурсами, собственными брендами</div>
+                    </div>
+                  </li>
+                  <li class="splide__slide approach__slide">
+                    <div class="approach__slideinner">
+                      <div class="approach__name">Международные стандарты</div>
+                      <div class="approach__text">Каждый курс построен так, чтобы выпускник соответствовал требованиям мирового рынка. Ваши навыки будут востребованы в России и за её пределами</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="approach__circle">
+            <i>1</i>
+            <img src="/img/home/approach.svg" alt="Image" class="_md-800-dn"> 
+            <img src="/img/home/approach_mobile.svg" alt="Image" class="_mmd-800-dn"> 
+          </div>
+        </section>
+        <section class="partners">
+          <div class="partners__container">
+            <div class="partners__head">
+              <h2 class="partners__title">Школа, за которой стоят десятки производств и имён</h2>
+              <div class="partners__subtitle">Мы обучаем специалистов ювелирных брендов, производств и мастерских по самым высоким мировым стандартам. Смотрите, как обучение в школе усилило команды наших партнёров</div>
+            </div>
+            <div class="partners__body">
+              <div class="splide partners__main" data-gallery>
+                <div class="splide__track partners__maintrack">
+                  <div class="splide__list partners__mainlist">
+                    <a data-video='{"source": [{"src":"/files/video1.mp4","type":"video/mp4"}]}' class="splide__slide partners__mainslide">
+                      <img src="/img/home/partners_video.png" alt="Image">
+                    </a>
+                    <a data-video='{"source": [{"src":"/files/video1.mp4","type":"video/mp4"}]}' class="splide__slide partners__mainslide">
+                      <img src="/img/home/partners_video.png" alt="Image">
+                    </a>
+                    <a data-video='{"source": [{"src":"/files/video1.mp4","type":"video/mp4"}]}' class="splide__slide partners__mainslide">
+                      <img src="/img/home/partners_video.png" alt="Image">
+                    </a>
+                    <a data-video='{"source": [{"src":"/files/video1.mp4","type":"video/mp4"}]}' class="splide__slide partners__mainslide">
+                      <img src="/img/home/partners_video.png" alt="Image">
+                    </a>
+                    <a data-video='{"source": [{"src":"/files/video1.mp4","type":"video/mp4"}]}' class="splide__slide partners__mainslide">
+                      <img src="/img/home/partners_video.png" alt="Image">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="splide partners__thumb">
+                <div class="splide__track partners__thumbtrack">
+                  <ul class="splide__list partners__thumblist">
+                    <li class="splide__slide partners__thumbslide thumbslide-partners">
+                      <div class="thumbslide-partners__head"><span>Ювелирный бутик</span><span>Россия</span></div>
+                      <div class="thumbslide-partners__logo">
+                        <img src="/img/home/partners_logo.png" alt="Image">
+                      </div>
+                      <div class="thumbslide-partners__format">
+                        <span>Формат:</span>
+                        <p>Онлайн + модуль в Москве</p>
+                      </div>
+                      <div class="thumbslide-partners__user">
+                        <p>Андрей Волков, CTO</p>
+                        <q>Команда стала чувствовать себя увереннее</q>
+                        <i>
+                          <img src="/img/home/partners_ava.png" alt="Image">
+                        </i>
+                      </div>
+                    </li>
+                    <li class="splide__slide partners__thumbslide thumbslide-partners">
+                      <div class="thumbslide-partners__head"><span>Ювелирный бутик</span><span>Россия</span></div>
+                      <div class="thumbslide-partners__logo">
+                        <img src="/img/home/partners_logo.png" alt="Image">
+                      </div>
+                      <div class="thumbslide-partners__format">
+                        <span>Формат:</span>
+                        <p>Онлайн + модуль в Москве</p>
+                      </div>
+                      <div class="thumbslide-partners__user">
+                        <p>Андрей Волков, CTO</p>
+                        <q>Команда стала чувствовать себя увереннее</q>
+                        <i>
+                          <img src="/img/home/partners_ava.png" alt="Image">
+                        </i>
+                      </div>
+                    </li>
+                    <li class="splide__slide partners__thumbslide thumbslide-partners">
+                      <div class="thumbslide-partners__head"><span>Ювелирный бутик</span><span>Россия</span></div>
+                      <div class="thumbslide-partners__logo">
+                        <img src="/img/home/partners_logo.png" alt="Image">
+                      </div>
+                      <div class="thumbslide-partners__format">
+                        <span>Формат:</span>
+                        <p>Онлайн + модуль в Москве</p>
+                      </div>
+                      <div class="thumbslide-partners__user">
+                        <p>Андрей Волков, CTO</p>
+                        <q>Команда стала чувствовать себя увереннее</q>
+                        <i>
+                          <img src="/img/home/partners_ava.png" alt="Image">
+                        </i>
+                      </div>
+                    </li>
+                    <li class="splide__slide partners__thumbslide thumbslide-partners">
+                      <div class="thumbslide-partners__head"><span>Ювелирный бутик</span><span>Россия</span></div>
+                      <div class="thumbslide-partners__logo">
+                        <img src="/img/home/partners_logo.png" alt="Image">
+                      </div>
+                      <div class="thumbslide-partners__format">
+                        <span>Формат:</span>
+                        <p>Онлайн + модуль в Москве</p>
+                      </div>
+                      <div class="thumbslide-partners__user">
+                        <p>Андрей Волков, CTO</p>
+                        <q>Команда стала чувствовать себя увереннее</q>
+                        <i>
+                          <img src="/img/home/partners_ava.png" alt="Image">
+                        </i>
+                      </div>
+                    </li>
+                    <li class="splide__slide partners__thumbslide thumbslide-partners">
+                      <div class="thumbslide-partners__head"><span>Ювелирный бутик</span><span>Россия</span></div>
+                      <div class="thumbslide-partners__logo">
+                        <img src="/img/home/partners_logo.png" alt="Image">
+                      </div>
+                      <div class="thumbslide-partners__format">
+                        <span>Формат:</span>
+                        <p>Онлайн + модуль в Москве</p>
+                      </div>
+                      <div class="thumbslide-partners__user">
+                        <p>Андрей Волков, CTO</p>
+                        <q>Команда стала чувствовать себя увереннее</q>
+                        <i>
+                          <img src="/img/home/partners_ava.png" alt="Image">
+                        </i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partners__controls">
+                  <div class="partners__pagination">
+                    <span>1</span>
+                    <span>1</span>
+                  </div>
+                  <div class="splide__arrows partners__thumbarrows splide__arrows--ltr">
+                    <button class="splide__arrow partners__thumbarrow splide__arrow--prev" type="button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_762_16894)">
+                          <path d="M5 12H19" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5 12L11 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5 12L11 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_762_16894">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                    <button class="splide__arrow partners__thumbarrow splide__arrow--next" type="button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_762_16883)">
+                          <path d="M19 12H5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 18" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 12L13 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_762_16883">
+                            <rect width="24" height="24" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="faq">
+          <div class="faq__container">
+            <div class="faq__head">Часто задаваемые вопросы</div>
+            <div data-spollers class="faq__content">
+              <details class="faq__item" data-open>
+                <summary class="faq__title">
+                  Можно ли учиться с нуля?
+                </summary>
+                <div class="faq__body">
+                  Всё зависит от выбранного курса: от 1 недели до нескольких месяцев. Информацию о длительности вы найдёте в описании
+                </div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__title">
+                  Есть ли поддержка от наставников?
+                </summary>
+                <div class="faq__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quisquam! Impedit enim voluptas nam distinctio at quas, mollitia corrupti ea in explicabo, atque aspernatur rerum eius nisi perspiciatis similique? Quidem.
+                </div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__title">
+                  Какие документы я получу после обучения?
+                </summary>
+                <div class="faq__body">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, nisi facilis perferendis eum nobis voluptas quam, corporis maxime consectetur beatae architecto id ab! Voluptate deleniti provident perferendis atque nam expedita. Quisquam possimus explicabo mollitia velit, quas, accusantium amet quis error voluptas dignissimos eaque veniam fuga nemo? Incidunt quam suscipit in.
+                </div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__title">
+                  Можно ли совмещать учёбу с работой?
+                </summary>
+                <div class="faq__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, sunt mollitia possimus tempora beatae ad quibusdam nemo et placeat officiis modi. Laudantium omnis vitae modi! Ratione maxime amet cupiditate tempora rerum, doloribus similique quod expedita ab velit quam explicabo totam quibusdam modi libero vero magni enim ipsa voluptatem itaque! In, at, natus suscipit quo dolorem provident quos voluptatum cum laudantium saepe, necessitatibus fuga autem debitis enim perspiciatis? Esse veniam numquam enim ad deleniti eum quos maxime vel libero. Repellendus rem placeat soluta quisquam necessitatibus illo, est impedit iste harum doloremque exercitationem quo qui officia tenetur rerum veniam, quae, omnis dolorum!
+                </div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__title">
+                  Сколько времени займёт обучение?
+                </summary>
+                <div class="faq__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam expedita voluptate provident animi, vero architecto quam perspiciatis quis! Assumenda aut modi magnam cum error vel itaque et? Earum voluptate a debitis assumenda hic similique laudantium repellat maiores possimus accusamus, est quos harum in ipsam consequuntur molestiae. Quis similique facere sequi optio accusantium ad eum magnam recusandae! Quo aperiam, architecto sit autem recusandae eos, itaque suscipit repellat nostrum ducimus deleniti reiciendis? Laborum praesentium est dolor veritatis iusto illo, laboriosam vero nostrum quia blanditiis dignissimos debitis, voluptatum fugiat corporis odio quibusdam! Esse laudantium quidem doloribus error expedita nesciunt veniam libero distinctio, eligendi nobis eaque similique voluptatum excepturi eum. Nostrum modi maxime perferendis? Ut temporibus autem commodi laudantium explicabo nostrum, iusto vitae, ea at harum odio consequuntur, repellat suscipit est amet? Magnam ipsa assumenda ad quos corrupti facere! Sequi, modi. Aut est minus quo vitae velit et explicabo eaque autem obcaecati! Cupiditate laboriosam blanditiis, laborum ducimus cum alias dolores, saepe iure dignissimos voluptates deleniti quia. Illo consectetur pariatur fugit temporibus accusamus! Vitae quod aliquid quo totam deleniti corporis ratione. Deserunt eum tenetur nobis voluptatibus illo eveniet modi laboriosam excepturi ab. Aperiam saepe minus id aliquam quod animi mollitia perferendis odit, officiis ut. Rerum.
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <load src="src/html/components/_prefooter_form.html"/>
 			</main>
       <load src="src/html/_footer.html"/>
 		</div>

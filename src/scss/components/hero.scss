@@ -1,0 +1,195 @@
+@use "/src/scss/base/mixins.scss";
+@use "/src/scss/variables.scss";
+
+.hero {
+
+  &__container {
+    display: grid;
+    gap: mixins.toRem(10);
+    @include mixins.adaptiveValue("padding-top", 20, 8, 767, 480);
+    @include mixins.adaptiveValue("padding-bottom", 100, 10, 1200, 992);
+    @include mixins.adaptiveValue("--spacer-size", 90, 30, 1920, 1200);
+    
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      grid-template-columns: auto mixins.toRem(380) var(--spacer-size);
+      gap: mixins.toRem(50);
+    }
+  }
+
+  &__image {
+    height: mixins.toRem(400);
+    border-radius: mixins.toRem(10);
+    overflow: hidden;
+    
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      grid-column: 1 / span 3;
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      height: mixins.toRem(320);
+    }
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      height: mixins.toRem(280);
+    }
+
+    img, video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: mixins.toRem(10);
+
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 60, 30, 960, 767, 3);
+    }
+
+    p {
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-3);
+      @include mixins.adaptiveValue("--font-size", 16, 13, 767, 480);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: Evolventa;
+      max-width: mixins.toRem(533);
+      line-height: 0.8;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-5);
+      text-align: center;
+      @include mixins.adaptiveValue("--font-size", 42, 30, 960, 480);
+
+      &:not(:last-child) {
+        @include mixins.adaptiveValue("margin-bottom", 40, 30, 960, 767, 3);
+      }
+    }
+
+    span {
+      color: var(--grey-on-white-color);
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-3);
+      @include mixins.adaptiveValue("--font-size", 16, 13, 767, 480);
+
+      @media (width >= #{mixins.toEm(variables.$tablet)}){
+        margin-top: auto;
+        align-self: stretch;
+      }
+    }
+  }
+
+  &__cardwrapper {
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      margin-top: mixins.toRem(-142);
+    }
+  }
+
+  &__card {
+    background-color: var(--dark-blue-color);
+    color: var(--main-white-color);
+    display: grid;
+    border-radius: mixins.toRem(8);
+    grid-template-rows: auto auto mixins.toRem(44);
+
+
+    @include mixins.adaptiveValue("padding", 20, 16, 480, 360);
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      grid-template-rows: mixins.toRem(44) auto mixins.toRem(44);
+      height: mixins.toRem(400);
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding-top: mixins.toRem(60);
+    }
+  }
+
+  &__cardtext {
+    position: relative;
+    grid-row-start: 2;
+    display: flex;
+    justify-content:center;align-items: center;
+    flex-direction: column;
+    min-height: mixins.toRem(200);
+
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      &:not(:last-child) {margin-bottom: mixins.toRem(60);}
+    }
+
+    >*:not(.hero__crystal) {
+      position: relative;
+      z-index: 2;
+      line-height: 1.3;
+      font-size: var(--font-size);
+      letter-spacing: mixins.lsp(-3);
+      @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+    }
+
+    p {
+      font-weight: 500;
+    }
+    span {
+      color: var(--golden-color);
+    }
+  }
+
+  &__crystal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    --base-transition-delay: 0.5s;
+
+    path {
+      opacity: 0;
+      .loaded & {
+        transition: all 0.3s ease calc(var(--i, 0) * var(--base-transition-delay));
+      }
+      
+      .loaded ._watcher-view & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__button {
+    grid-row-start: 3;
+
+    @media (any-hover: hover){
+      &:hover{
+        svg {
+          translate: 10% -10%;
+        }
+      }
+    }
+
+    svg {
+      .loaded & {
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    @media (width >= #{mixins.toEm(variables.$tablet)}){
+      justify-content: center;
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      justify-content: space-between;
+      --bgc: var(--main-white-color);
+      --color: var(--main-blue-color);
+      --bgc-hover: var(--light-grey-color);
+
+      svg {
+        [stroke] {
+          stroke: var(--color);
+        }
+        [fill] {
+          fill: var(--color);
+        }
+      }
+    }
+  }
+}

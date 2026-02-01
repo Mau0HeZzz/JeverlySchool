@@ -22,6 +22,32 @@
     i {
       flex: 0 0 mixins.toRem(1);
       background-color: var(--stroke-color);
+
+      @media (width >= #{mixins.toEm(1500)}){
+        &:nth-child(n+11) {
+          display: none;
+        }
+      }
+      @media (width < #{mixins.toEm(1500)}){
+        &:nth-child(n+8) {
+          display: none;
+        }
+      }
+      @media (width < #{mixins.toEm(variables.$tablet)}){
+        &:nth-child(n+7) {
+          display: none;
+        }
+      }
+      @media (width < #{mixins.toEm(variables.$mobile)}){
+        &:nth-child(n+6) {
+          display: none;
+        }
+      }
+      @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+        &:nth-child(n+5) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -180,7 +206,9 @@
   position: relative;
 
   @media (width < #{mixins.toEm(670)}){
-    display: none;
+    &:not(.detail-professors_white) {
+      display: none;
+    }
   }
 
   &__marquee {
@@ -195,6 +223,10 @@
     pointer-events: none;
     @include mixins.adaptiveValue("--font-size", 114, 74, 960, 767);
     @include mixins.adaptiveValue("height", 114, 74, 960, 767);
+
+    .detail-professors_white & {
+      color: var(--light-grey-color);
+    }
 
     .marquee__track {
       animation-duration: 34s;
@@ -237,6 +269,11 @@
     }
   }
 
+  &__uptitle {
+    color: var(--white-on-blue-color);
+    &:not(:last-child) {margin-bottom: mixins.toRem(50);}
+  }
+
   &__name {
     font-family: Evolventa;
     color: var(--main-white-color);
@@ -248,6 +285,10 @@
     @media (width < #{mixins.toEm(670)}){
       color: var(--dark-blue-color);
     }
+
+    .detail-professors_white & {
+      color: var(--dark-blue-color);
+    }
   }
 
   &__shortinfo {
@@ -257,6 +298,10 @@
     letter-spacing: mixins.lsp(-5);
     max-width: mixins.toRem(578);
     @include mixins.adaptiveValue("--font-size", 20, 15, 767, 480);
+
+    .detail-professors_white & {
+      color: var(--grey-on-white-color);
+    }
 
     @media (width < #{mixins.toEm(670)}){
       color: var(--grey-on-white-color);
@@ -294,8 +339,14 @@
 
       span {
         color: var(--main-white-color);
+        .detail-professors_white & {
+          color: var(--dark-blue-color);
+        }
         &:first-child{
           color: var(--white-on-blue-color);
+          .detail-professors_white & {
+            color: var(--grey-on-white-color);
+          }
         }
 
         @media (width < #{mixins.toEm(670)}){
@@ -469,4 +520,9 @@
     align-self: end;
     width: max-content;
   }
+}
+
+.professor-incapsulated {
+  @include mixins.adaptiveValue("padding-top", 100, 80, 480, 360);
+  @include mixins.adaptiveValue("padding-bottom", 150, 100, 767, 480);
 }
