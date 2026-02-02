@@ -36,19 +36,32 @@ export let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 
 		// Закрываем меню, если оно открыто
 		document.documentElement.classList.contains("menu-open") ? menuClose() : null;
 
-		if (typeof SmoothScroll !== 'undefined') {
-			// Прокрутка с использованием дополнения
-			new SmoothScroll().animateScroll(targetBlockElement, '', options);
-		} else {
-			// Прокрутка стандартными средствами
-			let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
-			targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
-			targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
-			window.scrollTo({
-				top: targetBlockElementPosition,
-				behavior: "smooth"
-			});
-		}
+    const isPopup = targetBlockElement.closest('.popup');
+    let parentElement = window;
+    if (isPopup) {
+      const md3 = window.matchMedia('(width < 768px)');
+      parentElement = isPopup;
+
+      if (md3.matches) {
+        if (isPopup.querySelector('.popup__body')) {
+          parentElement = isPopup.querySelector('.popup__body')
+        }
+      }
+    }
+
+    // console.log('parentElement.scrollTop',parentElement.scrollTop);
+    // console.log('window.scrollTop',window.scrollTop);
+    const scrollTop = isPopup ? (parentElement.scrollTop - 80) : scrollY;
+
+    // Прокрутка стандартными средствами
+    let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollTop;
+    console.log(targetBlockElementPosition);
+    targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+    targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+    parentElement.scrollTo({
+      top: targetBlockElementPosition,
+      behavior: "smooth"
+    });
 		console.log(`[gotoBlock]: Юхуу...едем в ${targetBlock}`);
 	} else {
 		console.log(`[gotoBlock]: Ей... Такого блока нет на странице: ${targetBlock}`);

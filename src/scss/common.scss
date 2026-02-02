@@ -620,3 +620,22 @@ img[data-src]:not(._lazy-loaded) {
   &__button {
   }
 }
+
+.calendarPopup {
+
+  &__content {
+    max-width: mixins.toRem(1408);
+  }
+
+  &__body {
+    padding-top: mixins.toRem(50);
+    padding-left: mixins.toRem(40);
+    padding-right: mixins.toRem(40);
+    padding-bottom: mixins.toRem(40);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}) {
+      padding-left: mixins.toRem(20);
+      padding-right: mixins.toRem(20);
+    }
+  }
+}

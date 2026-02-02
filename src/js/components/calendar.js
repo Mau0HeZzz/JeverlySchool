@@ -8,6 +8,7 @@ window.MhzSchedule = class {
     initialDate = new Date(),
     ajaxPath,
     method,
+    idPrefix = 'mhz-event-'
   }) {
     if (!parentSelector||!filtersSelector||!bodySelector) return;
 
@@ -16,6 +17,7 @@ window.MhzSchedule = class {
     this.filters = typeof filtersSelector === 'string' ? this.parent.querySelector(filtersSelector) : filtersSelector;
     this.body = typeof bodySelector === 'string' ? this.parent.querySelector(bodySelector) : bodySelector;
     this.date = new Date(initialDate);
+    this.idPrefix = idPrefix;
 
     this.isDevMode = this.parent.hasAttribute('data-dev');
 
@@ -48,6 +50,7 @@ window.MhzSchedule = class {
   }
 
   init() {
+    this.body.innerHTML = '';
     this.createHead();
     this.createGrid();
     this.createEventsEl();
@@ -143,6 +146,106 @@ window.MhzSchedule = class {
           link: '#',
           price: 190000
         },
+        // {
+        //   id: 2,
+        //   begin: `${year}-${monthStr}-09`,
+        //   end: `${year}-${monthStr}-12`,
+        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 80000
+        // },
+        // {
+        //   id: 3,
+        //   begin: `${year}-${monthStr}-22`,
+        //   end: `${year}-${monthStr}-26`,
+        //   name: 'Курс подготовки профессинальных закрепщиков',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 190000
+        // },
+        // {
+        //   id: 4,
+        //   begin: `${year}-${monthStr}-09`,
+        //   end: `${year}-${monthStr}-12`,
+        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 80000
+        // },
+        // {
+        //   id: 5,
+        //   begin: `${year}-${monthStr}-22`,
+        //   end: `${year}-${monthStr}-26`,
+        //   name: 'Курс подготовки профессинальных закрепщиков',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 190000
+        // },
+        // {
+        //   id: 6,
+        //   begin: `${year}-${monthStr}-09`,
+        //   end: `${year}-${monthStr}-12`,
+        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 80000
+        // },
+        // {
+        //   id: 7,
+        //   begin: `${year}-${monthStr}-22`,
+        //   end: `${year}-${monthStr}-26`,
+        //   name: 'Курс подготовки профессинальных закрепщиков',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 190000
+        // },
+        // {
+        //   id: 8,
+        //   begin: `${year}-${monthStr}-09`,
+        //   end: `${year}-${monthStr}-12`,
+        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 80000
+        // },
+        // {
+        //   id: 9,
+        //   begin: `${year}-${monthStr}-22`,
+        //   end: `${year}-${monthStr}-26`,
+        //   name: 'Курс подготовки профессинальных закрепщиков',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 190000
+        // },
+        // {
+        //   id: 10,
+        //   begin: `${year}-${monthStr}-09`,
+        //   end: `${year}-${monthStr}-12`,
+        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 80000
+        // },
+        // {
+        //   id: 11,
+        //   begin: `${year}-${monthStr}-22`,
+        //   end: `${year}-${monthStr}-26`,
+        //   name: 'Курс подготовки профессинальных закрепщиков',
+        //   format: 'Оффлан',
+        //   lang: 'Русский, Английский',
+        //   link: '#',
+        //   price: 190000
+        // },
       ]
     } else {
       const body = this.getAjaxBody();
@@ -374,8 +477,11 @@ window.MhzSchedule = class {
         gridEventEl.style.setProperty(key, value);
       }
 
-      gridEventEl.setAttribute('data-goto', `#mhz-event-${event.id}`);
-      gridEventEl.setAttribute('data-goto-header', ``);
+      const isPopup = this.parent.closest('.popup');
+      gridEventEl.setAttribute('data-goto', `#${this.idPrefix}${event.id}`);
+      if (!isPopup) {
+        gridEventEl.setAttribute('data-goto-header', ``);
+      }
 
       const startDay = new Date(event.begin).getDate();
       const endDay = new Date(event.end).getDate();
@@ -411,7 +517,7 @@ window.MhzSchedule = class {
 
       const eventEl = document.createElement('div');
       eventEl.className = 'mhz-calendar__event event-mhz-calendar';
-      eventEl.id = `mhz-event-${event.id}`;
+      eventEl.id = `${this.idPrefix}${event.id}`;
       
       const startDay = new Date(event.begin).getDate();
       const endDay = new Date(event.end).getDate();
@@ -438,4 +544,36 @@ window.MhzSchedule = class {
       maximumFractionDigits: 0,
     }).format(value);
   }
+}
+
+document.addEventListener('click', (e) => e.target.closest('[data-calendar-settings]') && onCalendarSettingsClick(e.target.closest('[data-calendar-settings]')))
+
+function onCalendarSettingsClick(target) {
+  if (!window.mhzScheduleInPopup) return;
+
+  const attr = target.getAttribute('data-calendar-settings');
+  let settings;
+  try {
+    settings = JSON.parse(attr);
+  } catch (error) {
+    console.warn(error);
+  }
+
+  if (!settings) return;
+
+  const filtersEl = window.mhzScheduleInPopup.filters;
+
+  for (let index = 0; index < Object.keys(settings).length; index++) {
+    const key = Object.keys(settings)[index];
+    const value = settings[key];
+
+    const el = filtersEl.querySelector(`[name="${key}"]`);
+    if (!el) continue;
+
+    el.value = value;
+
+    el.dispatchEvent(new CustomEvent('change', {bubbles: true, detail:{isCustom: true}}))
+  }
+
+  window.mhzScheduleInPopup.getEvents();
 }

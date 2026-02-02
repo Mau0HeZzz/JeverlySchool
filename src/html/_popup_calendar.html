@@ -1,0 +1,91 @@
+<div id="calendarPopup" aria-hidden="true" class="popup calendarPopup">
+	<div class="popup__wrapper">
+		<div class="popup__content calendarPopup__content">
+      <div class="popup__dragclose" data-dragclose=""></div>
+			<button data-close type="button" class="popup__close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_704_15292)">
+            <path d="M20.4854 3.51465L3.51479 20.4852" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.51465 3.51465L20.4852 20.4852" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_704_15292">
+              <rect width="24" height="24" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <div class="popup__body calendarPopup__body">
+        <div class="schedule__head">
+          <h1 class="schedule__title">Расписание</h1>
+          <a href="#" class="schedule__link" data-da=".filters-schedule__head, 900, last">
+            <span>Условия обучения</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_388_4530)">
+                <path d="M16.9512 7.05078L7.05168 16.9503" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.9512 7.05078V15.5361" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.9497 7.05026H8.46439" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_388_4530">
+                  <rect width="24" height="24" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+        </div>
+        <div class="schedule__body" data-mhz-popup-schedule data-dev>
+        <!-- <div class="schedule__body" data-mhz-schedule> -->
+          <form class="schedule__filters filters-schedule" data-mhz-schedule-filters>
+            <div class="filters-schedule__head">
+              <div class="filters-schedule__title">Фильтры</div>
+            </div>
+            <div class="filters-schedule__body">
+              <select data-custom-select name="direction">
+                <option value="">Направление</option>
+                <option value="value_1">value_1</option>
+                <option value="value_2">value_2</option>
+                <option value="value_3">value_3</option>
+                <option value="value_4">value_4</option>
+                <option value="value_5">value_5</option>
+              </select>
+              <select data-custom-select name="format">
+                <option value="">Формат обучения</option>
+                <option value="value_1">value_1</option>
+                <option value="value_2">value_2</option>
+                <option value="value_3">value_3</option>
+                <option value="value_4">value_4</option>
+                <option value="value_5">value_5</option>
+              </select>
+              <select data-custom-select name="prepod">
+                <option value="">Преподаватель</option>
+                <option value="value_1">value_1</option>
+                <option value="value_2">value_2</option>
+                <option value="value_3">value_3</option>
+                <option value="value_4">value_4</option>
+                <option value="value_5">value_5</option>
+              </select>
+            </div>
+          </form>
+          <div class="schedule__calendar mhz-calendar" data-mhz-schedule-body>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+<script>
+  window.addEventListener('load', () => {
+    if (window.MhzSchedule) {
+      window.mhzScheduleInPopup = new window.MhzSchedule({
+        parentSelector: '[data-mhz-popup-schedule]', // Любой селектор
+        filtersSelector: '[data-mhz-schedule-filters]', // Любой селектор
+        bodySelector: '[data-mhz-schedule-body]', // Любой селектор
+        initialDate: '2026-02-01', // Дата в любом читаемом жсом формате, необязательно
+        ajaxPath: location.pathname, // Адрес куда делать запрос. Он будет делаться при инициализации и при каждом изменении фильтров
+        method: 'post', // Метод которым спрашивать, нужен для корректного формирования запроса. Если гет то будут query запросы, иначе формдатой
+        idPrefix: 'mhz-event-popup-' // Префикс для ид элементов, нужен для корректного скролла, необязательно
+      })
+    }
+  })
+</script>

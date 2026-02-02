@@ -468,7 +468,9 @@ export class SelectConstructor {
   selectChange(e) {
     const originalSelect = e.target;
     this.selectBuild(originalSelect);
-    this.setSelectChange(originalSelect);
+    if (!e.detail?.isCustom) {
+      this.setSelectChange(originalSelect);
+    }
   }
   // Обработчик изменения в селекте
   setSelectChange(originalSelect, value) {

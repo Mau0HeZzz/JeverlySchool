@@ -3,13 +3,16 @@
     <div class="navhero__wrapper" style="--bg: {{bg}}">
       <nav class="navhero__nav">
         <each loop="item,index in items">
-          <!-- <if condition="activeIndex === index">
-            <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a>
+          <if condition="item === 'Расписание курсов'">
+            <a href="#" class="navhero__item navlink" data-popup="#calendarPopup"><span>{{item}}</span></a>
           </if>
           <else>
-          </else> -->
-          <!-- <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a> -->
-          <a href="#" class="navhero__item navlink"><span>{{item}}</span></a>
+            <a href="#" class="navhero__item navlink"><span>{{item}}</span></a>
+          </else>
+          <script type="text/plain" class="КОММЕНТАРИЙ ДЛЯ БЭКА!">
+            <!-- <a href="#" class="navhero__item navlink _active"><span>{{item}}</span></a> -->
+          </script>
+          
         </each>
       </nav>
       <div class="navhero__content">
