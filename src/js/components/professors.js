@@ -38,6 +38,8 @@ class MhzProfessors {
 
     if (!this.sliderEl||!window.professors) return;
 
+    this.setProfessorsObj();
+
     if (this.bgEl) {
       this.setBg();
 
@@ -48,6 +50,28 @@ class MhzProfessors {
 
     this.setSlider();
     this.setHandlers();
+  }
+
+  setProfessorsObj() {
+    if (!window.courses?.length) return;
+
+    for (let index = 0; index < window.courses.length; index++) {
+      const newCourse = window.courses[index];
+      if (!newCourse?.professors?.length) continue;
+
+      for (let index = 0; index < newCourse.professors.length; index++) {
+        const professorId = newCourse.professors[index];
+        const currProfessorIdx = window.professors.findIndex(el => el.id == professorId);
+        if (currProfessorIdx < 0) continue;
+        if (!window.professors[currProfessorIdx].courses) {
+          window.professors[currProfessorIdx].courses = [newCourse];
+        } else {
+          window.professors[currProfessorIdx].courses.push(newCourse);
+        }
+      }
+    }
+
+    console.log('new professors', window.professors);
   }
 
   getEls() {
