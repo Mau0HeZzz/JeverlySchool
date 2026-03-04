@@ -103,7 +103,7 @@ class MhzProfessors {
   }
 
   setSlider() {
-    const activeSlide = this.sliderEl.querySelector('.is-active');
+    const activeSlide = this.sliderEl.querySelector('.is-active') || this.sliderEl.querySelector('.splide__slide');
     this.activeIndex = 0;
     if (activeSlide) {
       this.activeIndex = professorsIndexInParent(activeSlide.parentElement, activeSlide);
