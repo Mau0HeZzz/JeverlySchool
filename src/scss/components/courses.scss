@@ -387,5 +387,9 @@
     width: mixins.toRem(40);
     height: mixins.toRem(40);
     justify-content:center;align-items: center;
+
+    svg {
+      flex: 0 0 mixins.toRem(24);
+    }
   }
 }

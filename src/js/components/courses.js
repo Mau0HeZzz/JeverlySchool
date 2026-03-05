@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (coursesTippies.length) {
     coursesTippiesInit(coursesTippies)
   }
+
+  const coursesFilter = document.querySelector('[data-courses-filters]');
+  if (coursesFilter && !coursesFilter.hidden) {
+    document.documentElement.classList.add('filters-open')
+  }
 })
 
 document.addEventListener('click', (e) => {
