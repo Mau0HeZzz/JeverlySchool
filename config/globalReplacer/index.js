@@ -1,5 +1,6 @@
 import fs from "fs";
 import * as prettier from "prettier";
+import * as acorn from "acorn";
 let idx = 0;
 
 const readCSSFileCallback = async (err, data, filePath) => {
@@ -121,6 +122,10 @@ const readJSFileCallback = async (err, data, filePath, index = -1) => {
       answer = answer.replaceAll('debounce', `debounce$${idx}`);
       idx++;
     }
+
+    // Снимаем риск конфликтов let/const/class между разными файлами
+    // (после удаления import/export код становится общим global scope).
+    answer = rewriteTopLevelLexicals(answer, filePath);
     
     // answer = answer.replace(importRegex, '// Импорт удален');
 
@@ -131,6 +136,49 @@ const readJSFileCallback = async (err, data, filePath, index = -1) => {
     resolve();
   })
 }
+
+function rewriteTopLevelLexicals(code, filePath) {
+  try {
+    const ast = acorn.parse(code, {
+      ecmaVersion: "latest",
+      sourceType: "script",
+      allowHashBang: true,
+    });
+    const replacements = [];
+
+    for (const node of ast.body) {
+      if (node.type === "VariableDeclaration" && (node.kind === "let" || node.kind === "const")) {
+        replacements.push({
+          start: node.start,
+          end: node.start + node.kind.length,
+          text: "var",
+        });
+      } else if (node.type === "ClassDeclaration" && node.id?.name) {
+        replacements.push({
+          start: node.start,
+          end: node.id.end,
+          text: `var ${node.id.name} = class`,
+        });
+      }
+    }
+
+    if (replacements.length === 0) return code;
+    return applyReplacements(code, replacements);
+  } catch (err) {
+    console.warn(`[globalReplacer] skip top-level rewrite for ${filePath}: ${err?.message || err}`);
+    return code;
+  }
+}
+
+function applyReplacements(code, replacements) {
+  const sorted = replacements.sort((a, b) => b.start - a.start);
+  let out = code;
+  for (const rep of sorted) {
+    out = out.slice(0, rep.start) + rep.text + out.slice(rep.end);
+  }
+  return out;
+}
+
 
 async function globalReplacer() {
   const cssDir = './dist/css';

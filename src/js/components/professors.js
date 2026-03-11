@@ -3,6 +3,7 @@ import {
   indexInParent as professorsIndexInParent, 
   isMobile as professorsIsMobile
 } from "../files/functions";
+import { da } from "../libs/dynamic_adapt";
 
 const professorsDebounce = (callback, interval = 0) => {
   let prevTimeoutId;
@@ -34,8 +35,9 @@ class MhzProfessors {
 
   init() {
     if (!this.parent) return;
+    this.isIncapsulated = this.parent.closest('.professor-incapsulated');
     this.getEls();
-
+    
     if (!this.sliderEl||!window.professors) return;
 
     this.setProfessorsObj();
@@ -50,6 +52,7 @@ class MhzProfessors {
 
     this.setSlider();
     this.setHandlers();
+    this.checkSlider();
   }
 
   setProfessorsObj() {
@@ -177,11 +180,16 @@ class MhzProfessors {
     }
     answer += `<div class="detail-professors__image"><img src="${imagePath}"></div>`;
     if (hasCourses) {
-      if (window.innerWidth >= 670) {
-        answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы ${name.split(' ')[0]}</a>`
+      if (this.isIncapsulated) {
+        answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-black">Все курсы ${name.split(' ')[0]}</a>`
       } else {
-        answer += `<button data-professors-scrollto-courses class="detail-professors__button btn btn-black"><span>Курсы ${name.split(' ')[0]}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_704_14562)"><path d="M8 11L12 15L16 11" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_704_14562"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg></button>`
+        if (window.innerWidth >= 670) {
+          answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы ${name.split(' ')[0]}</a>`
+        } else {
+          answer += `<button data-professors-scrollto-courses class="detail-professors__button btn btn-black"><span>Курсы ${name.split(' ')[0]}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_704_14562)"><path d="M8 11L12 15L16 11" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_704_14562"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg></button>`
+        }
       }
+
       this.setDetailCourses(currentProfessor)
     } else {
       answer += '<div></div>'
@@ -262,6 +270,30 @@ class MhzProfessors {
         this.scrollToCourses();
       }
     })
+
+    window.addEventListener('resize', this.checkSlider.bind(this));
+
+    if (this.isIncapsulated) return;
+
+    const obj = {
+      breakpoint: '670',
+      destination: this.coursesBody,
+      element: this.detailEl,
+      index: 1,
+      parent: this.detailEl.parentNode,
+      place: 'first'
+    }
+
+    const matchMedia = window.matchMedia("(width < 670px)");
+
+    matchMedia.addListener(function () {
+      da.mediaHandler(matchMedia, [obj]);
+    });
+    da.mediaHandler(matchMedia, [obj]);
+  }
+
+  checkSlider() {
+    if (this.isIncapsulated&&this.sliderEl) this.sliderEl.hidden = true;
   }
 
   onSliderMoved() {

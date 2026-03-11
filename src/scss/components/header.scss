@@ -137,6 +137,10 @@
     @media (width < #{mixins.toEm(variables.$tablet)}){
       flex-direction: column;
     }
+
+    [id*="bx_incl_area"] {
+      display: flex;
+    }
   }
 
   &__item {

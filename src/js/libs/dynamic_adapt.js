@@ -175,7 +175,8 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 		return;
 	}
 };
+
+export const da = new DynamicAdapt("max");
 document.addEventListener('DOMContentLoaded', () => {
-  const da = new DynamicAdapt("max");
   da.init();
 })
