@@ -1,5 +1,6 @@
 @use "/src/scss/base/mixins.scss";
 @use "/src/scss/variables.scss";
+@use '@splidejs/splide/css/core';
 
 .students {
   background-color: var(--warm-white-color);
