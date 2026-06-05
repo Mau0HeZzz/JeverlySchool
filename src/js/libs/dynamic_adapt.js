@@ -177,6 +177,7 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 };
 
 export const da = new DynamicAdapt("max");
+window.da = da;
 document.addEventListener('DOMContentLoaded', () => {
   da.init();
 })

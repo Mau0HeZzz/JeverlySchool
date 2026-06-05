@@ -3,7 +3,7 @@ import {
   indexInParent as professorsIndexInParent, 
   isMobile as professorsIsMobile
 } from "../files/functions";
-import { da } from "../libs/dynamic_adapt";
+// import { da } from "../libs/dynamic_adapt";
 
 const professorsDebounce = (callback, interval = 0) => {
   let prevTimeoutId;
@@ -287,9 +287,9 @@ class MhzProfessors {
     const matchMedia = window.matchMedia("(width < 670px)");
 
     matchMedia.addListener(function () {
-      da.mediaHandler(matchMedia, [obj]);
+      da?.mediaHandler(matchMedia, [obj]);
     });
-    da.mediaHandler(matchMedia, [obj]);
+    da?.mediaHandler(matchMedia, [obj]);
   }
 
   checkSlider() {
