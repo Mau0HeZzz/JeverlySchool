@@ -639,3 +639,96 @@ img[data-src]:not(._lazy-loaded) {
     }
   }
 }
+
+.prefooter {
+  .b24-form-header {
+    display: none;
+  }
+
+  .b24-form-field,
+  .b24-form-control-container {
+    margin-bottom: 0 !important;
+  }
+
+  .b24-form-control {
+    background: var(--light-grey-color) !important;
+  }
+
+  .b24-form-content {
+    padding: 0;
+
+    .b24-form-control-alert-message {
+      display: none !important;
+    }
+
+    form {
+      --b24-field-border-color:transparent;
+      --b24-primary-color: var(--main-blue-color);
+
+      max-width: mixins.toRem(355);
+      display: flex;
+      flex-direction: column;
+
+      .b24-form-btn {
+        min-height: mixins.toRem(44);
+        height: mixins.toRem(44);
+        padding: mixins.toRem(11);
+      }
+
+      div {
+        .b24-form-control-string .b24-form-control, .b24-form-control-text .b24-form-control {
+          height: mixins.toRem(44);
+          min-height: mixins.toRem(44);
+          resize: none;
+        }
+        .b24-form-control-icon-after .b24-form-control, .b24-form-control-icon-after .b24-form-control-label {
+          padding-right: mixins.toRem(10);
+        }
+
+        .b24-form-control-label {
+          color: var(--black-on-white-color);
+          font-family: Inter;
+          opacity: 1;
+        }
+
+        .b24-form-control-alert {
+          .b24-form-control {
+            border-color: var(--red-color);
+            background-color: var(--light-grey-color);
+          }
+          .b24-form-control-label {
+            color: var(--red-color);
+          }
+        }
+
+        &:has(.b24-form-control-string) {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: mixins.toRem(10);
+
+          .b24-form-control-text {
+            grid-column: 1 / span 2;
+          }
+        }
+
+        &:has(.b24-form-field-agreement) {
+          order: 1;
+          padding-top: mixins.toRem(5);
+
+          label {
+            display: flex;
+            align-items: flex-start;
+            gap: mixins.toRem(15);
+          }
+
+          input {
+            width: mixins.toRem(20);
+            height: mixins.toRem(20);
+            flex: 0 0 mixins.toRem(20);
+            accent-color: var(--accent-color);
+          }
+        }
+      }
+    }
+  }
+}
