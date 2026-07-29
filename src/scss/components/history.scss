@@ -64,9 +64,11 @@
 .dates-history {
 
   &__track {
+    max-height: mixins.toRem(252);
   }
 
   &__list {
+    max-height: mixins.toRem(252);
   }
 
   &__slide {

@@ -27,6 +27,7 @@ class MhzProfessors {
   md3 = matchMedia('(width < 768px)');
   md670 = matchMedia('(width < 670px)');
   md4 = matchMedia('(width < 480px)');
+  detailInfoToggleIndex = 0;
 
   constructor(parent) {
     this.parent = parent;
@@ -37,6 +38,12 @@ class MhzProfessors {
     if (!this.parent) return;
     this.isIncapsulated = this.parent.closest('.professor-incapsulated');
     this.getEls();
+
+    if (this.detailEl) {
+      this.initDetailInfo(false);
+      this.detailInfoResizeHandler = professorsDebounce(() => this.initDetailInfo(), 150);
+      window.addEventListener('resize', this.detailInfoResizeHandler);
+    }
     
     if (!this.sliderEl||!window.professors) return;
 
@@ -149,8 +156,64 @@ class MhzProfessors {
       let html = this.setDetailHtml(currentProfessor, slides[this.activeIndex].slide);
   
       this.detailEl.innerHTML = html;
+      this.initDetailInfo(false);
       this.showDetail();
     }, 350);
+  }
+
+  initDetailInfo(keepExpanded) {
+    const info = this.detailEl?.querySelector('.detail-professors__info');
+    if (!info) return;
+
+    const shouldKeepExpanded = keepExpanded ?? info.classList.contains('_expanded');
+    const content = Array.from(info.children).find((child) => child.classList.contains('detail-professors__info-content'));
+    const toggle = info.querySelector('.detail-professors__info-toggle');
+
+    toggle?.remove();
+
+    if (content) {
+      while (content.firstChild) {
+        info.insertBefore(content.firstChild, content);
+      }
+
+      content.remove();
+    }
+
+    info.classList.remove('_collapsed', '_expanded');
+
+    if (this.detailEl.hasAttribute('data-info-toggle-disabled') || info.scrollHeight <= 440) return;
+
+    const newContent = document.createElement('div');
+    const button = document.createElement('button');
+    const showText = this.detailEl.dataset.infoShow || 'Развернуть';
+    const hideText = this.detailEl.dataset.infoHide || 'Свернуть';
+
+    newContent.className = 'detail-professors__info-content';
+    this.detailInfoToggleIndex += 1;
+    newContent.id = `detail-professors-info-${this.detailInfoToggleIndex}`;
+
+    while (info.firstChild) {
+      newContent.appendChild(info.firstChild);
+    }
+
+    info.appendChild(newContent);
+    info.classList.toggle('_expanded', shouldKeepExpanded);
+    info.classList.toggle('_collapsed', !shouldKeepExpanded);
+
+    button.type = 'button';
+    button.className = 'detail-professors__info-toggle';
+    button.textContent = shouldKeepExpanded ? hideText : showText;
+    button.setAttribute('aria-controls', newContent.id);
+    button.setAttribute('aria-expanded', shouldKeepExpanded ? 'true' : 'false');
+    button.addEventListener('click', () => {
+      const isExpanded = info.classList.toggle('_expanded');
+
+      info.classList.toggle('_collapsed', !isExpanded);
+      button.textContent = isExpanded ? hideText : showText;
+      button.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    });
+
+    info.appendChild(button);
   }
 
   setDetailHtml(currentProfessor, slide) {

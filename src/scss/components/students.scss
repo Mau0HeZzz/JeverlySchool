@@ -231,9 +231,9 @@
       &:not(:last-child) {margin-bottom: mixins.toRem(20);}
     }
 
-    p {
-      margin-top: auto;
-    }
+    // p {
+    //   margin-top: auto;
+    // }
 
     span {
       color: var(--grey-on-white-color);
@@ -254,7 +254,7 @@
     display: flex;
     flex-direction: column;
     gap: mixins.toRem(8);
-    // max-height: mixins.toRem(644);
+    max-height: mixins.toRem(644);
 
     img {
       flex: 0 1 calc(50% - mixins.toRem(4));

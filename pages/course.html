@@ -72,20 +72,48 @@
             <div class="course__learn learn-course">
               <div class="learn-course__change">Что изменится после курса</div>
               <div class="learn-course__body">
-                <div class="learn-course__title">Вы научитесь</div>
-                <div class="learn-course__sqares">
-                  <p>Работать с микрокопом</p>
-                  <p>Настраивать пневмосистему GRS</p>
-                  <p>Изготавливать и затачивать инструменты</p>
-                  <p>Разрабатывать посадочные места</p>
-                  <p>Выполнять закрепку с подрезкой в технике MicroPave</p>
+                <div class="splide learn-course__slider" data-learn-course-slider>
+                  <div class="splide__track learn-course__track">
+                    <div class="splide__list learn-course__list">
+                      <div class="splide__slide learn-course__slide">
+                        <div class="learn-course__title">Вы научитесь</div>
+                        <div class="learn-course__sqares">
+                          <p>Работать с микрокопом</p>
+                          <p>Настраивать пневмосистему GRS</p>
+                          <p>Изготавливать и затачивать инструменты</p>
+                          <p>Разрабатывать посадочные места</p>
+                          <p>Выполнять закрепку с подрезкой в технике MicroPave</p>
+                        </div>
+                      </div>
+                      <div class="splide__slide learn-course__slide">
+                        <div class="learn-course__title">Что входит</div>
+                        <div class="learn-course__sqares">
+                          <p>Все необходимые материалы и инструменты предоставляются на время обучения</p>
+                          <p>Практические занятия с индивидуальной обратной связью и разбором ошибок от преподавателя</p>
+                          <p>Сертификат об окончании курса, подтверждающий вашу квалификацию</p>
+                          <p>Постоянная связь с куратором для консультаций после завершения обучения</p>
+                          <p>Доступ к закрытому профессиональному сообществу выпускников школы</p>
+                        </div>
+                      </div>
+                      <div class="splide__slide learn-course__slide">
+                        <div class="learn-course__title">Результат</div>
+                        <div class="learn-course__sqares">
+                          <p>Готовые изделия и образцы для вашего портфолио</p>
+                          <p>Навыки, которые востребованы на рынке и позволяют брать заказы премиального уровня</p>
+                          <p>Освоение профессиональных техник закрепки камней</p>
+                          <p>Понимание всех этапов подготовки основания, разметки и закрепки</p>
+                          <p>Практические навыки работы с профессиональным инструментом и оборудованием GRS</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="learn-course__circles">
-                  <div class="learn-course__circle" style="--bg: linear-gradient(183.83deg, #EDEDED 3.14%, #F7F7F7 87.56%);">
+                  <a href="#" class="learn-course__circle is-active" data-learn-course-nav="0" aria-current="true">
                     <h4><span>Навыки</span></h4>
                     <span>что вы научитесь делать</span>
-                  </div>
-                  <a href="#" class="learn-course__circle">
+                  </a>
+                  <a href="#" class="learn-course__circle" data-learn-course-nav="1" aria-current="false">
                     <h4>
                       <span>Что входит</span>
                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,7 +131,7 @@
                     </h4>
                     <span>что именно мы даем вам</span>
                   </a>
-                  <a href="#" class="learn-course__circle">
+                  <a href="#" class="learn-course__circle" data-learn-course-nav="2" aria-current="false">
                     <h4>
                       <span>Результат</span>
                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -366,7 +394,7 @@
                 </div>
               </div>
             </div>
-            <div class="detail-professors__container" data-professors-detail>
+            <div class="detail-professors__container" data-professors-detail data-info-show="Развернуть" data-info-hide="Свернуть">
             <div class="detail-professors__indmarquee marquee">
               <div class="marquee__track">
                 <div class="marquee__content">

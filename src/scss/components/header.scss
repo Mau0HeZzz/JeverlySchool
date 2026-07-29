@@ -6,7 +6,7 @@
   top: var(--bxPanelHeight, 0);
   left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   .loaded & {
     transition: all 0.3s ease 0s;
   }
@@ -23,10 +23,10 @@
     gap: mixins.toRem(12);
     justify-content: space-between;
 
-    @include mixins.adaptiveValue("padding-left", 60, 20);
-    @include mixins.adaptiveValue("padding-right", 60, 20);
-    @include mixins.adaptiveValue("padding-top", 40, 12, 1440, 960);
-    @include mixins.adaptiveValue("padding-bottom", 30, 12, 1440, 960);
+    @include mixins.adaptiveValue("padding-left", 60, 20, 1440, 480);
+    @include mixins.adaptiveValue("padding-right", 60, 20, 1440, 480);
+    @include mixins.adaptiveValue("padding-top", 40, 20, 1440, 960);
+    @include mixins.adaptiveValue("padding-bottom", 30, 20, 1440, 960);
 
     .loaded & {
       transition: all 0.3s ease 0s;
@@ -125,6 +125,26 @@
       
       .loaded & {
         transition: translate 0.3s ease 0s;
+      }
+
+      * {
+        order: 5;
+      }
+
+      .menu__langwrapper {
+        order: 0;
+      }
+      .subitem-menu__search {
+        order: 1;
+      }
+      .menu__list {
+        order: 2;
+      }
+      .subitem-menu__contact {
+        order: 3;
+      }
+      .menu__callback {
+        order: 4;
       }
     }
   }

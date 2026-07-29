@@ -20,8 +20,8 @@ body::after {
   pointer-events: all;
 }
 .popup-show body::after,
-.pathtippy-show body::after,
-.sidebar-experts-open body::after {
+.pathtippy-show body::after {
+// .sidebar-experts-open body::after {
 	opacity: 1;
 }
 .popup {

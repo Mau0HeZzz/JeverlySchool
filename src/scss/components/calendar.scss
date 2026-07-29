@@ -88,6 +88,11 @@
       @media (width < #{mixins.toEm(variables.$tablet)}) {
         flex: 1 0 mixins.toRem(211);
       }
+
+      &__options {
+        position: relative;
+        top: mixins.toRem(-3);
+      }
     }
   }
 }

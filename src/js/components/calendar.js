@@ -123,129 +123,57 @@ window.MhzSchedule = class {
   async getEvents() {
     this.parent.classList.add('_pen');
     if (this.isDevMode) {
-      const monthStr = this.date.getMonth() + 1;
-      const year = this.date.getFullYear();
       this.events = [
         {
-          id: 0,
-          begin: `${year}-${monthStr}-09`,
-          end: `${year}-${monthStr}-12`,
-          name: 'MicroPave: базовый курс закрепки бриллиантов',
-          format: 'Оффлан',
-          lang: 'Русский, Английский',
-          link: '#',
-          price: 80000
+          id: '2175',
+          begin: '2026-02-16',
+          end: '2026-02-20',
+          name: 'Техника резьбы инталий на прозрачных камнях',
+          format: 'Офлайн в Санкт-Петербурге',
+          lang: 'Английский, Русский',
+          link: '/ru/catalog/detail/intaglio-carving-on-transparent-stones/',
+          price: '120&nbsp;000 &#8381;'
         },
         {
-          id: 1,
-          begin: `${year}-${monthStr}-22`,
-          end: `${year}-${monthStr}-26`,
-          name: 'Курс подготовки профессинальных закрепщиков',
-          format: 'Оффлан',
-          lang: 'Русский, Английский',
-          link: '#',
-          price: 190000
+          id: '2178',
+          begin: '2026-03-23',
+          end: '2026-03-27',
+          name: 'Андрей Попов: Авторский курс резьбы по воску',
+          format: 'Офлайн в Санкт-Петербурге',
+          lang: 'Английский, Русский',
+          link: '/ru/catalog/detail/author-s-wax-carving-course/',
+          price: '110&nbsp;000 &#8381;'
         },
-        // {
-        //   id: 2,
-        //   begin: `${year}-${monthStr}-09`,
-        //   end: `${year}-${monthStr}-12`,
-        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 80000
-        // },
-        // {
-        //   id: 3,
-        //   begin: `${year}-${monthStr}-22`,
-        //   end: `${year}-${monthStr}-26`,
-        //   name: 'Курс подготовки профессинальных закрепщиков',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 190000
-        // },
-        // {
-        //   id: 4,
-        //   begin: `${year}-${monthStr}-09`,
-        //   end: `${year}-${monthStr}-12`,
-        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 80000
-        // },
-        // {
-        //   id: 5,
-        //   begin: `${year}-${monthStr}-22`,
-        //   end: `${year}-${monthStr}-26`,
-        //   name: 'Курс подготовки профессинальных закрепщиков',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 190000
-        // },
-        // {
-        //   id: 6,
-        //   begin: `${year}-${monthStr}-09`,
-        //   end: `${year}-${monthStr}-12`,
-        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 80000
-        // },
-        // {
-        //   id: 7,
-        //   begin: `${year}-${monthStr}-22`,
-        //   end: `${year}-${monthStr}-26`,
-        //   name: 'Курс подготовки профессинальных закрепщиков',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 190000
-        // },
-        // {
-        //   id: 8,
-        //   begin: `${year}-${monthStr}-09`,
-        //   end: `${year}-${monthStr}-12`,
-        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 80000
-        // },
-        // {
-        //   id: 9,
-        //   begin: `${year}-${monthStr}-22`,
-        //   end: `${year}-${monthStr}-26`,
-        //   name: 'Курс подготовки профессинальных закрепщиков',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 190000
-        // },
-        // {
-        //   id: 10,
-        //   begin: `${year}-${monthStr}-09`,
-        //   end: `${year}-${monthStr}-12`,
-        //   name: 'MicroPave: базовый курс закрепки бриллиантов',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 80000
-        // },
-        // {
-        //   id: 11,
-        //   begin: `${year}-${monthStr}-22`,
-        //   end: `${year}-${monthStr}-26`,
-        //   name: 'Курс подготовки профессинальных закрепщиков',
-        //   format: 'Оффлан',
-        //   lang: 'Русский, Английский',
-        //   link: '#',
-        //   price: 190000
-        // },
+        {
+          id: '2184',
+          begin: '2026-06-22',
+          end: '2026-06-26',
+          name: 'Художественная живопись по горячей эмали',
+          format: 'Офлайн в Санкт-Петербурге',
+          lang: 'Английский, Русский',
+          link: '/ru/catalog/detail/the-art-of-hot-enameling/',
+          price: '110&nbsp;000 &#8381;'
+        },
+        {
+          id: '2197',
+          begin: '2026-11-23',
+          end: '2026-11-27',
+          name: 'Техника резьбы инталий на прозрачных камнях',
+          format: 'Офлайн в Санкт-Петербурге',
+          lang: 'Английский, Русский',
+          link: '/ru/catalog/detail/intaglio-carving-on-transparent-stones/',
+          price: '120&nbsp;000 &#8381;'
+        },
+        {
+          id: 'dev-cross-month',
+          begin: '2026-07-30',
+          end: '2026-08-05',
+          name: 'Тестовое событие на границе месяцев',
+          format: 'Офлайн в Санкт-Петербурге',
+          lang: 'Английский, Русский',
+          link: '#',
+          price: 100000
+        }
       ]
     } else {
       const body = this.getAjaxBody();
@@ -414,16 +342,24 @@ window.MhzSchedule = class {
       gridMonthDate.getUTCMonth(),
       1
     ));
+    const monthEnd = new Date(Date.UTC(
+      gridMonthDate.getUTCFullYear(),
+      gridMonthDate.getUTCMonth() + 1,
+      0
+    ));
 
     events.forEach(event => {
       const startDate = this.normalizeToUTCDate(event.begin);
       const endDate = this.normalizeToUTCDate(event.end);
 
-      if (!startDate || !endDate || startDate > endDate) return;
+      if (!this.isValidDate(startDate) || !this.isValidDate(endDate) || startDate > endDate) return;
+      if (endDate < monthStart || startDate > monthEnd) return;
 
-      let current = new Date(startDate);
+      const gridBegin = new Date(Math.max(startDate.getTime(), monthStart.getTime()));
+      const gridEnd = new Date(Math.min(endDate.getTime(), monthEnd.getTime()));
+      let current = new Date(gridBegin);
 
-      while (current <= endDate) {
+      while (current <= gridEnd) {
         const columnStart = current.getUTCDay() === 0 ? 7 : current.getUTCDay();
 
         const diffDays = Math.floor((current - monthStart) / MS_PER_DAY);
@@ -434,7 +370,7 @@ window.MhzSchedule = class {
         const segmentEnd = new Date(
           Math.min(
             current.getTime() + daysToWeekEnd * MS_PER_DAY,
-            endDate.getTime()
+            gridEnd.getTime()
           )
         );
 
@@ -446,6 +382,8 @@ window.MhzSchedule = class {
 
           segmentBegin: current.toISOString(),
           segmentEnd: segmentEnd.toISOString(),
+          gridBegin: gridBegin.toISOString().slice(0, 10),
+          gridEnd: gridEnd.toISOString().slice(0, 10),
 
           style: {
             '--row-start': row,
@@ -483,14 +421,7 @@ window.MhzSchedule = class {
         gridEventEl.setAttribute('data-goto-header', ``);
       }
 
-      const startDay = new Date(event.begin).getDate();
-      const endDay = new Date(event.end).getDate();
-
-      let dateStr = startDay;
-      if (endDay !== startDay) {
-        dateStr += ` - ${endDay}`
-      }
-      dateStr += ` ${this.getMonthGenitive(new Date(event.begin))}`
+      const dateStr = this.formatEventDate(event.begin, event.end);
 
       gridEventEl.innerHTML = `<div class="mhz-calendar__eventdate">${dateStr}</div><div class="mhz-calendar__eventname">${event.name}</div>`;
 
@@ -507,6 +438,46 @@ window.MhzSchedule = class {
       .replace(/^\d+\s/, '');
   }
 
+  formatEventDate(begin, end, withYear = false) {
+    const startDate = this.normalizeToUTCDate(begin);
+    const endDate = this.normalizeToUTCDate(end);
+    if (!this.isValidDate(startDate) || !this.isValidDate(endDate)) return '';
+
+    const startDay = startDate.getUTCDate();
+    const endDay = endDate.getUTCDate();
+    const startMonth = this.getMonthGenitive(startDate);
+    const endMonth = this.getMonthGenitive(endDate);
+    const startYear = startDate.getUTCFullYear();
+    const endYear = endDate.getUTCFullYear();
+    const isSameYear = startYear === endYear;
+    const isSameMonth = isSameYear && startDate.getUTCMonth() === endDate.getUTCMonth();
+
+    if (isSameMonth) {
+      let dateStr = startDay;
+      if (endDay !== startDay) {
+        dateStr += ` - ${endDay}`;
+      }
+      dateStr += ` ${startMonth}`;
+      if (withYear && startYear !== new Date().getFullYear()) {
+        dateStr += ` ${startYear}`;
+      }
+
+      return dateStr;
+    }
+
+    let startDateStr = `${startDay} ${startMonth}`;
+    let endDateStr = `${endDay} ${endMonth}`;
+
+    if (withYear && !isSameYear) {
+      startDateStr += ` ${startYear}`;
+      endDateStr += ` ${endYear}`;
+    } else if (withYear && startYear !== new Date().getFullYear()) {
+      endDateStr += ` ${endYear}`;
+    }
+
+    return `${startDateStr} - ${endDateStr}`;
+  }
+
   fillEvents() {
     if (!this.eventsEl) return;
 
@@ -519,17 +490,7 @@ window.MhzSchedule = class {
       eventEl.className = 'mhz-calendar__event event-mhz-calendar';
       eventEl.id = `${this.idPrefix}${event.id}`;
       
-      const startDay = new Date(event.begin).getDate();
-      const endDay = new Date(event.end).getDate();
-
-      let dateStr = startDay;
-      if (endDay !== startDay) {
-        dateStr += ` - ${endDay}`
-      }
-      dateStr += ` ${this.getMonthGenitive(new Date(event.begin))}`;
-      if (new Date(event.begin).getFullYear() !== new Date().getFullYear()) {
-        dateStr += ` ${new Date(event.begin).getFullYear()}`;
-      }
+      const dateStr = this.formatEventDate(event.begin, event.end, true);
 
       eventEl.innerHTML = `<div class="event-mhz-calendar__name"><div class="event-mhz-calendar__date"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_997_31842)"><path d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3V7" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 11H20" stroke="#0F1C2E" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_997_31842"><rect width="24" height="24" fill="white"/></clipPath></defs></svg></i><span>${dateStr}</span></div><p>${event.name}</p></div><ul class="event-mhz-calendar__info">${event.format ? `<li><span>Формат:</span><span>${event.format}</span></li>` : ''}${event.lang ? `<li><span>Язык:</span><span>${event.lang}</span></li>` : ''}</ul>${event.price ? `<div class="event-mhz-calendar__price">${typeof event.price === 'string' ? event.price : this.formatPrice(event.price)}</div>` : ''}${event.link ? `<a href="${event.link}" class="event-mhz-calendar__button btn btn-black">Подробнее о курсе</a>` : '<i></i>'}`
 

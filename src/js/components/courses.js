@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (coursesFilter && !coursesFilter.hidden) {
     document.documentElement.classList.add('filters-open')
   }
+
+  const courseCounter = document.getElementById('courseCounter');
+  if (courseCounter) {
+    const courseCount = document.querySelectorAll('.courses__item.item-courses').length;
+    const words = JSON.parse(courseCounter.parentElement.dataset.words.replace(/'/g, '"'));
+    const lastTwoDigits = courseCount % 100;
+    const lastDigit = courseCount % 10;
+    const wordIndex = lastTwoDigits >= 11 && lastTwoDigits <= 14
+      ? 2
+      : lastDigit === 1 ? 0 : lastDigit >= 2 && lastDigit <= 4 ? 1 : 2;
+
+    courseCounter.textContent = courseCount;
+    courseCounter.nextSibling.textContent = ` ${words[wordIndex]}`;
+  }
 })
 
 document.addEventListener('click', (e) => {

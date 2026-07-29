@@ -205,6 +205,40 @@
   }
 
   &__body {
+    max-width: calc(100vw - mixins.toRem(56));
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  &__slider {
+    max-width: 100%;
+    visibility: visible;
+
+    &:not(:last-child) {
+      @include mixins.adaptiveValue("margin-bottom", 80, 60, 960, 767);
+    }
+
+    &.is-fallback {
+      visibility: visible;
+
+      .learn-course__list {
+        display: block;
+        height: auto;
+      }
+
+      .learn-course__slide[hidden] {
+        display: none;
+      }
+    }
+  }
+
+  &__track {
+    margin-top: mixins.toRem(-8);
+    padding-top: mixins.toRem(8);
+  }
+
+  &__slide {
+    width: 100%;
   }
 
   &__title {
@@ -330,6 +364,17 @@
         z-index: 90;
         border-color: var(--dark-blue-color);
       }
+    }
+
+    &.is-active,
+    &[aria-current="true"] {
+      --bg: linear-gradient(183.83deg, #ededed 3.14%, #f7f7f7 87.56%);
+      z-index: 3;
+    }
+
+    &.is-active:not([style*="--bg"]),
+    &[aria-current="true"]:not([style*="--bg"]) {
+      border-color: transparent;
     }
   }
 }

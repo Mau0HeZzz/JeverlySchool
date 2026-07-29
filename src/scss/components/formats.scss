@@ -34,8 +34,8 @@
     align-items: center;
     gap: mixins.toRem(10) mixins.toRem(30);
     
-    @include mixins.adaptiveValue("padding-top", 20, 8, 767, 480, 3);
-    @include mixins.adaptiveValue("padding-bottom", 20, 8, 767, 480, 3);
+    @include mixins.adaptiveValue("padding-top", 20, 16, 767, 480, 3);
+    @include mixins.adaptiveValue("padding-bottom", 20, 16, 767, 480, 3);
     @include mixins.adaptiveValue("padding-left", 20, 16, 767, 480, 3);
     @include mixins.adaptiveValue("padding-right", 20, 16, 767, 480, 3);
     @media (width >= #{mixins.toEm(variables.$tablet)}){

@@ -96,4 +96,10 @@
       }
     }
   }
+
+  // #region Автоматическая анимация home-figure
+  &[data-animation-mode="auto"] &__figure {
+    transition: none;
+  }
+  // #endregion
 }

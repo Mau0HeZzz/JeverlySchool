@@ -331,6 +331,26 @@
   }
 
   &__info {
+    --detail-professors-info-collapsed-height: 440px;
+    --detail-professors-info-fade-height: #{mixins.toRem(120)};
+
+    &._collapsed {
+      .detail-professors__info-content {
+        max-height: var(--detail-professors-info-collapsed-height);
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          #000 calc(100% - var(--detail-professors-info-fade-height)),
+          transparent
+        );
+        mask-image: linear-gradient(
+          to bottom,
+          #000 calc(100% - var(--detail-professors-info-fade-height)),
+          transparent
+        );
+      }
+    }
+
     li {
       display: flex;
       flex-wrap: wrap;
@@ -364,9 +384,31 @@
     }
   }
 
+  &__info-content {
+    position: relative;
+  }
+
+  &__info-toggle {
+    --font-size: #{mixins.toRem(14)};
+
+    display: inline-flex;
+    align-items: center;
+    margin-top: mixins.toRem(16);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--grey-on-white-color);
+    font-family: inherit;
+    font-size: var(--font-size);
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   &__image {
     border-radius: mixins.toRem(10);
     overflow: hidden;
+    align-self: start;
 
     img {
       width: 100%;
@@ -375,12 +417,22 @@
       object-position: center;
     }
 
+    @media (width >= #{mixins.toEm(670)}) {
+      position: sticky;
+      top: calc(var(--headerScrollHeight));
+    }
+
     @media (width >= #{mixins.toEm(1130)}){
       aspect-ratio: 426 / 457;
     }
     @media (#{mixins.toEm(670)} < width < #{mixins.toEm(1130)}){
       grid-row: 1 / span 2;
+    }
+    @media (#{mixins.toEm(variables.$tablet)} < width < #{mixins.toEm(1130)}){
       min-height: mixins.toRem(437);
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}) {
+      top: mixins.toRem(15);
     }
     @media (width < #{mixins.toEm(670)}){
       order: -1;

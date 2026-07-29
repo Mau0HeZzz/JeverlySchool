@@ -2,6 +2,7 @@
 @use "/src/scss/variables.scss";
 
 .experts {
+  position: relative;
   background-color: var(--warm-white-color);
   @include mixins.adaptiveValue("padding-top", 100, 40, 767, 480);
   @include mixins.adaptiveValue("padding-bottom", 100, 40, 767, 480);
@@ -178,6 +179,15 @@
 
   &__sidebar {
   }
+
+  &__sidebar-trigger {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
 }
 .sidebar-experts {
   position: fixed;
@@ -200,7 +210,7 @@
   pointer-events: none;
 
   .loaded & {
-    transition: all 0.3s ease 0s;
+    transition: all 0.6s ease 0s;
   }
 
   .sidebar-experts-open & {

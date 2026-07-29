@@ -79,13 +79,18 @@ document.addEventListener('watcherCallback', (e) => {
     if (entry.target.closest('.path')) {
       showPathTippy();
     }
-    if (entry.target.closest('.experts')) {
-      showExpertsSidebar(entry.target.closest('.experts'))
+    if (entry.target.hasAttribute('data-experts-sidebar-trigger')) {
+      showExpertsSidebar()
     }
+    // #region Активация home-figure
     if (entry.target.closest('.home-figure')) {
-      gotoBlock(entry.target.closest('.home-figure'), true);
-      bodyLock();
+      const homeFigure = entry.target.closest('.home-figure');
+      if (homeFigure.dataset.animationMode !== 'auto') {
+        gotoBlock(homeFigure, true);
+        bodyLock();
+      }
     }
+    // #endregion
   }
 })
 
@@ -170,9 +175,7 @@ function hidePathTippy() {
   }, 1000);
 }
 
-function showExpertsSidebar(parent) {
-  if (!parent) return;
-  
+function showExpertsSidebar() {
   const isExpertsSidebarClosed = Cookies.get('isExpertsSidebarClosed');
   if (isExpertsSidebarClosed) {
     return;
@@ -180,7 +183,6 @@ function showExpertsSidebar(parent) {
   
   bodyLock();
   document.documentElement.classList.add('sidebar-experts-open');
-  gotoBlock(parent);
 }
 
 function hideExpertsSidebar() {
@@ -202,6 +204,46 @@ function hideExpertsSidebar() {
 
 function homeFigureHandler(homeFigure = document.querySelector('.home-figure')) {
   if (!homeFigure) return;
+
+  // #region Автоматическая анимация home-figure
+  if (homeFigure.dataset.animationMode === 'auto') {
+    const animationDuration = Number(homeFigure.dataset.animationDuration);
+    const topOffset = Number(homeFigure.dataset.topOffset);
+
+    const duration = (Number.isFinite(animationDuration) && animationDuration > 0) ? animationDuration : 5000;
+    const offset = (Number.isFinite(topOffset) && topOffset > 0) ? topOffset : 0;
+
+    let percent = 0;
+    let animationStarted = false;
+    let animationStartTime = null;
+
+    const handleScroll = () => {
+      const { top, bottom } = homeFigure.getBoundingClientRect();
+      console.log(top);
+      if (animationStarted || top > offset || bottom <= 0) return;
+
+      animationStarted = true;
+      window.removeEventListener('scroll', handleScroll);
+
+      const animate = (currentTime) => {
+        if (animationStartTime === null) animationStartTime = currentTime;
+
+        const targetPercent = Math.min(((currentTime - animationStartTime) / duration) * 100, 100);
+        percent = homeFigureAction(percent, 1, targetPercent - percent, homeFigure);
+
+        if (targetPercent < 100) requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return;
+  }
+  // #endregion
+
+  // #region Анимация home-figure по скроллу
   let percent = 0;
   let touchStartY = null;
 
@@ -227,8 +269,10 @@ function homeFigureHandler(homeFigure = document.querySelector('.home-figure')) 
   homeFigure.addEventListener('touchend', (e) => {
     touchStartY = null;
   })
+  // #endregion
 }
 
+// #region Расчёт положения фигур home-figure
 function homeFigureAction(percent, direction, speed, homeFigure) {
   const md3 = window.matchMedia('(width < 769px)');
   if (percent >= 100) {
@@ -310,6 +354,7 @@ function throttleEveryFifth(callback) {
 }
 
 const homeFigureActionThrottle = throttleEveryFifth(homeFigureAction)
+// #endregion
 
 function initApproach(approachSlider) {
   let rotate = 0;
