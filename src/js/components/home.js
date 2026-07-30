@@ -218,7 +218,10 @@ function homeFigureHandler(homeFigure = document.querySelector('.home-figure')) 
     let animationStartTime = null;
 
     const handleScroll = () => {
-      const { top, bottom } = homeFigure.getBoundingClientRect();
+      const rect = homeFigure.getBoundingClientRect();
+      const top = rect.top;
+      const bottom = rect.bottom;
+      
       console.log(top);
       if (animationStarted || top > offset || bottom <= 0) return;
 

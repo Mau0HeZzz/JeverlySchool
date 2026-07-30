@@ -361,7 +361,7 @@
 
     @media (any-hover: hover){
       &[href]:hover{
-        z-index: 90;
+        z-index: 4;
         border-color: var(--dark-blue-color);
       }
     }
