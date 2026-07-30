@@ -1,18 +1,13 @@
 const coursePopupId = String(window.coursePopupId ?? 82).match(/^\d+$/)?.[0] ?? '82';
-let isCoursePopupInitialized = false;
 let coursePopupObserver;
 
+const getCoursePopupLink = () => [...document.querySelectorAll('.b24-form-sign-abuse-link')].find((link) => (
+  new URL(link.href, window.location.href).searchParams.get('b24_form_id') === coursePopupId
+));
+
 const customizeCoursePopup = () => {
-  const coursePopupLink = document.querySelector(
-    `.b24-form-sign-abuse-link[href*="b24_form_id=${coursePopupId}"]`
-  );
-  const coursePopup = coursePopupLink?.closest('.b24-form')
-    ?? (isCoursePopupInitialized
-      ? [...document.querySelectorAll('.b24-form')].find((form) => (
-        form.querySelector('.b24-window-popup')
-        && !form.classList.contains('course-b24-popup')
-      ))
-      : null);
+  const coursePopupLink = getCoursePopupLink();
+  const coursePopup = coursePopupLink?.closest('.b24-form');
   const title = coursePopup?.querySelector('.b24-form-header-title');
   const content = coursePopup?.querySelector('.b24-form-content');
   const form = content?.querySelector('form');
@@ -64,7 +59,6 @@ const observeCoursePopup = () => {
 window.addEventListener('b24:form:init', (event) => {
   if (String(event.detail?.object?.identification?.id) !== coursePopupId) return;
 
-  isCoursePopupInitialized = true;
   observeCoursePopup();
 });
 
@@ -73,9 +67,7 @@ if (document.readyState === 'loading') {
     const coursePopupLoader = document.querySelector(
       `[data-b24-form^="click/${coursePopupId}/"], [data-b24-form^="inline/${coursePopupId}/"]`
     );
-    const coursePopupLink = document.querySelector(
-      `.b24-form-sign-abuse-link[href*="b24_form_id=${coursePopupId}"]`
-    );
+    const coursePopupLink = getCoursePopupLink();
 
     if (coursePopupLoader || coursePopupLink) {
       observeCoursePopup();
@@ -83,7 +75,7 @@ if (document.readyState === 'loading') {
   }, {once: true});
 } else if (
   document.querySelector(`[data-b24-form^="click/${coursePopupId}/"], [data-b24-form^="inline/${coursePopupId}/"]`)
-  || document.querySelector(`.b24-form-sign-abuse-link[href*="b24_form_id=${coursePopupId}"]`)
+  || getCoursePopupLink()
 ) {
   observeCoursePopup();
 }
