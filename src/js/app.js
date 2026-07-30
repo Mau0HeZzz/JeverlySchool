@@ -273,6 +273,7 @@ import "./components/courses.js";
 import "./components/home.js";
 import "./components/course.js";
 import "./components/calendar.js";
+import "./components/course-popup.js";
 //============================================================================================================================================================================================================================================
 
 

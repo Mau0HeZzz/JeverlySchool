@@ -4,7 +4,7 @@
 .home-figure {
   position: relative;
   background-color: var(--dark-blue-color);
-  overflow: hidden;
+  // overflow: hidden;
 
   --base-size: #{mixins.toRem(220)};
 

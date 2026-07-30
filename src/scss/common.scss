@@ -732,3 +732,261 @@ img[data-src]:not(._lazy-loaded) {
     }
   }
 }
+
+.course-b24-popup {
+  --b24-primary-color: var(--main-blue-color);
+
+  font-family: Inter;
+
+  .b24-window-overlay {
+    background-color: var(--modal_bg) !important;
+    backdrop-filter: blur(mixins.toRem(5));
+  }
+
+  .b24-window-popup-wrapper {
+    width: calc(100% - #{mixins.toRem(16)}) !important;
+    max-width: mixins.toRem(531) !important;
+    position: static;
+  }
+
+  .b24-window-popup-wrapper,
+  .b24-window-scrollable,
+  .b24-window-popup-body,
+  .b24-form-wrapper {
+    border-radius: mixins.toRem(10) !important;
+  }
+
+  .b24-window-popup-wrapper,
+  .b24-window-popup-body,
+  .b24-form-wrapper {
+    background-color: var(--main-white-color) !important;
+  }
+
+  .b24-window-popup-wrapper {
+    overflow: hidden;
+    box-shadow: none !important;
+  }
+
+  .b24-window-scrollable {
+    max-height: calc(100dvh - #{mixins.toRem(60)}) !important;
+  }
+
+  .b24-form-wrapper {
+    max-width: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .b24-form-border-bottom {
+    border-bottom: 0 !important;
+  }
+
+  .b24-form-padding-side {
+    padding-left: mixins.toRem(40) !important;
+    padding-right: mixins.toRem(40) !important;
+  }
+
+  .b24-form-header {
+    padding-top: mixins.toRem(40) !important;
+    padding-bottom: 0 !important;
+    text-align: left !important;
+    border-bottom: none;
+  }
+
+  .b24-form-header-title {
+    margin: 0 !important;
+    color: var(--dark-blue-color) !important;
+    font-family: Evolventa !important;
+    font-size: mixins.toRem(42) !important;
+    font-weight: 400 !important;
+    letter-spacing: mixins.lsp(-5) !important;
+    line-height: 0.8 !important;
+    text-align: left !important;
+  }
+
+  .b24-form-header-description {
+    display: none !important;
+  }
+
+  .b24-form-content {
+    padding-top: mixins.toRem(150) !important;
+    padding-bottom: mixins.toRem(40) !important;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+
+    > div:first-child {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: mixins.toRem(10);
+
+      .b24-form-field:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+
+      .b24-form-control-text {
+        grid-column: 1 / -1;
+      }
+    }
+
+    > div:has(> .b24-form-field-agreement) {
+      order: 2;
+      padding-top: mixins.toRem(10);
+    }
+  }
+
+  .b24-form-field,
+  .b24-form-control-container {
+    margin-bottom: 0 !important;
+  }
+
+  .b24-form-control {
+    min-height: mixins.toRem(44) !important;
+    height: mixins.toRem(44) !important;
+    padding-right: mixins.toRem(10) !important;
+    padding-left: mixins.toRem(10) !important;
+    color: var(--dark-blue-color) !important;
+    background-color: var(--light-grey-color) !important;
+    border-color: transparent !important;
+    border-radius: mixins.toRem(5) !important;
+    font-family: Inter !important;
+    font-size: mixins.toRem(16) !important;
+    font-weight: 400 !important;
+    letter-spacing: mixins.lsp(-5) !important;
+  }
+
+  .b24-form-control-label {
+    padding-right: mixins.toRem(10) !important;
+    padding-left: mixins.toRem(10) !important;
+    color: var(--black-on-white-color) !important;
+    font-family: Inter !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+  }
+
+  .b24-form-control-alert {
+    .b24-form-control {
+      color: var(--red-color) !important;
+      border-color: var(--red-color) !important;
+    }
+
+    .b24-form-control-label {
+      color: var(--red-color) !important;
+    }
+  }
+
+  .b24-form-btn-container {
+    order: 1;
+    margin: mixins.toRem(10) 0 0 !important;
+    padding: 0 !important;
+  }
+
+  .b24-form-btn-block {
+    padding: 0 !important;
+  }
+
+  .b24-form-btn {
+    min-height: mixins.toRem(45) !important;
+    height: mixins.toRem(45) !important;
+    padding: mixins.toRem(11) mixins.toRem(19) !important;
+    background-color: var(--main-blue-color) !important;
+    border-color: var(--main-blue-color) !important;
+    border-radius: mixins.toRem(5) !important;
+    color: var(--main-white-color) !important;
+    font-family: Inter !important;
+    font-size: mixins.toRem(16) !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+  }
+
+  .b24-form-field-agreement {
+    label {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: mixins.toRem(15) !important;
+      cursor: pointer;
+    }
+
+    input {
+      position: static !important;
+      display: block !important;
+      flex: 0 0 mixins.toRem(20);
+      width: mixins.toRem(20) !important;
+      min-width: mixins.toRem(20) !important;
+      height: mixins.toRem(20) !important;
+      margin: mixins.toRem(4) 0 0 !important;
+      appearance: none;
+      background-color: var(--main-white-color);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: mixins.toRem(1) solid var(--black-color);
+      border-radius: mixins.toRem(2);
+      cursor: pointer;
+      opacity: 1 !important;
+
+      &:checked {
+        background-image: url("/img/icons/done_small.svg");
+        border-color: transparent;
+      }
+    }
+
+    .b24-form-control-desc {
+      color: var(--black-color-60) !important;
+      font-family: Inter !important;
+      font-size: mixins.toRem(14) !important;
+      font-weight: 400 !important;
+      letter-spacing: mixins.lsp(-3) !important;
+      line-height: 1.3 !important;
+    }
+
+    .b24-form-control-required {
+      display: none !important;
+    }
+  }
+
+  &__schedule {
+    margin-top: mixins.toRem(50);
+    color: var(--grey-on-white-color);
+    font-family: Inter;
+    font-size: mixins.toRem(16);
+    letter-spacing: mixins.lsp(-5);
+    line-height: 1.3;
+  }
+
+  .b24-form-sign {
+    display: none !important;
+  }
+
+  @media (width < #{mixins.toEm(650)}) {
+    .b24-form-padding-side {
+      padding-left: mixins.toRem(24) !important;
+      padding-right: mixins.toRem(24) !important;
+    }
+
+    .b24-form-header-title {
+      font-size: mixins.toRem(30) !important;
+    }
+
+    .b24-form-content {
+      padding-top: mixins.toRem(100) !important;
+      padding-bottom: mixins.toRem(24) !important;
+    }
+
+    form > div:first-child {
+      grid-template-columns: 1fr;
+
+      .b24-form-field:last-child:nth-child(odd) {
+        grid-column: auto;
+      }
+    }
+
+    &__schedule {
+      margin-top: mixins.toRem(40);
+      font-size: mixins.toRem(15);
+    }
+  }
+}
