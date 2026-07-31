@@ -127,9 +127,9 @@
       object-position: top center;
     }
 
-    @media (width < #{mixins.toEm(variables.$mobile)}){
-      height: mixins.toRem(240);
-    }
+    // @media (width < #{mixins.toEm(variables.$mobile)}){
+    //   height: mixins.toRem(240);
+    // }
   }
 
   &__content {
