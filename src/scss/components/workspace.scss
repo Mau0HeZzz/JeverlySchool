@@ -473,6 +473,9 @@
     @media (width < #{mixins.toEm(variables.$tablet)}){
       max-width: mixins.toRem(688);
     }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(20);
+    }
   }
 
   &__subtitle {
@@ -589,6 +592,10 @@
     font-size: var(--font-size);
     letter-spacing: mixins.lsp(-5);
     @include mixins.adaptiveValue("--font-size", 54, 30, 960, 612);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
   }
 
   &__subtitle {
@@ -599,6 +606,10 @@
     color: var(--grey-on-white-color);
 
     @include mixins.adaptiveValue("--font-size", 16, 15, 767, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
   }
 
   &__body {

@@ -77,6 +77,8 @@
 
   &__button {
     min-width: mixins.toRem(195);
+    text-align: center;
+    justify-content: center;
 
     @media (width < #{mixins.toEm(600)}){
       min-width: mixins.toRem(257);

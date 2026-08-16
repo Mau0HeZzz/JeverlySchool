@@ -27,6 +27,10 @@
     font-size: var(--font-size);
     letter-spacing: mixins.lsp(-5);
     @include mixins.adaptiveValue("--font-size", 42, 30, 960, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin: mixins.toRem(-40) mixins.toRem(16) 0;
+    }
   }
 
   &__buttons {
@@ -74,6 +78,9 @@
     @media (width < #{mixins.toEm(variables.$tablet)}){
       height: mixins.toRem(300);
     }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-top: mixins.toRem(-20);
+    }
   }
 
   &__body {
@@ -89,8 +96,8 @@
       gap: mixins.toRem(40) mixins.toRem(80);
     }
 
-    @media (width < #{mixins.toEm(600)}){
-      
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
     }
   }
 

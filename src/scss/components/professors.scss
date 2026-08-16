@@ -202,6 +202,25 @@
 
   }
 }
+
+.professors .slider-professors__title {
+  @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+    margin-inline: mixins.toRem(16);
+  }
+}
+
+.professors .slider-professors__subtitle {
+  @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+    margin-left: mixins.toRem(16);
+  }
+}
+
+.professors .slider-professors__slide {
+  @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+    margin-inline: mixins.toRem(16);
+  }
+}
+
 .detail-professors {
   position: relative;
 

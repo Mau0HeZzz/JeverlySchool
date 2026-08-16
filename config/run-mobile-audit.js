@@ -19,7 +19,6 @@ try {
     [
       "node_modules/@playwright/test/cli.js",
       "test",
-      "tests/home-mobile-geometry.spec.js",
       ...process.argv.slice(2),
     ],
     { stdio: "inherit" },

@@ -24,6 +24,10 @@
     font-family: Evolventa;
     line-height: 0.8;
     @include mixins.adaptiveValue("font-size", 54, 30, 960, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-left: mixins.toRem(16);
+    }
   }
 
   &__link {
@@ -63,6 +67,10 @@
   &__head {
     display: flex;
     justify-content: space-between;
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
   }
 
   &__title {
@@ -71,6 +79,10 @@
   &__body {
     display: flex;
     gap: mixins.toRem(10);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
     @media (width >= #{mixins.toEm(variables.$tablet)}) {
       flex-direction: column;
     }
@@ -105,6 +117,10 @@
     align-items: end;
 
     @include mixins.adaptiveValue("--arrow-size", 50, 40, 767, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
 
     &:not(:last-child) {
       @include mixins.adaptiveValue("margin-bottom", 50, 40, 767, 480);
@@ -236,6 +252,9 @@
   }
 
   &__events {
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
   }
 
   &__event {

@@ -19,6 +19,10 @@
     line-height: 0.8;
     max-width: mixins.toRem(650);
     @include mixins.adaptiveValue("font-size", 42, 36, 960, 767);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin: mixins.toRem(-40) mixins.toRem(20) 0;
+    }
   }
 
   &__body {

@@ -38,6 +38,9 @@
     @media (width >= #{mixins.toEm(variables.$mobile)}){
       max-width: mixins.toRem(550);
     }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-left: mixins.toRem(16);
+    }
   }
 
   &__subtitle {

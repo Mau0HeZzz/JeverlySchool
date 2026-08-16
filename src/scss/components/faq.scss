@@ -66,3 +66,9 @@
     padding-bottom: mixins.toRem(15);
   }
 }
+
+.partners + .faq .faq__head {
+  @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+    margin-top: mixins.toRem(10);
+  }
+}

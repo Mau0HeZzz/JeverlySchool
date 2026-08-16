@@ -88,6 +88,9 @@
     @media (width >= #{mixins.toEm(variables.$tablet)}){
       margin-top: mixins.toRem(-142);
     }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-top: mixins.toRem(-2);
+    }
   }
 
   &__card {

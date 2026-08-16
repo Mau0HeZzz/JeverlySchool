@@ -397,9 +397,16 @@
     font-family: Evolventa;
     line-height: 0.8;
     @include mixins.adaptiveValue("font-size", 42, 30, 767, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-left: mixins.toRem(20);
+    }
   }
 
   &__track {
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-left: mixins.toRem(16);
+    }
   }
 
   &__list {
@@ -430,6 +437,10 @@
   &__arrows {
     display: flex;
     gap: mixins.toRem(5);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-right: mixins.toRem(20);
+    }
   }
 
   &__arrow {

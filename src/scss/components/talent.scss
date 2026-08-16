@@ -57,6 +57,9 @@
     @media (#{mixins.toEm(500)} < width < #{mixins.toEm(850)}){
       max-width: mixins.toRem(257);
     }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin: mixins.toRem(20) mixins.toRem(16) mixins.toRem(12);
+    }
   }
 
   &__image {

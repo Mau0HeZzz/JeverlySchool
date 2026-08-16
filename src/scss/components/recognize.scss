@@ -23,6 +23,10 @@
     font-size: var(--font-size);
     letter-spacing: mixins.lsp(-5);
     @include mixins.adaptiveValue("--font-size", 42, 28, 960, 480);
+
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(16);
+    }
   }
 
   &__body {

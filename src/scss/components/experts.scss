@@ -65,6 +65,10 @@
     @include mixins.adaptiveValue("padding", 10, 8, 480, 360);
     @include mixins.adaptiveValue("gap", 30, 20, 767, 480);
 
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      margin-inline: mixins.toRem(8);
+    }
+
     @media (any-hover: hover){
       &:hover{
         .experts__image:has(img:nth-child(2)) {
