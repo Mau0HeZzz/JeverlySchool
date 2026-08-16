@@ -244,12 +244,12 @@ class MhzProfessors {
     answer += `<div class="detail-professors__image"><img src="${imagePath}"></div>`;
     if (hasCourses) {
       if (this.isIncapsulated) {
-        answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-black">Все курсы ${name.split(' ')[0]}</a>`
+        answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-black">Все курсы</a>`
       } else {
         if (window.innerWidth >= 670) {
-          answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы ${name.split(' ')[0]}</a>`
+          answer += `<a href="#" data-popup="#coursesPopup" class="detail-professors__button btn btn-white">Все курсы</a>`
         } else {
-          answer += `<button data-professors-scrollto-courses class="detail-professors__button btn btn-black"><span>Курсы ${name.split(' ')[0]}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_704_14562)"><path d="M8 11L12 15L16 11" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_704_14562"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg></button>`
+          answer += `<button data-professors-scrollto-courses class="detail-professors__button btn btn-black"><span>Курсы</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_704_14562)"><path d="M8 11L12 15L16 11" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_704_14562"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg></button>`
         }
       }
 

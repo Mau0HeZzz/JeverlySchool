@@ -32,11 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-courses-filtertrigger]')) {
-    document.documentElement.classList.toggle('filters-open');
+    const coursesFilter = document.querySelector('[data-courses-filters]');
+    if (!coursesFilter) return;
+    const isFiltersOpen = document.documentElement.classList.toggle('filters-open');
     if (isMobile.any()) {
+      coursesFilter.hidden = !isFiltersOpen;
       bodyLockToggle();
-    } else if (document.querySelector('[data-courses-filters]')) {
-      _slideToggle(document.querySelector('[data-courses-filters]'))
+    } else {
+      _slideToggle(coursesFilter)
     }
   }
 })

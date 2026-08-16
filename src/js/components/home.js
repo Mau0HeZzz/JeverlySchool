@@ -222,7 +222,6 @@ function homeFigureHandler(homeFigure = document.querySelector('.home-figure')) 
       const top = rect.top;
       const bottom = rect.bottom;
       
-      console.log(top);
       if (animationStarted || top > offset || bottom <= 0) return;
 
       animationStarted = true;

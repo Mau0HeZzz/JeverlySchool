@@ -47,15 +47,15 @@ function menuActions(menu) {
         const menuSubitem = menuItem.querySelector('.menu__subitem');
         if (!menuSubitem) return;
 
-        const href = menuLink.getAttribute('href');
-        const currentLink = menuSubitem.querySelector(`[href="${href}"]`);
-        if (!currentLink) {
-          const a = document.createElement('a');
-          a.setAttribute('href', href);
-          a.className = 'subitem-menu__link btn btn-smalltext btn-grey';
-          a.innerHTML = menuLink.innerHTML;
-          menuSubitem.append(a);
-        }
+        // const href = menuLink.getAttribute('href');
+        // const currentLink = menuSubitem.querySelector(`[href="${href}"]`);
+        // if (!currentLink) {
+        //   const a = document.createElement('a');
+        //   a.setAttribute('href', href);
+        //   a.className = 'subitem-menu__link btn btn-smalltext btn-grey';
+        //   a.innerHTML = menuLink.innerHTML;
+        //   menuSubitem.append(a);
+        // }
 
         e.preventDefault();
         _slideToggle(menuSubitem);

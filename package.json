@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node ./config/globalReplacer/index.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audit:mobile": "node ./config/run-mobile-audit.js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@vitejs/plugin-legacy": "^5.4.3",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
